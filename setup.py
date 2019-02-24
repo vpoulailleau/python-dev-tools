@@ -15,7 +15,7 @@ requirements = [
     "bumpversion==0.5.3",
     "coverage==4.5.2",
     "mccabe==0.6.1",
-    "pip==19.0.3",
+    "pip==19.0.2",
     "pycodestyle==2.3.1",
     "pytest==4.3.0",
     "pytest-runner==4.4",
