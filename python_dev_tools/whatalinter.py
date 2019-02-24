@@ -87,7 +87,7 @@ def main():
         "--first",
         action="store_true",
         default=False,
-        help="stop early if 10+ warnings are found",
+        help="[TODO] stop early if 10+ warnings are found",
     )
     args = parser.parse_args()
 
