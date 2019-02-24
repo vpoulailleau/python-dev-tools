@@ -9,8 +9,8 @@ Python Dev Tools
 .. image:: https://img.shields.io/pypi/l/python_dev_tools.svg
         :target: https://github.com/vpoulailleau/python_dev_tools/blob/master/LICENSE
 
-.. image:: https://img.shields.io/travis/vpoulailleau/python_dev_tools.svg
-        :target: https://travis-ci.org/vpoulailleau/python_dev_tools
+.. image:: https://travis-ci.com/vpoulailleau/python-dev-tools.svg?branch=master
+        :target: https://travis-ci.com/vpoulailleau/python-dev-tools
 
 .. image:: https://readthedocs.org/projects/python-dev-tools/badge/?version=latest
         :target: https://python-dev-tools.readthedocs.io/en/latest/?badge=latest
