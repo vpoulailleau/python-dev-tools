@@ -30,7 +30,7 @@ Python Dev Tools
 
 
 
-Needed and up-to-date tools to develop in Python
+Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
 
 
 * Free software: BSD 3-Clause license
@@ -59,8 +59,13 @@ dependencies to develop Python software.
 TODO
 ----
 
-* mettre des tags dans github
-* faire la doc
+* documentation
+* linter
+
+  * add more linters
+
+* formatter
+* precommit
 
 Credits
 -------
