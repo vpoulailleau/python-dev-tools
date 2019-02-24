@@ -36,22 +36,24 @@ Needed and up-to-date tools to develop in Python
 * Free software: BSD 3-Clause license
 * Documentation: https://python-dev-tools.readthedocs.io
 
-TODO : tagguer le projet dans github
-
-
 Features
 --------
 
 Integrate features of commonly used tools. This package provides usual
 dependencies to develop Python software.
 
-* Simple linter:
+* Simple linter
+
   * `whatalinter a_python_file.py` lints a_python_file.py
   * output is compatible with the one of @pydocstyle for easy integration in
-  text editors and IDE
-* Simple formatter:
+    text editors and IDE
+
+* Simple formatter
+
   * TODO
+
 * Simple precommit hook
+
   * TODO
 
 TODO
