@@ -1,10 +1,11 @@
 """Linter module"""
 import argparse
+import re
 import subprocess
 from collections import namedtuple
 
-LinterMessage = namedtuple(
-    "LinterMessage",
+_LinterMessage = namedtuple(
+    "_LinterMessage",
     [
         "tool",
         "message_id",
@@ -15,6 +16,14 @@ LinterMessage = namedtuple(
         "extramessage",
     ],
 )
+
+
+class LinterMessage(_LinterMessage):
+    def __str__(self):
+        return (
+            f"{self.filename}:{self.lineno}:{self.charno}: "
+            f"[{self.tool}] {self.message} {self.extramessage}"
+        )
 
 
 class Linter:
@@ -39,7 +48,7 @@ class Linter:
 
 class PycodestyleLinter(Linter):
     name = "pycodestyle"
-    path = "/home/vincent/documents/programmation/python-dev-tools/venv/bin/pycodestyle"
+    path = "pycodestyle"
 
     @classmethod
     def lint(cls, file):
@@ -47,26 +56,23 @@ class PycodestyleLinter(Linter):
         result = cls._execute_command(args)
         messages = []
         for line in result.stdout.splitlines():
-            messages.append(
-                LinterMessage(
-                    tool="pycodestyle",
-                    message_id="123",
-                    filename="123",
-                    lineno=123,
-                    charno=123,
-                    message=line,
-                    extramessage="",
+            m = re.match(r"(.*?):(\d+):(\d+):\s+(.*?)\s+(.*)", line)
+            if m:
+                messages.append(
+                    LinterMessage(
+                        tool="pycodestyle",
+                        message_id=m.group(4),
+                        filename=m.group(1),
+                        lineno=int(m.group(2)),
+                        charno=int(m.group(3)),
+                        message=m.group(5),
+                        extramessage="",
+                    )
                 )
-            )
+            else:
+                print("ERROR parsing", line)
 
         return messages
-
-
-def lint(file, linters):
-    result = set()
-    for linter in linters:
-        result.update(linter.lint(file))
-    return result
 
 
 def main():
@@ -83,12 +89,14 @@ def main():
         default=False,
         help="stop early if 10+ warnings are found",
     )
-
     args = parser.parse_args()
 
-    linters = [PycodestyleLinter()]
-
-    print(lint(args.file, linters))
+    linters = [PycodestyleLinter]
+    messages = set()
+    for linter in linters:
+        messages.update(linter.lint(args.file))
+    for message in messages:
+        print(message)
 
 
 if __name__ == "__main__":
