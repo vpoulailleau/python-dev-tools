@@ -16,8 +16,8 @@ Python Dev Tools
         :target: https://python-dev-tools.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-.. image:: https://pepy.tech/badge/python_dev_tools
-        :target: https://pepy.tech/project/python_dev_tools
+.. image:: https://pepy.tech/badge/python-dev-tools
+        :target: https://pepy.tech/project/python-dev-tools
         :alt: Downloads
 
 .. image:: https://coveralls.io/repos/github/vpoulailleau/python_dev_tools/badge.svg?branch=master
@@ -27,8 +27,6 @@ Python Dev Tools
 .. image:: https://api.codeclimate.com/v1/badges/282fcd71714dabd6a847/maintainability
         :target: https://codeclimate.com/github/vpoulailleau/python-dev-tools/maintainability
         :alt: Maintainability
-
-
 
 
 
@@ -47,7 +45,8 @@ Features
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with Cookiecutter_ and the
+`audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
