@@ -87,5 +87,7 @@ dist: clean ## builds source and wheel package
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
+DATE := $(shell date +"%Y.%m.%d")
+
 bump:
-	bumpversion --new-version $(date +"%Y.%m.%d") patch
+	bumpversion --new-version $(DATE) patch
