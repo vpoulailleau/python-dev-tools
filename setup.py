@@ -11,11 +11,19 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = ["pycodestyle"]
+requirements = [
+    "bumpversion==0.5.3",
+    "coverage==4.5.2",
+    "mccabe==0.6.1",
+    "pycodestyle==2.3.1",
+    "pytest==4.3.0",
+    "Sphinx==1.8.1",
+    "tox==3.5.2",
+]
 
-setup_requirements = ["pytest-runner"]
+setup_requirements = ["pytest-runner==4.2"]
 
-test_requirements = ["pytest"]
+test_requirements = ["pytest==4.3.0"]
 
 setup(
     author="Vincent Poulailleau",
