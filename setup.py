@@ -15,10 +15,14 @@ requirements = [
     "bumpversion==0.5.3",
     "coverage==4.5.2",
     "mccabe==0.6.1",
+    "pip==19.0.3",
     "pycodestyle==2.3.1",
     "pytest==4.3.0",
+    "pytest-runner==4.4",
     "Sphinx==1.8.1",
     "tox==3.5.2",
+    "twine==1.13.0",
+    "wheel==0.33.1",
 ]
 
 setup_requirements = ["pytest-runner==4.2"]
