@@ -1,8 +1,20 @@
 """Linter module"""
 import argparse
 import subprocess
+from collections import namedtuple
 
-# TODO class result
+LinterMessage = namedtuple(
+    "LinterMessage",
+    [
+        "tool",
+        "message_id",
+        "filename",
+        "lineno",
+        "charno",
+        "message",
+        "extramessage",
+    ],
+)
 
 
 class Linter:
@@ -33,12 +45,28 @@ class PycodestyleLinter(Linter):
     def lint(cls, file):
         args = [cls.path, str(file)]
         result = cls._execute_command(args)
-        return []
+        messages = []
+        for line in result.stdout.splitlines():
+            messages.append(
+                LinterMessage(
+                    tool="pycodestyle",
+                    message_id="123",
+                    filename="123",
+                    lineno=123,
+                    charno=123,
+                    message=line,
+                    extramessage="",
+                )
+            )
+
+        return messages
 
 
 def lint(file, linters):
+    result = set()
     for linter in linters:
-        linter.lint(file)
+        result.update(linter.lint(file))
+    return result
 
 
 def main():
@@ -60,7 +88,7 @@ def main():
 
     linters = [PycodestyleLinter()]
 
-    lint(args.file, linters)
+    print(lint(args.file, linters))
 
 
 if __name__ == "__main__":
