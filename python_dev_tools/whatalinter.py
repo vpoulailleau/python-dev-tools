@@ -25,6 +25,19 @@ class LinterMessage(_LinterMessage):
             f"[{self.tool}] {self.message} {self.extramessage}"
         )
 
+    def formatted(self, format):
+        data = {
+            "path": self.filename,
+            "row": self.lineno,
+            "col": self.charno,
+            "code": self.message_id,
+            "text": f"[{self.tool}] {self.message}",
+        }
+        if self.extramessage:
+            data["text"] += f" ({self.extramessage})"
+
+        return format % data
+
 
 class Linter:
     name = "Linter"
@@ -92,6 +105,12 @@ def main():
     )
     parser.add_argument(
         "-f",
+        "--format",
+        default="%(path)s:%(row)d:%(col)d: %(code)s %(text)s",
+        help="format of the output",
+    )
+    parser.add_argument(
+        "-s",
         "--first",
         action="store_true",
         default=False,
@@ -100,7 +119,7 @@ def main():
     args = parser.parse_args()
 
     for message in lint(args.file):
-        print(message)
+        print(message.formatted(args.format))
 
 
 if __name__ == "__main__":
