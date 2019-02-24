@@ -4,6 +4,8 @@ import re
 import subprocess
 from collections import namedtuple
 
+_DEFAULT_MESSAGE_FORMAT = "%(path)s:%(row)d:%(col)d: %(code)s %(text)s"
+
 _LinterMessage = namedtuple(
     "_LinterMessage",
     [
@@ -20,10 +22,7 @@ _LinterMessage = namedtuple(
 
 class LinterMessage(_LinterMessage):
     def __str__(self):
-        return (
-            f"{self.filename}:{self.lineno}:{self.charno}: "
-            f"[{self.tool}] {self.message} {self.extramessage}"
-        )
+        return self.formatted(_DEFAULT_MESSAGE_FORMAT)
 
     def formatted(self, format):
         data = {
@@ -106,7 +105,7 @@ def main():
     parser.add_argument(
         "-f",
         "--format",
-        default="%(path)s:%(row)d:%(col)d: %(code)s %(text)s",
+        default=_DEFAULT_MESSAGE_FORMAT,
         help="format of the output",
     )
     parser.add_argument(
