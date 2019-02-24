@@ -35,7 +35,7 @@ Python Dev Tools
 Needed and up-to-date tools to develop in Python
 
 
-* Free software: BSD license
+* Free software: BSD 3-Clause license
 * Documentation: https://python-dev-tools.readthedocs.io.
 
 
