@@ -11,7 +11,7 @@ with open("README.rst") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
-requirements = []
+requirements = ["pycodestyle"]
 
 setup_requirements = ["pytest-runner"]
 
@@ -20,6 +20,9 @@ test_requirements = ["pytest"]
 setup(
     author="Vincent Poulailleau",
     author_email="vpoulailleau@gmail.com",
+    entry_points={
+        "console_scripts": ["whatalinter = python_dev_tools.whatalinter:main"]
+    },
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Developers",
