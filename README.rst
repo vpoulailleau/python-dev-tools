@@ -44,8 +44,8 @@ dependencies to develop Python software.
 
 * Simple linter
 
-  * `whatalinter a_python_file.py` lints a_python_file.py
-  * output is compatible with the one of @pydocstyle for easy integration in
+  * ``whatalinter a_python_file.py`` lints a_python_file.py
+  * output is compatible with the one of pydocstyle for easy integration in
     text editors and IDE
 
 * Simple formatter
