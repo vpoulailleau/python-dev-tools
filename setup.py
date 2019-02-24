@@ -35,6 +35,7 @@ setup(
     install_requires=requirements,
     license="BSD license",
     long_description=readme + "\n\n" + history,
+    long_description_content_type="text/x-rst",
     include_package_data=True,
     keywords="python_dev_tools",
     name="python_dev_tools",
