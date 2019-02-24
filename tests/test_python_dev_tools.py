@@ -1,23 +1,20 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Tests for `python_dev_tools` package."""
 
-import pytest
-from python_dev_tools import whatalinter
+from python_dev_tools.whatalinter import LinterMessage, lint
 
 
-@pytest.fixture
-def response():
-    """Sample pytest fixture.
-
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
-
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+def test_long_line(tmpdir):
+    p = tmpdir.join("foo.py")
+    p.write('"' + 78 * "#" + '"\n')
+    result = lint(p)
+    assert result == {
+        LinterMessage(
+            tool="pycodestyle",
+            message_id="E501",
+            filename=str(p),
+            lineno=1,
+            charno=80,
+            message="line too long (80 > 79 characters)",
+            extramessage="",
+        )
+    }

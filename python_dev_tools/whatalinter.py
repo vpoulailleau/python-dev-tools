@@ -75,6 +75,14 @@ class PycodestyleLinter(Linter):
         return messages
 
 
+def lint(file):
+    linters = [PycodestyleLinter]
+    messages = set()
+    for linter in linters:
+        messages.update(linter.lint(file))
+    return messages
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Python linter combining existing linters"
@@ -91,11 +99,7 @@ def main():
     )
     args = parser.parse_args()
 
-    linters = [PycodestyleLinter]
-    messages = set()
-    for linter in linters:
-        messages.update(linter.lint(args.file))
-    for message in messages:
+    for message in lint(args.file):
         print(message)
 
 
