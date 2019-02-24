@@ -6,12 +6,28 @@ Python Dev Tools
 .. image:: https://img.shields.io/pypi/v/python_dev_tools.svg
         :target: https://pypi.python.org/pypi/python_dev_tools
 
+.. image:: https://img.shields.io/pypi/l/python_dev_tools.svg
+        :target: https://github.com/vpoulailleau/python_dev_tools/blob/master/LICENSE
+
 .. image:: https://img.shields.io/travis/vpoulailleau/python_dev_tools.svg
         :target: https://travis-ci.org/vpoulailleau/python_dev_tools
 
 .. image:: https://readthedocs.org/projects/python-dev-tools/badge/?version=latest
         :target: https://python-dev-tools.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
+
+.. image:: https://pepy.tech/badge/python_dev_tools
+        :target: https://pepy.tech/project/python_dev_tools
+        :alt: Downloads
+
+.. image:: https://coveralls.io/repos/github/vpoulailleau/python_dev_tools/badge.svg?branch=master
+        :target: https://coveralls.io/github/vpoulailleau/python_dev_tools?branch=master
+        :alt: Coverage Status
+
+.. image:: https://api.codeclimate.com/v1/badges/282fcd71714dabd6a847/maintainability
+        :target: https://codeclimate.com/github/vpoulailleau/python-dev-tools/maintainability
+        :alt: Maintainability
+
 
 
 
