@@ -4,9 +4,7 @@
 """Tests for `python_dev_tools` package."""
 
 import pytest
-
-
-from python_dev_tools import python_dev_tools
+from python_dev_tools import whatalinter
 
 
 @pytest.fixture
