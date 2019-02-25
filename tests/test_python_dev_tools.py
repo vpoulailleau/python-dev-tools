@@ -18,3 +18,20 @@ def test_long_line(tmpdir):
             extramessage="",
         )
     }
+
+
+def test_duplicate_key(tmpdir):
+    p = tmpdir.join("foo.py")
+    p.write("a = {1: 5, 1: 6}\n")
+    result = lint(p)
+    assert result == {
+        LinterMessage(
+            tool="PyFlakes",
+            message_id="W999",
+            filename=str(p),
+            lineno=1,
+            charno=0,
+            message="dictionary key 1 repeated with different values",
+            extramessage="",
+        )
+    }

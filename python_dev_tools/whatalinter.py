@@ -72,7 +72,7 @@ class PycodestyleLinter(Linter):
             if m:
                 messages.append(
                     LinterMessage(
-                        tool="pycodestyle",
+                        tool=cls.name,
                         message_id=m.group(4),
                         filename=m.group(1),
                         lineno=int(m.group(2)),
@@ -87,8 +87,38 @@ class PycodestyleLinter(Linter):
         return messages
 
 
+class PyflakesLinter(Linter):
+    name = "PyFlakes"
+    path = "pyflakes"
+    a = {"yes": 1, "yes": 2}
+
+    @classmethod
+    def lint(cls, file):
+        args = [cls.path, str(file)]
+        result = cls._execute_command(args)
+        messages = []
+        for line in result.stdout.splitlines():
+            m = re.match(r"(.*?):(\d+):\s+(.*)", line)
+            if m:
+                messages.append(
+                    LinterMessage(
+                        tool=cls.name,
+                        message_id="W999",
+                        filename=m.group(1),
+                        lineno=int(m.group(2)),
+                        charno=0,
+                        message=m.group(3),
+                        extramessage="",
+                    )
+                )
+            else:
+                print("ERROR parsing", line)
+
+        return messages
+
+
 def lint(file):
-    linters = [PycodestyleLinter]
+    linters = [PyflakesLinter, PycodestyleLinter]
     messages = set()
     for linter in linters:
         messages.update(linter.lint(file))

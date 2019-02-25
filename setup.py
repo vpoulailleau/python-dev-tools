@@ -15,6 +15,7 @@ requirements = [
     "mccabe==0.6.1",
     "pip==19.0.2",
     "pycodestyle==2.5.0",
+    "pyflakes==1.6.0",
     "pytest==4.3.0",
     "pytest-runner==4.4",
     "Sphinx==1.8.1",
