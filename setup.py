@@ -24,7 +24,7 @@ requirements = [
     "wheel==0.33.1",
 ]
 
-setup_requirements = ["pytest-runner==4.2"]
+setup_requirements = ["pytest-runner==4.4"]
 
 test_requirements = ["pytest==4.3.0"]
 
