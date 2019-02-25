@@ -2,7 +2,7 @@
 
 source venv/bin/activate
 
-echo -n "Do you want to add something in HISTORY.rst? (y/n) [n]:"
+echo -n "Do you want to add something in HISTORY.rst? (y/n) [n]: "
 read BOOL
 if [ "$BOOL" == "y" ]
 then
@@ -13,7 +13,7 @@ echo ""
 echo "Running test"
 python setup.py develop
 make test
-echo -n "Is it OK? (y/n) [y]:"
+echo -n "Is it OK? (y/n) [y]: "
 read BOOL
 if [ "$BOOL" == "n" ]
 then
