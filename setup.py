@@ -17,6 +17,7 @@ requirements = [
     "pycodestyle==2.5.0",
     "pyflakes==1.6.0",
     "pytest==4.3.0",
+    "pytest-cov==2.6.1",
     "pytest-runner==4.4",
     "Sphinx==1.8.1",
     "tox==3.5.2",
