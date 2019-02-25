@@ -2,7 +2,7 @@
 
 source venv/bin/activate
 
-git pull
+git rebase
 
 echo -n "Do you want to add something in HISTORY.rst? (y/n) [n]: "
 read BOOL
