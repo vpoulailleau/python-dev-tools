@@ -1,6 +1,15 @@
 """Tests for `python_dev_tools` package."""
 
-from python_dev_tools.whatalinter import LinterMessage, lint
+from python_dev_tools.whatalinter import LinterMessage, lint, main
+
+
+def test_main(tmpdir):
+    import sys
+
+    p = tmpdir.join("foo.py")
+    p.write("a = 1\n")
+    sys.argv = ["whatalinter", str(p)]
+    main()
 
 
 def test_long_line(tmpdir):
