@@ -3,6 +3,7 @@
 source venv/bin/activate
 
 git rebase
+git status 
 
 echo -n "Do you want to add something in HISTORY.rst? (y/n) [n]: "
 read BOOL
