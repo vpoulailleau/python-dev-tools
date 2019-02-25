@@ -2,6 +2,8 @@
 
 source venv/bin/activate
 
+git pull
+
 echo -n "Do you want to add something in HISTORY.rst? (y/n) [n]: "
 read BOOL
 if [ "$BOOL" == "y" ]
