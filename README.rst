@@ -31,9 +31,16 @@ Python Dev Tools
 
 Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
 
+Documentation
+-------------
 
-* Free software: BSD 3-Clause license
-* Documentation: https://python-dev-tools.readthedocs.io
+The full documentation can be read at https://python-dev-tools.readthedocs.io.
+
+Installation
+------------
+
+* Short version: ``pip install python-dev-tools``
+* Long version: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 
 Features
 --------
@@ -58,6 +65,11 @@ dependencies to develop Python software.
 * Simple precommit hook
 
   * TODO
+
+License
+-------
+
+BSD 3-Clause license, feel free to contribute: https://python-dev-tools.readthedocs.io/en/latest/contributing.html.
 
 TODO
 ----
