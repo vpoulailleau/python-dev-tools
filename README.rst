@@ -1,6 +1,8 @@
 Python Dev Tools
 ================
 
+Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
+
 
 .. image:: https://img.shields.io/pypi/v/python_dev_tools.svg
         :target: https://pypi.python.org/pypi/python_dev_tools
@@ -28,9 +30,6 @@ Python Dev Tools
         :alt: Maintainability
 
 
-
-Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
-
 Documentation
 -------------
 
@@ -41,6 +40,7 @@ Installation
 
 * Short version: ``pip install python-dev-tools``
 * Long version: https://python-dev-tools.readthedocs.io/en/latest/installation.html
+* Use the provided linter, formatter and precommit hook where applicable
 
 Features
 --------
