@@ -44,8 +44,11 @@ dependencies to develop Python software.
 * Simple linter
 
   * ``whatalinter a_python_file.py`` lints a_python_file.py
-  * output is compatible with the one of pydocstyle for easy integration in
-    text editors and IDE
+  * output is compatible with the one of pycodestyle (formerly named pep8) for
+    easy integration in text editors and IDE
+  * based on
+    * pycodestyle: https://github.com/PyCQA/pycodestyle
+    * PyFlakes: https://github.com/PyCQA/pyflakes
 
 * Simple formatter
 
