@@ -47,6 +47,7 @@ dependencies to develop Python software.
   * output is compatible with the one of pycodestyle (formerly named pep8) for
     easy integration in text editors and IDE
   * based on
+
     * pycodestyle: https://github.com/PyCQA/pycodestyle
     * PyFlakes: https://github.com/PyCQA/pyflakes
 
