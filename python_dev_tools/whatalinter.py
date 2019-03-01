@@ -116,8 +116,45 @@ class PyflakesLinter(Linter):
         return messages
 
 
+class MccabeLinter(Linter):
+    name = "McCabe"
+    max_complexity = 10
+
+    @classmethod
+    def lint(cls, file):
+        args = [
+            "python",
+            "-m",
+            "mccabe",
+            "--min",
+            str(cls.max_complexity),
+            str(file),
+        ]
+        print(" ".join(args))
+        result = cls._execute_command(args)
+        messages = []
+        for line in result.stdout.splitlines():
+            m = re.match(r"(\d+):(\d+):\s+(.*)", line)
+            if m:
+                messages.append(
+                    LinterMessage(
+                        tool=cls.name,
+                        message_id="C901",
+                        filename=str(file),
+                        lineno=int(m.group(1)),
+                        charno=int(m.group(2)),
+                        message=f"too complex: {m.group(3)}",
+                        extramessage="",
+                    )
+                )
+            else:
+                print("ERROR parsing", line)
+
+        return messages
+
+
 def lint(file):
-    linters = [PyflakesLinter, PycodestyleLinter]
+    linters = [PyflakesLinter, PycodestyleLinter, MccabeLinter]
     messages = set()
     for linter in linters:
         messages.update(linter.lint(file))
