@@ -90,7 +90,6 @@ class PycodestyleLinter(Linter):
 class PyflakesLinter(Linter):
     name = "pyflakes"
     path = "pyflakes"
-    a = {"yes": 1, "yes": 2}
 
     @classmethod
     def lint(cls, file):
