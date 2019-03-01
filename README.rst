@@ -56,7 +56,7 @@ dependencies to develop Python software.
   * based on
 
     * pycodestyle: https://github.com/PyCQA/pycodestyle
-    * PyFlakes: https://github.com/PyCQA/pyflakes
+    * pyflakes: https://github.com/PyCQA/pyflakes
 
 * Simple formatter
 
