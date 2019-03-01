@@ -1,10 +1,15 @@
 History
 =======
 
+2019.03.01
+----------
+
+* Add McCabe complexity checker
+
 2019.02.26
 ----------
 
-* Add PyFlakes linter
+* Add pyflakes linter
 * Add pycodestyle linter
 
 2019.02.23
