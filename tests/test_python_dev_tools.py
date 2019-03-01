@@ -1,4 +1,5 @@
 """Tests for `python_dev_tools` package."""
+from pathlib import Path
 
 from python_dev_tools.whatalinter import LinterMessage, lint, main
 
@@ -35,7 +36,7 @@ def test_duplicate_key(tmpdir):
     result = lint(p)
     assert result == {
         LinterMessage(
-            tool="PyFlakes",
+            tool="pyflakes",
             message_id="W999",
             filename=str(p),
             lineno=1,
@@ -44,3 +45,9 @@ def test_duplicate_key(tmpdir):
             extramessage="",
         )
     }
+
+
+def test_lint_myself():
+    source_dir = Path("python_dev_tools")
+    for python_file in source_dir.rglob("*.py"):
+        assert not lint(python_file)
