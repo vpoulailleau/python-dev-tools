@@ -88,7 +88,7 @@ class PycodestyleLinter(Linter):
 
 
 class PyflakesLinter(Linter):
-    name = "PyFlakes"
+    name = "pyflakes"
     path = "pyflakes"
     a = {"yes": 1, "yes": 2}
 
