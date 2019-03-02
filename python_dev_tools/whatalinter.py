@@ -1,5 +1,7 @@
 """Linter module"""
 import argparse
+import os
+import pathlib
 import re
 import subprocess
 from collections import namedtuple
@@ -30,7 +32,7 @@ class LinterMessage(_LinterMessage):
             "row": self.lineno,
             "col": self.charno,
             # horrible hack for visual studio code
-            "code": f"E{self.message_id[1:]}",
+            "code": f"W{self.message_id[1:]}",
             "text": f"[{self.tool}] {self.message}",
         }
         if self.extramessage:
@@ -241,8 +243,21 @@ def lint(file):
     return messages
 
 
+def udpate_os_path():
+    script_path = pathlib.Path(__file__).resolve()
+    os.environ["PATH"] = "".join(
+        (str(script_path.parent), os.pathsep, os.environ["PATH"])
+    )
+
+    # replace /lib/ with /bin/, and add to PATH
+    for parent in reversed(script_path.parents):
+        if parent.stem == "lib":
+            os.environ["PATH"] = "".join(
+                (str(parent.parent / "bin"), os.pathsep, os.environ["PATH"])
+            )
+
+
 def main():
-    "######################################################################################################################"
     parser = argparse.ArgumentParser(
         description="Python linter combining existing linters"
     )
@@ -264,6 +279,7 @@ def main():
     )
     args = parser.parse_args()
 
+    udpate_os_path()
     for message in lint(args.file):
         print(message.formatted(args.format))
 
