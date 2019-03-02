@@ -230,7 +230,7 @@ class PydocstyleLinter(Linter):
         return messages
 
 
-def lint(file):
+def lint(file, all_warnings=False):
     linters = [
         PyflakesLinter,
         PycodestyleLinter,
@@ -240,7 +240,11 @@ def lint(file):
     messages = set()
     for linter in linters:
         messages.update(linter.lint(file))
-    return messages
+        if len(messages) >=10:
+            break
+    
+    messages = sorted(list(messages))
+    return messages[:10]
 
 
 def udpate_os_path():
@@ -271,16 +275,16 @@ def main():
         help="format of the output",
     )
     parser.add_argument(
-        "-s",
-        "--first",
+        "-a",
+        "--all",
         action="store_true",
         default=False,
-        help="[TODO] stop early if 10+ warnings are found",
+        help="Display all warnings (default: display first ten warnings)",
     )
     args = parser.parse_args()
 
     udpate_os_path()
-    for message in lint(args.file):
+    for message in lint(file=args.file, all_warnings=args.all):
         print(message.formatted(args.format))
 
 
