@@ -26,9 +26,22 @@ echo ""
 
 echo "Delivering"
 make bump
-make release
-git push
-git push --tags
+
+until make release
+do
+  echo "Try again"
+done
+
+until git push
+do
+  echo "Try again"
+done
+
+until git push --tags
+do
+  echo "Try again"
+done
+
 echo "Edit the release on GitHub (https://github.com/vpoulailleau/python-dev-tools/releases)"
 echo "Done"
 
