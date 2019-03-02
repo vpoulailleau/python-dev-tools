@@ -21,8 +21,8 @@ Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
         :target: https://pepy.tech/project/python-dev-tools
         :alt: Downloads
 
-.. image:: https://coveralls.io/repos/github/vpoulailleau/python-dev-tools/badge.svg?branch=master
-        :target: https://coveralls.io/github/vpoulailleau/python-dev-tools?branch=master
+.. image:: https://coveralls.io/repos/github/vpoulailleau/python-dev-tools/badge.svg?branch=HEAD
+        :target: https://coveralls.io/github/vpoulailleau/python-dev-tools?branch=HEAD
         :alt: Coverage Status
 
 .. image:: https://api.codeclimate.com/v1/badges/282fcd71714dabd6a847/maintainability
