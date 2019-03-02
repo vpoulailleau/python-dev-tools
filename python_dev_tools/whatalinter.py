@@ -68,16 +68,20 @@ class PycodestyleLinter(Linter):
         result = cls._execute_command(args)
         messages = []
         for line in result.stdout.splitlines():
-            m = re.match(r"(.*?):(\d+):(\d+):\s+(.*?)\s+(.*)", line)
+            m = re.match(
+                r"(?P<filename>.*?):(?P<lineno>\d+):(?P<charno>\d+):"
+                r"\s+(?P<message_id>.*?)\s+(?P<message>.*)",
+                line,
+            )
             if m:
                 messages.append(
                     LinterMessage(
                         tool=cls.name,
-                        message_id=m.group(4),
-                        filename=m.group(1),
-                        lineno=int(m.group(2)),
-                        charno=int(m.group(3)),
-                        message=m.group(5),
+                        message_id=m.group("message"),
+                        filename=m.group("filename"),
+                        lineno=int(m.group("lineno")),
+                        charno=int(m.group("charno")),
+                        message=m.group("message"),
                         extramessage="",
                     )
                 )
@@ -97,16 +101,18 @@ class PyflakesLinter(Linter):
         result = cls._execute_command(args)
         messages = []
         for line in result.stdout.splitlines():
-            m = re.match(r"(.*?):(\d+):\s+(.*)", line)
+            m = re.match(
+                r"(?P<filename>.*?):(?P<lineo>\d+):\s+(?P<message>.*)", line
+            )
             if m:
                 messages.append(
                     LinterMessage(
                         tool=cls.name,
                         message_id="W999",
-                        filename=m.group(1),
-                        lineno=int(m.group(2)),
+                        filename=m.group("filename"),
+                        lineno=int(m.group("lineno")),
                         charno=0,
-                        message=m.group(3),
+                        message=m.group("message"),
                         extramessage="",
                     )
                 )
@@ -130,20 +136,21 @@ class MccabeLinter(Linter):
             str(cls.max_complexity),
             str(file),
         ]
-        print(" ".join(args))
         result = cls._execute_command(args)
         messages = []
         for line in result.stdout.splitlines():
-            m = re.match(r"(\d+):(\d+):\s+(.*)", line)
+            m = re.match(
+                r"(?P<lineno>\d+):(?P<charno>\d+):\s+(?P<message>.*)", line
+            )
             if m:
                 messages.append(
                     LinterMessage(
                         tool=cls.name,
                         message_id="C901",
                         filename=str(file),
-                        lineno=int(m.group(1)),
-                        charno=int(m.group(2)),
-                        message=f"too complex: {m.group(3)}",
+                        lineno=int(m.group("lineno")),
+                        charno=int(m.group("charno")),
+                        message=f"too complex: {m.group('message')}",
                         extramessage="",
                     )
                 )
