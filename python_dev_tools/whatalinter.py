@@ -29,13 +29,18 @@ class LinterMessage(_LinterMessage):
             "path": self.filename,
             "row": self.lineno,
             "col": self.charno,
-            "code": self.message_id,
+            # horrible hack for visual studio code
+            "code": f"E{self.message_id[1:]}",
             "text": f"[{self.tool}] {self.message}",
         }
         if self.extramessage:
             data["text"] += f" ({self.extramessage})"
 
         return format % data
+
+
+class LinterNotFound(FileNotFoundError):
+    pass
 
 
 class Linter:
@@ -45,17 +50,36 @@ class Linter:
     @classmethod
     def lint(cls, file):
         """Execute the linter and return the list of messages"""
-        return []
+        try:
+            return cls._lint(file)
+        except LinterNotFound:
+            return [
+                LinterMessage(
+                    tool="whatalinter",
+                    message_id=f"E999",
+                    filename=str(file),
+                    lineno=1,
+                    charno=1,
+                    message=f"linter not found: {cls.path}",
+                    extramessage="",
+                )
+            ]
 
     @classmethod
     def _execute_command(cls, args):
-        return subprocess.run(
-            args,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            timeout=10,
-            encoding="utf-8",
-        )
+        try:
+            return subprocess.run(
+                args,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=10,
+                encoding="utf-8",
+            )
+        except FileNotFoundError as e:
+            if e.filename == cls.path:
+                raise LinterNotFound
+            else:
+                raise
 
 
 class PycodestyleLinter(Linter):
@@ -63,7 +87,7 @@ class PycodestyleLinter(Linter):
     path = "pycodestyle"
 
     @classmethod
-    def lint(cls, file):
+    def _lint(cls, file):
         args = [cls.path, str(file)]
         result = cls._execute_command(args)
         messages = []
@@ -96,7 +120,7 @@ class PyflakesLinter(Linter):
     path = "pyflakes"
 
     @classmethod
-    def lint(cls, file):
+    def _lint(cls, file):
         args = [cls.path, str(file)]
         result = cls._execute_command(args)
         messages = []
@@ -111,7 +135,7 @@ class PyflakesLinter(Linter):
                         message_id="W999",
                         filename=m.group("filename"),
                         lineno=int(m.group("lineno")),
-                        charno=0,
+                        charno=1,
                         message=m.group("message"),
                         extramessage="",
                     )
@@ -127,7 +151,7 @@ class MccabeLinter(Linter):
     max_complexity = 10
 
     @classmethod
-    def lint(cls, file):
+    def _lint(cls, file):
         args = [
             "python",
             "-m",
@@ -165,7 +189,7 @@ class PydocstyleLinter(Linter):
     path = "pydocstyle"
 
     @classmethod
-    def lint(cls, file):
+    def _lint(cls, file):
         args = [cls.path, str(file)]
         result = cls._execute_command(args)
         messages = []
@@ -192,7 +216,7 @@ class PydocstyleLinter(Linter):
                             message_id=m.group("message_id"),
                             filename=filename,
                             lineno=lineno,
-                            charno=0,
+                            charno=1,
                             message=m.group("message"),
                             extramessage=location,
                         )
@@ -218,6 +242,7 @@ def lint(file):
 
 
 def main():
+    "######################################################################################################################"
     parser = argparse.ArgumentParser(
         description="Python linter combining existing linters"
     )
