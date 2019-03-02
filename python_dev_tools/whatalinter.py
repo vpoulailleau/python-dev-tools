@@ -1,4 +1,4 @@
-"""Linter module"""
+"""Linter module, aggregation of linters."""
 import argparse
 import os
 import pathlib
@@ -23,10 +23,14 @@ _LinterMessage = namedtuple(
 
 
 class LinterMessage(_LinterMessage):
+    """Generic linter message."""
+
     def __str__(self):
+        """Represent as a string."""
         return self.formatted(_DEFAULT_MESSAGE_FORMAT)
 
     def formatted(self, format):
+        """Format the message according to format parameter."""
         data = {
             "path": self.filename,
             "row": self.lineno,
@@ -42,16 +46,24 @@ class LinterMessage(_LinterMessage):
 
 
 class LinterNotFound(FileNotFoundError):
+    """
+    Exception to detect that a linter is not found.
+
+    Note that this doesn't occur, except due to an installation error.
+    """
+
     pass
 
 
 class Linter:
+    """Base linter class."""
+
     name = "Linter"
     path = "/bin/unknownlinter"
 
     @classmethod
     def lint(cls, file):
-        """Execute the linter and return the list of messages"""
+        """Execute the linter and return the list of messages."""
         try:
             return cls._lint(file)
         except LinterNotFound:
@@ -69,6 +81,7 @@ class Linter:
 
     @classmethod
     def _execute_command(cls, args):
+        """Execute the linter or raise LinterNotFound."""
         try:
             return subprocess.run(
                 args,
@@ -85,6 +98,8 @@ class Linter:
 
 
 class PycodestyleLinter(Linter):
+    """Pycodestyle linter management."""
+
     name = "pycodestyle"
     path = "pycodestyle"
 
@@ -118,6 +133,8 @@ class PycodestyleLinter(Linter):
 
 
 class PyflakesLinter(Linter):
+    """Pyflakes linter management."""
+
     name = "pyflakes"
     path = "pyflakes"
 
@@ -149,6 +166,8 @@ class PyflakesLinter(Linter):
 
 
 class MccabeLinter(Linter):
+    """McCabe linter management."""
+
     name = "McCabe"
     max_complexity = 10
 
@@ -187,6 +206,8 @@ class MccabeLinter(Linter):
 
 
 class PydocstyleLinter(Linter):
+    """Pydocstyle linter management."""
+
     name = "pydocstyle"
     path = "pydocstyle"
 
@@ -231,6 +252,7 @@ class PydocstyleLinter(Linter):
 
 
 def lint(file, all_warnings=False):
+    """Lint the file with known linters."""
     linters = [
         PyflakesLinter,
         PycodestyleLinter,
@@ -240,14 +262,15 @@ def lint(file, all_warnings=False):
     messages = set()
     for linter in linters:
         messages.update(linter.lint(file))
-        if len(messages) >=10:
+        if len(messages) >= 10:
             break
-    
+
     messages = sorted(list(messages))
     return messages[:10]
 
 
 def udpate_os_path():
+    """Update PATH env variable to find linters."""
     script_path = pathlib.Path(__file__).resolve()
     os.environ["PATH"] = "".join(
         (str(script_path.parent), os.pathsep, os.environ["PATH"])
@@ -262,6 +285,7 @@ def udpate_os_path():
 
 
 def main():
+    """Entry point."""
     parser = argparse.ArgumentParser(
         description="Python linter combining existing linters"
     )
