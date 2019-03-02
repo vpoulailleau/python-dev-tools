@@ -13,6 +13,19 @@ def test_main(tmpdir):
     main()
 
 
+def test_str_message():
+    msg = LinterMessage(
+        tool="foo",
+        message_id="bar",
+        filename="baz",
+        lineno=1,
+        charno=2,
+        message="msg)",
+        extramessage="extra msg",
+    )
+    assert str(msg) == "baz:1:2: War [foo] msg) (extra msg)"
+
+
 def test_long_line(tmpdir):
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\n"' + 78 * "#" + '"\n')
