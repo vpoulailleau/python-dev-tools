@@ -5,6 +5,7 @@ source venv/bin/activate
 git rebase
 git status 
 
+head HISTORY.rst
 echo -n "Do you want to add something in HISTORY.rst? (y/n) [n]: "
 read BOOL
 if [ "$BOOL" == "y" ]
