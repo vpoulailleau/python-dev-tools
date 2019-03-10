@@ -20,7 +20,7 @@ requirements = [
     "pytest==4.3.0",
     "pytest-cov==2.6.1",
     "pytest-runner==4.4",
-    "Sphinx==1.8.1",
+    "Sphinx==1.8.5",
     "tox==3.5.2",
     "twine==1.13.0",
     "wheel==0.33.1",
