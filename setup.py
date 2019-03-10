@@ -10,7 +10,7 @@ with open("HISTORY.rst") as history_file:
 
 requirements = [
     "bumpversion==0.5.3",
-    "coverage==4.5.2",
+    "coverage==4.5.3",
     "coveralls[yaml]==1.6.0",
     "mccabe==0.6.1",
     "pip==19.0.3",
