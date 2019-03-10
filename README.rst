@@ -29,6 +29,10 @@ Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
         :target: https://codeclimate.com/github/vpoulailleau/python-dev-tools/maintainability
         :alt: Maintainability
 
+.. image:: https://bettercodehub.com/edge/badge/vpoulailleau/python-dev-tools?branch=master
+        :target: https://bettercodehub.com/results/vpoulailleau/python-dev-tools
+        :alt: Maintainability
+
 
 Documentation
 -------------
