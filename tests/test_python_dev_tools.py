@@ -1,7 +1,9 @@
 """Tests for `python_dev_tools` package."""
 from pathlib import Path
 
-from python_dev_tools.whatalinter import LinterMessage, lint, main
+from python_dev_tools.linters.common import LinterMessage
+from python_dev_tools.linters.lint import lint
+from python_dev_tools.whatalinter import main
 
 
 def test_main(tmpdir):
@@ -83,4 +85,4 @@ def test_no_docstring(tmpdir):
 def test_lint_myself():
     source_dir = Path("python_dev_tools")
     for python_file in source_dir.rglob("*.py"):
-        assert not lint(python_file)
+        assert not lint(python_file, all_warnings=True)
