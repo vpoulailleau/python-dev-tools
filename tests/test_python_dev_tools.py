@@ -2,7 +2,7 @@
 from pathlib import Path
 
 from python_dev_tools.linters.common import LinterMessage
-from python_dev_tools.linters.lint import lint
+from python_dev_tools.linters.lint import lint, linters
 from python_dev_tools.whatalinter import main
 
 
@@ -86,3 +86,16 @@ def test_lint_myself():
     source_dir = Path("python_dev_tools")
     for python_file in source_dir.rglob("*.py"):
         assert not lint(python_file, all_warnings=True)
+
+
+def test_installation_error(tmpdir):
+    """
+    Test for installation error, with missing executable.
+    
+    Useless test, except for coverage or installation error.
+    """
+    for linter_class in linters:
+        linter_class.path = "unknown"
+    p = tmpdir.join("foo.py")
+    p.write("a = 3\n")
+    result = lint(p)
