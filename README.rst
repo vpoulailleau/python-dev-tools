@@ -55,7 +55,7 @@ Installation with Visual Studio Code
   then enter)
 * Add in the opened JSON file:
 
-..code-block:: json
+.. code:: javascript
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "/home/vincent/.local/bin/whatalinter",
