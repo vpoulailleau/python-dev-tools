@@ -54,11 +54,13 @@ Installation with Visual Studio Code
 * In VS Code, open settings (F1 key, then type "Open Settings (JSON)",
   then enter)
 * Add in the opened JSON file:
-  ```json
+
+```json
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "/home/vincent/.local/bin/whatalinter",
-  ```
+```
+
 * Adapt the previous path according to your installation.
 
 Features
