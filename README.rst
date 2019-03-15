@@ -46,6 +46,21 @@ Installation
 * Long version: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 * Use the provided linter, formatter and precommit hook where applicable
 
+Installation with Visual Studio Code
+------------------------------------
+
+* ``pip install --user --upgrade python-dev-tools``
+* Be sure to have the official Python extension installed in VS Code
+* In VS Code, open settings (F1 key, then type "Open Settings (JSON)",
+  then enter)
+* Add in the opened JSON file:
+  ```json
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/home/vincent/.local/bin/whatalinter",
+  ```
+* Adapt the previous path according to your installation.
+
 Features
 --------
 
