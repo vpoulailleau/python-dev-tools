@@ -1,7 +1,5 @@
 """McCabe linter management."""
-import re
-
-from python_dev_tools.linters.common import Linter, LinterMessage
+from python_dev_tools.linters.common import Linter
 
 
 class MccabeLinter(Linter):
@@ -9,6 +7,7 @@ class MccabeLinter(Linter):
 
     name = "McCabe"
     max_complexity = 10
+    regex = [r"(?P<lineno>\d+):(?P<charno>\d+):\s+(?P<message>.*)"]
 
     @classmethod
     def _lint(cls, file):
@@ -21,24 +20,8 @@ class MccabeLinter(Linter):
             str(file),
         ]
         result = cls._execute_command(args)
-        messages = []
-        for line in result.stdout.splitlines():
-            m = re.match(
-                r"(?P<lineno>\d+):(?P<charno>\d+):\s+(?P<message>.*)", line
-            )
-            if m:
-                messages.append(
-                    LinterMessage(
-                        tool=cls.name,
-                        message_id="C901",
-                        filename=str(file),
-                        lineno=int(m.group("lineno")),
-                        charno=int(m.group("charno")),
-                        message=f"too complex: {m.group('message')}",
-                        extramessage="",
-                    )
-                )
-            else:
-                print("ERROR parsing", line)
-
+        messages = cls._parse_output(result.stdout)
+        for message in messages:
+            message.message_id = "C901"
+            message.message = f"too complex: {message.message}"
         return messages

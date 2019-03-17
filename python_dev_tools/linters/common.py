@@ -1,30 +1,90 @@
 """Common constants and class to all linters."""
 
+import re
 import subprocess
-from collections import namedtuple
 
 DEFAULT_MESSAGE_FORMAT = "%(path)s:%(row)d:%(col)d: %(code)s %(text)s"
 
-_LinterMessage = namedtuple(
-    "_LinterMessage",
-    [
-        "tool",
-        "message_id",
-        "filename",
-        "lineno",
-        "charno",
-        "message",
-        "extramessage",
-    ],
-)
 
-
-class LinterMessage(_LinterMessage):
+class LinterMessage:
     """Generic linter message."""
 
-    def __str__(self):
+    def __init__(
+        self,
+        tool="unknown",
+        message_id="unknown",
+        filename="unknown",
+        lineno=1,
+        charno=1,
+        message="unknown",
+        extramessage="",
+    ):
+        """Initializer."""
+        self.tool = tool
+        self.message_id = message_id
+        self.filename = filename
+        self.lineno = lineno
+        self.charno = charno
+        self.message = message
+        self.extramessage = extramessage
+
+    def __repr__(self):
         """Represent as a string."""
         return self.formatted(DEFAULT_MESSAGE_FORMAT)
+
+    def __lt__(self, other):
+        """Test less than."""
+        return (
+            self.filename,
+            self.lineno,
+            self.charno,
+            self.tool,
+            self.message_id,
+            self.message,
+            self.message_id,
+        ) < (
+            other.filename,
+            other.lineno,
+            other.charno,
+            other.tool,
+            other.message_id,
+            other.message,
+            other.message_id,
+        )
+
+    def __eq__(self, other):
+        """Test equality."""
+        return (
+            self.filename,
+            self.lineno,
+            self.charno,
+            self.tool,
+            self.message_id,
+            self.message,
+            self.message_id,
+        ) == (
+            other.filename,
+            other.lineno,
+            other.charno,
+            other.tool,
+            other.message_id,
+            other.message,
+            other.message_id,
+        )
+
+    def __hash__(self):
+        """Compute hash."""
+        return hash(
+            (
+                self.filename,
+                self.lineno,
+                self.charno,
+                self.tool,
+                self.message_id,
+                self.message,
+                self.message_id,
+            )
+        )
 
     def formatted(self, format):
         """Format the message according to format parameter."""
@@ -77,6 +137,12 @@ class Linter:
             ]
 
     @classmethod
+    def _lint(cls, file):
+        args = [cls.path, str(file)]
+        result = cls._execute_command(args)
+        return cls._parse_output(result.stdout)
+
+    @classmethod
     def _execute_command(cls, args):
         """Execute the linter or raise LinterNotFound."""
         try:
@@ -92,3 +158,42 @@ class Linter:
                 raise LinterNotFound
             else:
                 raise
+
+    @classmethod
+    def _parse_line(cls, line, regex, message=None, **kwargs):
+        m = re.match(regex, line)
+        if m:
+            if not message:
+                message = LinterMessage()
+            kwargs.update(m.groupdict())
+            if "lineno" in kwargs:
+                kwargs["lineno"] = int(kwargs["lineno"])
+            if "charno" in kwargs:
+                kwargs["charno"] = int(kwargs["charno"])
+            for param, value in kwargs.items():
+                setattr(message, param, value)
+        else:
+            print("ERROR parsing", line)
+        return message
+
+    @classmethod
+    def _parse_output(cls, output):
+        messages = []
+        regex_index = 0
+        for line in output.splitlines():
+            print(cls.name, cls.regex[regex_index])
+            if regex_index == 0:
+                message = cls._parse_line(
+                    line, cls.regex[regex_index], None, tool=cls.name
+                )
+            else:
+                message = cls._parse_line(
+                    line, cls.regex[regex_index], message
+                )
+
+            if regex_index == len(cls.regex) - 1:
+                regex_index = 0
+                messages.append(message)
+            else:
+                regex_index += 1
+        return messages

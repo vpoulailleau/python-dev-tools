@@ -1,7 +1,5 @@
 """Pyflakes linter management."""
-import re
-
-from python_dev_tools.linters.common import Linter, LinterMessage
+from python_dev_tools.linters.common import Linter
 
 
 class PyflakesLinter(Linter):
@@ -9,29 +7,13 @@ class PyflakesLinter(Linter):
 
     name = "pyflakes"
     path = "pyflakes"
+    regex = [r"(?P<filename>.*?):(?P<lineno>\d+):\s+(?P<message>.*)"]
 
     @classmethod
     def _lint(cls, file):
         args = [cls.path, str(file)]
         result = cls._execute_command(args)
-        messages = []
-        for line in result.stdout.splitlines():
-            m = re.match(
-                r"(?P<filename>.*?):(?P<lineno>\d+):\s+(?P<message>.*)", line
-            )
-            if m:
-                messages.append(
-                    LinterMessage(
-                        tool=cls.name,
-                        message_id="W999",
-                        filename=m.group("filename"),
-                        lineno=int(m.group("lineno")),
-                        charno=1,
-                        message=m.group("message"),
-                        extramessage="",
-                    )
-                )
-            else:
-                print("ERROR parsing", line)
-
+        messages = cls._parse_output(result.stdout)
+        for message in messages:
+            message.message_id = "W999"
         return messages
