@@ -55,7 +55,7 @@ setup(
     include_package_data=True,
     keywords="python_dev_tools",
     name="python_dev_tools",
-    packages=find_packages(include=["python_dev_tools"]),
+    packages=find_packages(include=["python_dev_tools*"]),
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
