@@ -181,7 +181,6 @@ class Linter:
         messages = []
         regex_index = 0
         for line in output.splitlines():
-            print(cls.name, cls.regex[regex_index])
             if regex_index == 0:
                 message = cls._parse_line(
                     line, cls.regex[regex_index], None, tool=cls.name
