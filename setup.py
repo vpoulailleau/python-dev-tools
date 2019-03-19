@@ -12,6 +12,7 @@ requirements = [
     "bumpversion==0.5.3",
     "coverage==4.5.3",
     "coveralls[yaml]==1.6.0",
+    "doc8==0.8.0",
     "mccabe==0.6.1",
     "pip==19.0.3",
     "pycodestyle==2.5.0",
