@@ -5,6 +5,8 @@ plugins:
     enabled: true
   radon: 
     enabled: true
+  fixme:
+    enabled: true
   sonar-python:
     enabled: true
     config:
