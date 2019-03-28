@@ -22,6 +22,7 @@ class MccabeLinter(Linter):
         result = cls._execute_command(args)
         messages = cls._parse_output(result.stdout)
         for message in messages:
+            message.filename = file
             message.message_id = "C901"
             message.message = f"too complex: {message.message}"
         return messages
