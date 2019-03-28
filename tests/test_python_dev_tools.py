@@ -1,5 +1,6 @@
 """Tests for `python_dev_tools` package."""
 from pathlib import Path
+from textwrap import dedent
 
 from python_dev_tools.linters.common import LinterMessage
 from python_dev_tools.linters.lint import lint, linters
@@ -62,7 +63,54 @@ def test_duplicate_key(tmpdir):
     ]
 
 
-# TODO test mccabe
+def test_complexity(tmpdir):
+    p = tmpdir.join("foo.py")
+    file_content = '"""Docstring."""\n\n'
+    file_content += dedent(
+        """
+        from random import randint
+
+        elements = [randint(0, 1) for _ in range(10)]
+
+
+        def foo():
+            \"\"\"Docstring.\"\"\"
+            if elements[0]:
+                a = 1
+            elif elements[1]:
+                a = 1
+            elif elements[2]:
+                a = 1
+            elif elements[3]:
+                a = 1
+            elif elements[4]:
+                a = 1
+            elif elements[5]:
+                a = 1
+            elif elements[6]:
+                a = 1
+            elif elements[7]:
+                a = 1
+            elif elements[8]:
+                a = 1
+            elif elements[9]:
+                a = 1
+            print(a)
+    """
+    )
+    p.write(file_content)
+    result = lint(p)
+    assert result == [
+        LinterMessage(
+            tool="McCabe",
+            message_id="C901",
+            filename=str(p),
+            lineno=9,
+            charno=0,
+            message="too complex: 'foo' 11",
+            extramessage="",
+        )
+    ]
 
 
 def test_no_docstring(tmpdir):
