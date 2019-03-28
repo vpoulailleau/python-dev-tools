@@ -6,6 +6,7 @@ import subprocess
 DEFAULT_MESSAGE_FORMAT = "%(path)s:%(row)d:%(col)d: %(code)s %(text)s"
 
 
+# TODO use dataclass
 class LinterMessage:
     """Generic linter message."""
 
