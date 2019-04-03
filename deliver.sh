@@ -17,6 +17,7 @@ fi
 echo ""
 
 echo "Running test"
+pip uninstall python-dev-tools
 python setup.py develop
 make test
 echo -n "Is it OK? (y/n) [y]: "
