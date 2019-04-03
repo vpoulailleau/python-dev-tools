@@ -13,8 +13,10 @@ def lint(file, all_warnings=False):
     messages = set()
     for linter in linters:
         messages.update(linter.lint(file))
-        if len(messages) >= 10:
+        if len(messages) >= 10 and not all_warnings:
             break
 
     messages = sorted(list(messages))
+    if all_warnings:
+        return messages
     return messages[:10]

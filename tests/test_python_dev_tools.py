@@ -130,6 +130,28 @@ def test_no_docstring(tmpdir):
     ]
 
 
+def test_all_warnings(tmpdir):
+    p = tmpdir.join("foo.py")
+    chars = "ABCDEFGJKLMNP"
+    content = ""
+    for char in chars:
+        content += f"{char} = {char}\n"
+    p.write(content)
+    result = lint(p, all_warnings=True)
+    assert len(result) == len(chars) + 1
+
+
+def test_not_all_warnings(tmpdir):
+    p = tmpdir.join("foo.py")
+    chars = "ABCDEFGJKLMNP"
+    content = ""
+    for char in chars:
+        content += f"{char} = {char}\n"
+    p.write(content)
+    result = lint(p, all_warnings=False)
+    assert len(result) == 10
+
+
 def test_lint_myself():
     source_dir = Path("python_dev_tools")
     for python_file in source_dir.rglob("*.py"):
