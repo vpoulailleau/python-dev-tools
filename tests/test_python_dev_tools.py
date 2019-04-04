@@ -2,21 +2,25 @@
 from pathlib import Path
 from textwrap import dedent
 
+import python_dev_tools.whatalinter
 from python_dev_tools.linters.common import LinterMessage
 from python_dev_tools.linters.lint import lint, linters
 from python_dev_tools.whatalinter import main
 
 
 def test_main(tmpdir):
+    """Test main call."""
     import sys
 
     p = tmpdir.join("foo.py")
     p.write("a = 1\n")
     sys.argv = ["whatalinter", str(p)]
+    python_dev_tools.whatalinter.__name__ = "__main__"
     main()
 
 
 def test_str_message():
+    """Test message formatting."""
     msg = LinterMessage(
         tool="foo",
         message_id="bar",
@@ -30,6 +34,7 @@ def test_str_message():
 
 
 def test_long_line(tmpdir):
+    """Test pycodestyle is working."""
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\n"' + 78 * "#" + '"\n')
     result = lint(p)
@@ -47,6 +52,7 @@ def test_long_line(tmpdir):
 
 
 def test_duplicate_key(tmpdir):
+    """Test pyflakes is working."""
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\na = {1: 5, 1: 6}\n')
     result = lint(p)
@@ -64,6 +70,7 @@ def test_duplicate_key(tmpdir):
 
 
 def test_complexity(tmpdir):
+    """Test McCabe is working."""
     p = tmpdir.join("foo.py")
     file_content = '"""Docstring."""\n\n'
     file_content += dedent(
@@ -114,6 +121,7 @@ def test_complexity(tmpdir):
 
 
 def test_no_docstring(tmpdir):
+    """Test pydocstyle is working."""
     p = tmpdir.join("foo.py")
     p.write("a = 3\n")
     result = lint(p)
@@ -131,6 +139,7 @@ def test_no_docstring(tmpdir):
 
 
 def test_all_warnings(tmpdir):
+    """Test all_warnings enabled in lint."""
     p = tmpdir.join("foo.py")
     chars = "ABCDEFGJKLMNP"
     content = ""
@@ -142,6 +151,7 @@ def test_all_warnings(tmpdir):
 
 
 def test_not_all_warnings(tmpdir):
+    """Test all_warnings disabled in lint."""
     p = tmpdir.join("foo.py")
     chars = "ABCDEFGJKLMNP"
     content = ""
@@ -153,19 +163,23 @@ def test_not_all_warnings(tmpdir):
 
 
 def test_lint_myself():
+    """Test no lint message for this project."""
     source_dir = Path("python_dev_tools")
+    print()
     for python_file in source_dir.rglob("*.py"):
-        assert not lint(python_file, all_warnings=True)
+        result = lint(python_file, all_warnings=True)
+        print(python_file, result)
+        assert not result
 
 
 def test_installation_error(tmpdir):
     """
     Test for installation error, with missing executable.
-    
+
     Useless test, except for coverage or installation error.
     """
     for linter_class in linters:
         linter_class.path = "unknown"
     p = tmpdir.join("foo.py")
     p.write("a = 3\n")
-    result = lint(p)
+    lint(p)
