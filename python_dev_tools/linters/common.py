@@ -118,6 +118,7 @@ class Linter:
 
     name = "Linter"
     path = "/bin/unknownlinter"
+    regex = [".*"]
 
     @classmethod
     def lint(cls, file):
@@ -180,6 +181,7 @@ class Linter:
     @classmethod
     def _parse_output(cls, output):
         messages = []
+        message = ""
         regex_index = 0
         for line in output.splitlines():
             if regex_index == 0:
