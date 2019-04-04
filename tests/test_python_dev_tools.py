@@ -8,7 +8,7 @@ from python_dev_tools.linters.lint import lint, linters
 from python_dev_tools.whatalinter import main
 
 
-def test_main(tmpdir):
+def test_main(tmpdir, capsys):
     """Test main call."""
     import sys
 
@@ -17,6 +17,8 @@ def test_main(tmpdir):
     sys.argv = ["whatalinter", str(p)]
     python_dev_tools.whatalinter.__name__ = "__main__"
     main()
+    captured = capsys.readouterr()
+    assert "[pydocstyle] Missing docstring in public module" in captured.out
 
 
 def test_str_message():
