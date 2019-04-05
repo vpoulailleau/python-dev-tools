@@ -2,11 +2,13 @@
 
 import re
 import subprocess
+from functools import total_ordering
 
 DEFAULT_MESSAGE_FORMAT = "%(path)s:%(row)d:%(col)d: %(code)s %(text)s"
 
 
 # TODO use dataclass
+@total_ordering
 class LinterMessage:
     """Generic linter message."""
 
