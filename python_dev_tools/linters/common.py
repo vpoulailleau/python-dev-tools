@@ -35,8 +35,8 @@ class LinterMessage:
         """Represent as a string."""
         return self.formatted(DEFAULT_MESSAGE_FORMAT)
 
-    def __lt__(self, other):
-        """Test less than."""
+    def as_tuple(self):
+        """Represent as a tuple for identification."""
         return (
             self.filename,
             self.lineno,
@@ -44,45 +44,19 @@ class LinterMessage:
             self.message_id,
             self.message,
             self.message_id,
-        ) < (
-            other.filename,
-            other.lineno,
-            other.charno,
-            other.message_id,
-            other.message,
-            other.message_id,
         )
+
+    def __lt__(self, other):
+        """Test less than."""
+        return self.as_tuple() < other.as_tuple()
 
     def __eq__(self, other):
         """Test equality."""
-        return (
-            self.filename,
-            self.lineno,
-            self.charno,
-            self.message_id,
-            self.message,
-            self.message_id,
-        ) == (
-            other.filename,
-            other.lineno,
-            other.charno,
-            other.message_id,
-            other.message,
-            other.message_id,
-        )
+        return self.as_tuple() == other.as_tuple()
 
     def __hash__(self):
         """Compute hash."""
-        return hash(
-            (
-                self.filename,
-                self.lineno,
-                self.charno,
-                self.message_id,
-                self.message,
-                self.message_id,
-            )
-        )
+        return hash(self.as_tuple())
 
     def formatted(self, format_string):
         """Format the message according to format parameter."""
