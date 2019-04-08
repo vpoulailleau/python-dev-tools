@@ -67,7 +67,25 @@ def test_duplicate_key(tmpdir):
             charno=1,
             message="dictionary key 1 repeated with different values",
             extramessage="",
-        )
+        ),
+        LinterMessage(
+            tool="flake8",
+            message_id="F601",
+            filename=str(p),
+            lineno=3,
+            charno=6,
+            message="dictionary key 1 repeated with different values",
+            extramessage="",
+        ),
+        LinterMessage(
+            tool="flake8",
+            message_id="F601",
+            filename=str(p),
+            lineno=3,
+            charno=12,
+            message="dictionary key 1 repeated with different values",
+            extramessage="",
+        ),
     ]
 
 
@@ -149,7 +167,7 @@ def test_all_warnings(tmpdir):
         content += f"{char} = {char}\n"
     p.write(content)
     result = lint(p, all_warnings=True)
-    assert len(result) == len(chars) + 1
+    assert len(result) == 2 * len(chars) + 1
 
 
 def test_not_all_warnings(tmpdir):
