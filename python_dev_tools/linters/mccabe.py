@@ -3,7 +3,8 @@ import contextlib
 import io
 
 import mccabe
-from python_dev_tools.linters.common import Linter
+
+from .common import Linter
 
 
 class MccabeLinter(Linter):

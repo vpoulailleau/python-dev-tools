@@ -1,10 +1,10 @@
 """Definition of lint function, calling all linters."""
 
-from python_dev_tools.linters.flake8 import Flake8Linter
-from python_dev_tools.linters.mccabe import MccabeLinter
-from python_dev_tools.linters.pycodestyle import PycodestyleLinter
-from python_dev_tools.linters.pydocstyle import PydocstyleLinter
-from python_dev_tools.linters.pyflakes import PyflakesLinter
+from .flake8 import Flake8Linter
+from .mccabe import MccabeLinter
+from .pycodestyle import PycodestyleLinter
+from .pydocstyle import PydocstyleLinter
+from .pyflakes import PyflakesLinter
 
 linters = [
     PyflakesLinter,

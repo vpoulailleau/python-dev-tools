@@ -1,5 +1,5 @@
 """Pyflakes linter management."""
-from python_dev_tools.linters.common import Linter
+from .common import Linter
 
 
 class PyflakesLinter(Linter):

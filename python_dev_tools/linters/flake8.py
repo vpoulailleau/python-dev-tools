@@ -3,7 +3,8 @@ import contextlib
 import io
 
 from flake8.main.cli import main
-from python_dev_tools.linters.common import Linter
+
+from .common import Linter
 
 
 class Flake8Linter(Linter):
