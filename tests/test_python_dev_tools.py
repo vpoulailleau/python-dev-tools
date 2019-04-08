@@ -212,7 +212,7 @@ def test_lint_myself():
             tool="flake8",
             message_id="S603",
             filename="python_dev_tools/linters/common.py",
-            lineno=148,
+            lineno=122,
             charno=1,
             message="subprocess call - check for execution of untrusted input.",
             extramessage="",
