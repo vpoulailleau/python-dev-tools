@@ -83,6 +83,20 @@ dependencies to develop Python software.
     * pyflakes: https://github.com/PyCQA/pyflakes
     * mccabe: https://github.com/pycqa/mccabe
     * pydocstyle: https://github.com/PyCQA/pydocstyle
+    * flake8 and plugins: https://gitlab.com/pycqa/flake8
+
+      * flake8-isort: https://github.com/gforcada/flake8-isort
+      * pep8-naming: https://github.com/PyCQA/pep8-naming
+      * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
+      * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
+      * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
+      * flake8-builtins: https://github.com/gforcada/flake8-builtins
+      * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
+      * flake8-fixme: https://github.com/tommilligan/flake8-fixme
+      * flake8-mutable: https://github.com/ebeweber/flake8-mutable
+      * flake8-debugger: https://github.com/JBKahn/flake8-debugger
+      * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
+      * flake8-bandit: https://github.com/tylerwince/flake8-bandit
 
 * Simple formatter
 
