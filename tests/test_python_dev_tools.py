@@ -56,7 +56,7 @@ def test_long_line(tmpdir):
 def test_duplicate_key(tmpdir):
     """Test pyflakes is working."""
     p = tmpdir.join("foo.py")
-    p.write('"""Docstring."""\n\na = {1: 5, 1: 6}\n')
+    p.write('"""Docstring."""\n\naaa = {1: 5, 1: 6}\n')
     result = lint(p)
     assert result == [
         LinterMessage(
@@ -73,7 +73,7 @@ def test_duplicate_key(tmpdir):
             message_id="F601",
             filename=str(p),
             lineno=3,
-            charno=6,
+            charno=8,
             message="dictionary key 1 repeated with different values",
             extramessage="",
         ),
@@ -82,7 +82,7 @@ def test_duplicate_key(tmpdir):
             message_id="F601",
             filename=str(p),
             lineno=3,
-            charno=12,
+            charno=14,
             message="dictionary key 1 repeated with different values",
             extramessage="",
         ),
@@ -95,34 +95,32 @@ def test_complexity(tmpdir):
     file_content = '"""Docstring."""\n\n'
     file_content += dedent(
         """
-        from random import randint
-
-        elements = [randint(0, 1) for _ in range(10)]
+        elements = [open(str(i)) for i in range(10)]
 
 
         def foo():
             \"\"\"Docstring.\"\"\"
             if elements[0]:
-                a = 1
+                aaa = 1
             elif elements[1]:
-                a = 1
+                aaa = 1
             elif elements[2]:
-                a = 1
+                aaa = 1
             elif elements[3]:
-                a = 1
+                aaa = 1
             elif elements[4]:
-                a = 1
+                aaa = 1
             elif elements[5]:
-                a = 1
+                aaa = 1
             elif elements[6]:
-                a = 1
+                aaa = 1
             elif elements[7]:
-                a = 1
+                aaa = 1
             elif elements[8]:
-                a = 1
+                aaa = 1
             elif elements[9]:
-                a = 1
-            print(a)
+                aaa = 1
+            print(aaa)
     """
     )
     p.write(file_content)
@@ -143,7 +141,7 @@ def test_complexity(tmpdir):
 def test_no_docstring(tmpdir):
     """Test pydocstyle is working."""
     p = tmpdir.join("foo.py")
-    p.write("a = 3\n")
+    p.write("aaa = 3\n")
     result = lint(p)
     assert result == [
         LinterMessage(
@@ -164,7 +162,7 @@ def test_all_warnings(tmpdir):
     chars = "ABCDEFGJKLMNP"
     content = ""
     for char in chars:
-        content += f"{char} = {char}\n"
+        content += f"{char}{char}{char} = {char}{char}{char}\n"
     p.write(content)
     result = lint(p, all_warnings=True)
     assert len(result) == 2 * len(chars) + 1
@@ -176,7 +174,7 @@ def test_not_all_warnings(tmpdir):
     chars = "ABCDEFGJKLMNP"
     content = ""
     for char in chars:
-        content += f"{char} = {char}\n"
+        content += f"{char}{char}{char} = {char}{char}{char}\n"
     p.write(content)
     result = lint(p, all_warnings=False)
     assert len(result) == 10
