@@ -5,6 +5,10 @@ History
 ----------
 
 * Add flake8 linter
+* Add flake8-isort linter
+* Add pep8-naming linter
+* Add flake8-comprehensions linter
+* Add flake8-logging-format linter
 
 2019.03.02
 ----------
