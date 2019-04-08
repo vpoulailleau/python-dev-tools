@@ -37,7 +37,7 @@ requirements = [
     "pytest==4.4.0",
     "pytest-cov==2.6.1",
     "pytest-runner==4.4",
-    "Sphinx==2.0.0",
+    "Sphinx==2.0.1",
     "tox==3.8.6",
     "twine==1.13.0",
     # TODO too old dependencies "wemake-python-styleguide==0.8.1",
