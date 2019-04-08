@@ -1,4 +1,8 @@
 """McCabe linter management."""
+import contextlib
+import io
+
+import mccabe
 from python_dev_tools.linters.common import Linter
 
 
@@ -11,18 +15,14 @@ class MccabeLinter(Linter):
 
     @classmethod
     def _lint(cls, file):
-        args = [
-            "python",
-            "-m",
-            "mccabe",
-            "--min",
-            str(cls.max_complexity),
-            str(file),
-        ]
-        result = cls._execute_command(args)
-        messages = cls._parse_output(result.stdout)
+        stdout = io.StringIO()
+        with contextlib.redirect_stdout(stdout):
+            mccabe.main(["--min", str(cls.max_complexity), str(file)])
+        messages = cls._parse_output(stdout.getvalue())
+
         for message in messages:
             message.filename = file
             message.message_id = "C901"
             message.message = f"too complex: {message.message}"
+
         return messages
