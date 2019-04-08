@@ -33,6 +33,9 @@ Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
         :target: https://bettercodehub.com/results/vpoulailleau/python-dev-tools
         :alt: Maintainability
 
+.. image:: https://img.shields.io/lgtm/grade/python/g/vpoulailleau/python-dev-tools.svg?logo=lgtm&logoWidth=1
+        :target: https://lgtm.com/projects/g/vpoulailleau/python-dev-tools/context:python
+        :alt: Maintainability
 
 Documentation
 -------------
