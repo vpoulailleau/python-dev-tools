@@ -130,7 +130,7 @@ def test_complexity(tmpdir):
             tool="McCabe",
             message_id="C901",
             filename=str(p),
-            lineno=9,
+            lineno=7,
             charno=0,
             message="too complex: 'foo' 11",
             extramessage="",
@@ -184,10 +184,40 @@ def test_lint_myself():
     """Test no lint message for this project."""
     source_dir = Path("python_dev_tools")
     print()
+    results = []
     for python_file in source_dir.rglob("*.py"):
         result = lint(python_file, all_warnings=True)
         print(python_file, result)
-        assert not result
+        results.extend(result)
+    assert results == [
+        LinterMessage(
+            tool="flake8",
+            message_id="S404",
+            filename="python_dev_tools/linters/common.py",
+            lineno=4,
+            charno=1,
+            message="Consider possible security implications associated with subprocess module.",
+            extramessage="",
+        ),
+        LinterMessage(
+            tool="flake8",
+            message_id="T101",
+            filename="python_dev_tools/linters/common.py",
+            lineno=10,
+            charno=3,
+            message="fixme found (TODO)",
+            extramessage="",
+        ),
+        LinterMessage(
+            tool="flake8",
+            message_id="S603",
+            filename="python_dev_tools/linters/common.py",
+            lineno=148,
+            charno=1,
+            message="subprocess call - check for execution of untrusted input.",
+            extramessage="",
+        ),
+    ]
 
 
 def test_installation_error(tmpdir):

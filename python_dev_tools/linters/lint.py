@@ -15,11 +15,11 @@ linters = [
 ]
 
 
-def lint(file, all_warnings=False):
+def lint(filepath, all_warnings=False):
     """Lint the file with known linters."""
     messages = set()
     for linter in linters:
-        messages.update(linter.lint(file))
+        messages.update(linter.lint(filepath))
         if len(messages) >= 10 and not all_warnings:
             break
 

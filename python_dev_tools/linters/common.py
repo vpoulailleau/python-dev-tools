@@ -84,7 +84,7 @@ class LinterMessage:
             )
         )
 
-    def formatted(self, format):
+    def formatted(self, format_string):
         """Format the message according to format parameter."""
         data = {
             "path": self.filename,
@@ -97,7 +97,7 @@ class LinterMessage:
         if self.extramessage:
             data["text"] += f" ({self.extramessage})"
 
-        return format % data
+        return format_string % data
 
 
 class LinterNotFound(FileNotFoundError):
@@ -118,16 +118,16 @@ class Linter:
     regex = [".*"]
 
     @classmethod
-    def lint(cls, file):
+    def lint(cls, filepath):
         """Execute the linter and return the list of messages."""
         try:
-            return cls._lint(file)
+            return cls._lint(filepath)
         except LinterNotFound:
             return [
                 LinterMessage(
                     tool="whatalinter",
                     message_id=f"E999",
-                    filename=str(file),
+                    filename=str(filepath),
                     lineno=1,
                     charno=1,
                     message=f"linter not found: {cls.path}",
@@ -136,8 +136,8 @@ class Linter:
             ]
 
     @classmethod
-    def _lint(cls, file):
-        args = [cls.path, str(file)]
+    def _lint(cls, filepath):
+        args = [cls.path, str(filepath)]
         result = cls._execute_command(args)
         return cls._parse_output(result.stdout)
 
@@ -160,11 +160,11 @@ class Linter:
 
     @classmethod
     def _parse_line(cls, line, regex, message=None, **kwargs):
-        m = re.match(regex, line)
-        if m:
+        match = re.match(regex, line)
+        if match:
             if not message:
                 message = LinterMessage()
-            kwargs.update(m.groupdict())
+            kwargs.update(match.groupdict())
             if "lineno" in kwargs:
                 kwargs["lineno"] = int(kwargs["lineno"])
             if "charno" in kwargs:

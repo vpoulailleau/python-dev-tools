@@ -46,7 +46,7 @@ def main():
     args = parser.parse_args()
 
     udpate_os_path()
-    for message in lint(file=args.file, all_warnings=args.all):
+    for message in lint(filepath=args.file, all_warnings=args.all):
         print(message.formatted(args.format))
 
 

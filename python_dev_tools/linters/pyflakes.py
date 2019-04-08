@@ -10,8 +10,8 @@ class PyflakesLinter(Linter):
     regex = [r"(?P<filename>.*?):(?P<lineno>\d+):\s+(?P<message>.*)"]
 
     @classmethod
-    def _lint(cls, file):
-        args = [cls.path, str(file)]
+    def _lint(cls, filepath):
+        args = [cls.path, str(filepath)]
         result = cls._execute_command(args)
         messages = cls._parse_output(result.stdout)
         for message in messages:

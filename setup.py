@@ -19,7 +19,7 @@ requirements = [
     "flake8-broken-line==0.1.0",
     "flake8-bugbear==19.3.0",
     "flake8-builtins==1.4.1",
-    "flake8-commas==2.0.0",
+    # TODO when we have a better formatter "flake8-commas==2.0.0",
     "flake8-comprehensions==2.1.0",
     "flake8-debugger==3.1.0",
     "flake8-fixme==1.1.0",
@@ -40,7 +40,7 @@ requirements = [
     "Sphinx==2.0.0",
     "tox==3.8.6",
     "twine==1.13.0",
-    # TODO "wemake-python-styleguide==0.8.1",
+    # TODO too old dependencies "wemake-python-styleguide==0.8.1",
     "wheel==0.33.1",
 ]
 

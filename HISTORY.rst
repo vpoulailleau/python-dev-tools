@@ -10,7 +10,6 @@ History
 * Add flake8-comprehensions linter
 * Add flake8-logging-format linter
 * Add flake8-bugbear linter
-* Add flake8-commas linter
 * Add flake8-builtins linter
 * Add flake8-broken-line linter
 * Add flake8-fixme linter

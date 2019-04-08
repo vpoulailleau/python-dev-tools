@@ -15,14 +15,14 @@ class MccabeLinter(Linter):
     regex = [r"(?P<lineno>\d+):(?P<charno>\d+):\s+(?P<message>.*)"]
 
     @classmethod
-    def _lint(cls, file):
+    def _lint(cls, filepath):
         stdout = io.StringIO()
         with contextlib.redirect_stdout(stdout):
-            mccabe.main(["--min", str(cls.max_complexity), str(file)])
+            mccabe.main(["--min", str(cls.max_complexity), str(filepath)])
         messages = cls._parse_output(stdout.getvalue())
 
         for message in messages:
-            message.filename = file
+            message.filename = str(filepath)
             message.message_id = "C901"
             message.message = f"too complex: {message.message}"
 
