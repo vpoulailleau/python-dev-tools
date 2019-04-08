@@ -9,6 +9,15 @@ History
 * Add pep8-naming linter
 * Add flake8-comprehensions linter
 * Add flake8-logging-format linter
+* Add flake8-bugbear linter
+* Add flake8-commas linter
+* Add flake8-builtins linter
+* Add flake8-broken-line linter
+* Add flake8-fixme linter
+* Add flake8-mutable linter
+* Add flake8-debugger linter
+* Add flake8-variables-names linter
+* Add flake8-bandit linter
 
 2019.03.02
 ----------
