@@ -62,7 +62,7 @@ class LinterMessage:
         """Format the message according to format parameter."""
         data = {
             "path": self.filename,
-            "row": self.lineno,
+            "row": self.lineno if self.lineno else 1,
             "col": self.charno,
             # horrible hack for visual studio code
             "code": f"W{self.message_id[1:]}",
