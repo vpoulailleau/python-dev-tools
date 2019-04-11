@@ -45,7 +45,7 @@ The full documentation can be read at https://python-dev-tools.readthedocs.io.
 Installation
 ------------
 
-* Short version: ``pip install python-dev-tools``
+* Short version: ``pip install --user --upgrade python-dev-tools``
 * Long version: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 * Use the provided linter, formatter and precommit hook where applicable
 
