@@ -76,6 +76,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/vpoulailleau/python-dev-tools",
-    version="2019.04.17",
+    version="2019.04.24",
     zip_safe=False,
 )
