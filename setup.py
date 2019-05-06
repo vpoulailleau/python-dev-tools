@@ -22,7 +22,7 @@ requirements = [
     # TODO when we have a better formatter "flake8-commas==2.0.0",
     "flake8-comprehensions==2.1.0",
     "flake8-debugger==3.1.0",
-    "flake8-fixme==1.1.0",
+    "flake8-fixme==1.1.1",
     "flake8-isort==2.7.0",
     "flake8-mutable==1.2.0",
     "flake8-logging-format==0.6.0",
