@@ -36,7 +36,7 @@ requirements = [
     "pyflakes==2.1.1",
     "pytest==4.5.0",
     "pytest-cov==2.7.1",
-    "pytest-runner==4.4",
+    "pytest-runner==4.5",
     "Sphinx==2.0.1",
     "tox==3.11.1",
     "twine==1.13.0",
@@ -44,7 +44,7 @@ requirements = [
     "wheel==0.33.4",
 ]
 
-setup_requirements = ["pytest-runner==4.4"]
+setup_requirements = ["pytest-runner==4.5"]
 
 test_requirements = ["pytest==4.5.0"]
 
