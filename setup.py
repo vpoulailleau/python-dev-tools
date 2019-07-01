@@ -9,7 +9,7 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 requirements = [
-    "bandit==1.6.1",
+    "bandit==1.6.2",
     "bumpversion==0.5.3",
     "coverage==4.5.3",
     "coveralls[yaml]==1.8.1",
