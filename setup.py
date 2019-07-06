@@ -32,7 +32,7 @@ requirements = [
     "pip==19.1.1",
     "pep8-naming==0.8.2",
     "pycodestyle==2.5.0",
-    "pydocstyle==3.0.0",
+    "pydocstyle==4.0.0",
     "pyflakes==2.1.1",
     "pytest==5.0.0",
     "pytest-cov==2.7.1",
