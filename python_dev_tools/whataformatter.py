@@ -1,14 +1,16 @@
 """Formatter module, aggregation of formatters."""
 import argparse
+import difflib
 import os
-import pathlib
+import shutil
+from pathlib import Path
 
 from .formatters.format_file import format_file
 
 
 def udpate_os_path():
     """Update PATH env variable to find linters."""
-    script_path = pathlib.Path(__file__).resolve()
+    script_path = Path(__file__).resolve()
     os.environ["PATH"] = "".join(
         (str(script_path.parent), os.pathsep, os.environ["PATH"])
     )
@@ -35,11 +37,26 @@ def main():
         default=False,
         help="ignored flag (compatibility with black / VS Code)",
     )
-    # add --diff that prints out a diff of the modification (for VS code)
+    parser.add_argument(
+        "--diff",
+        action="store_true",
+        default=False,
+        help="display diff instead of writing file",
+    )
     args = parser.parse_args()
 
     udpate_os_path()
-    format_file(filepath=args.file)
+    if args.diff:
+        copy_file = f"{args.file}.copy"
+        shutil.copyfile(args.file, copy_file)
+        format_file(filepath=copy_file)
+        orig_content = Path(args.file).read_text()
+        copy_content = Path(copy_file).read_text()
+        print(''.join(difflib.unified_diff(
+            orig_content, copy_content, fromfile="origin", tofile="formatted")))
+        Path(copy_file).unlink()
+    else:
+        format_file(filepath=args.file)
 
 
 if __name__ == "__main__":
