@@ -5,10 +5,29 @@ from textwrap import dedent
 import python_dev_tools.whatalinter
 from python_dev_tools.linters.common import LinterMessage
 from python_dev_tools.linters.lint import lint, linters
-from python_dev_tools.whatalinter import main
+from python_dev_tools.whataformatter import main as main_formatter
+from python_dev_tools.whatalinter import main as main_linter
 
 
-def test_main(tmpdir, capsys):
+def test_main_formatter(tmpdir):
+    """Test main call."""
+    import sys
+
+    p = tmpdir.join("foo.py")
+    p.write(
+        dedent(
+            """
+            a =   1
+            """
+        )
+    )
+    sys.argv = ["whataformatter", str(p)]
+    python_dev_tools.whataformatter.__name__ = "__main__"
+    main_formatter()
+    # TODO assert file content
+
+
+def test_main_linter(tmpdir, capsys):
     """Test main call."""
     import sys
 
@@ -16,7 +35,7 @@ def test_main(tmpdir, capsys):
     p.write("a = 1\n")
     sys.argv = ["whatalinter", str(p)]
     python_dev_tools.whatalinter.__name__ = "__main__"
-    main()
+    main_linter()
     captured = capsys.readouterr()
     assert "[pydocstyle] Missing docstring in public module" in captured.out
 
@@ -190,6 +209,24 @@ def test_lint_myself():
         print(python_file, result)
         results.extend(result)
     assert results == [
+        LinterMessage(
+            tool="flake8",
+            message_id="S404",
+            filename="python_dev_tools/formatters/common.py",
+            lineno=2,
+            charno=1,
+            message="Consider possible security implications associated with subprocess module.",
+            extramessage="",
+        ),
+        LinterMessage(
+            tool="flake8",
+            message_id="S603",
+            filename="python_dev_tools/formatters/common.py",
+            lineno=39,
+            charno=1,
+            message="subprocess call - check for execution of untrusted input.",
+            extramessage="",
+        ),
         LinterMessage(
             tool="flake8",
             message_id="S404",
