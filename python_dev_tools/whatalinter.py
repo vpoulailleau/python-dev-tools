@@ -41,7 +41,7 @@ def main():
         "--all",
         action="store_true",
         default=False,
-        help="Display all warnings (default: display first ten warnings)",
+        help="display all warnings (default: display first ten warnings)",
     )
     args = parser.parse_args()
 
