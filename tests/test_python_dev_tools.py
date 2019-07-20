@@ -27,6 +27,9 @@ def test_main_formatter(tmpdir):
     # TODO assert file content
 
 
+# TODO test formatting
+
+
 def test_main_linter(tmpdir, capsys):
     """Test main call."""
     import sys
