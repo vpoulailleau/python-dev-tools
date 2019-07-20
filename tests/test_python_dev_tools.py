@@ -207,7 +207,7 @@ def test_lint_myself():
     source_dir = Path("python_dev_tools")
     print()
     results = []
-    for python_file in source_dir.rglob("*.py"):
+    for python_file in sorted(source_dir.rglob("*.py")):
         result = lint(python_file, all_warnings=True)
         print(python_file, result)
         results.extend(result)
