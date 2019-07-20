@@ -120,7 +120,10 @@ dependencies to develop Python software.
 
 * Simple formatter
 
-  * TODO
+  * ``whataformatter a_python_file.py`` formats a_python_file.py
+  * based on
+
+    * black: https://github.com/python/black
 
 * Simple precommit hook
 
