@@ -5,6 +5,7 @@ History
 ----------
 
 * Add black formatter
+* Add autoflake formatter
 
 2019.04.08
 ----------

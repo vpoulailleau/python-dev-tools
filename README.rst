@@ -123,6 +123,7 @@ dependencies to develop Python software.
   * ``whataformatter a_python_file.py`` formats a_python_file.py
   * based on
 
+    * autoflake: https://github.com/myint/autoflake
     * black: https://github.com/python/black
 
 * Simple precommit hook
