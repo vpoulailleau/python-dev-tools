@@ -8,4 +8,4 @@ formatters = [BlackFormatter]
 def format_file(filepath):
     """Format the file with known formatters."""
     for formatter in formatters:
-        formatter.format(filepath)
+        formatter.format_file(filepath)
