@@ -8,16 +8,33 @@ Installation
 Stable release
 --------------
 
+Preferred installation method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install pipx if not yet installed: https://pipxproject.github.io/pipx/installation/
+
+Then in a terminal, run:
+
+.. code-block:: console
+
+    $ pipx install python_dev_tools
+
+Standard installation method
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 To install Python Dev Tools, run this command in your terminal:
 
 .. code-block:: console
 
     $ pip install python_dev_tools
 
-This is the preferred method to install Python Dev Tools, as it will always install the most recent stable release.
+This is the preferred method to install Python Dev Tools, as it will always
+install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
+
+Then pay attention to update your PATH environment variable appropriately.
 
 .. _pip: https://pip.pypa.io
 .. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/

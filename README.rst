@@ -45,14 +45,34 @@ The full documentation can be read at https://python-dev-tools.readthedocs.io.
 Installation
 ------------
 
-* Short version: ``pip install --user --upgrade python-dev-tools``
-* Long version: https://python-dev-tools.readthedocs.io/en/latest/installation.html
-* Use the provided linter, formatter and precommit hook where applicable
+Install pipx if not yet installed: https://pipxproject.github.io/pipx/installation/
+
+Then in a terminal, run:
+
+.. code-block:: console
+
+    $ pipx install python_dev_tools
+
+Full documentation on installation: https://python-dev-tools.readthedocs.io/en/latest/installation.html
+
+That's it! Use the provided linter, formatter and precommit hook where
+applicable.
+
+Upgrade
+-------
+
+If not using pipx, follow again the installation procedure.
+
+If using pipx (preferred installation method), run in a terminal:
+
+.. code-block:: console
+
+    $ pipx upgrade python_dev_tools
 
 Installation with Visual Studio Code
 ------------------------------------
 
-* ``pip install --user --upgrade python-dev-tools``
+* Follow the installation procedure for python-dev-tools
 * Be sure to have the official Python extension installed in VS Code
 * In VS Code, open settings (F1 key, then type "Open Settings (JSON)",
   then enter)
