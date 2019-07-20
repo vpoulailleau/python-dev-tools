@@ -29,6 +29,13 @@ def main():
     parser.add_argument(
         "file", metavar="FILE", type=str, help="path of the file to format"
     )
+    parser.add_argument(
+        "--quiet",
+        action="store_true",
+        default=False,
+        help="ignored flag (compatibility with black / VS Code)",
+    )
+    # add --diff that prints out a diff of the modification (for VS code)
     args = parser.parse_args()
 
     udpate_os_path()
