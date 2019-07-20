@@ -1,8 +1,5 @@
 """Common constants and class to all linters."""
-
-import re
 import subprocess
-from functools import total_ordering
 
 
 class FormatterNotFound(FileNotFoundError):
