@@ -10,6 +10,7 @@ with open("HISTORY.rst") as history_file:
 
 requirements = [
     "bandit==1.6.2",
+    "black==19.3b0",
     "bumpversion==0.5.3",
     "coverage==4.5.3",
     "coveralls[yaml]==1.8.1",
@@ -52,16 +53,20 @@ setup(
     author="Vincent Poulailleau",
     author_email="vpoulailleau@gmail.com",
     entry_points={
-        "console_scripts": ["whatalinter = python_dev_tools.whatalinter:main"]
+        "console_scripts": [
+            "whatalinter = python_dev_tools.whatalinter:main",
+            "whataformatter = python_dev_tools.whataformatter:main",
+        ]
     },
     classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
     ],
     description="Needed and up-to-date tools to develop in Python",
     install_requires=requirements,
