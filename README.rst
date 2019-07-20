@@ -125,6 +125,7 @@ dependencies to develop Python software.
 
     * autoflake: https://github.com/myint/autoflake
     * black: https://github.com/python/black
+    * pyupgrade: https://github.com/asottile/pyupgrade
 
 * Simple precommit hook
 

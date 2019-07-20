@@ -6,6 +6,7 @@ History
 
 * Add black formatter
 * Add autoflake formatter
+* Add pyupgrade formatter
 
 2019.04.08
 ----------

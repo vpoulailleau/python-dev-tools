@@ -2,11 +2,13 @@
 
 from .autoflake import AutoflakeFormatter
 from .black import BlackFormatter
+from .pyupgrade import PyupgradeFormatter
 
 formatters = [
     AutoflakeFormatter,
-    BlackFormatter,
-]  # BlackFormatter should be the last one
+    PyupgradeFormatter,
+    BlackFormatter,  # BlackFormatter should be the last one
+]
 
 
 def format_file(filepath):
