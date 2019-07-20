@@ -52,8 +52,16 @@ def main():
         format_file(filepath=copy_file)
         orig_content = Path(args.file).read_text()
         copy_content = Path(copy_file).read_text()
-        print(''.join(difflib.unified_diff(
-            orig_content, copy_content, fromfile="origin", tofile="formatted")))
+        print(
+            "".join(
+                difflib.unified_diff(
+                    orig_content,
+                    copy_content,
+                    fromfile="origin",
+                    tofile="formatted",
+                )
+            )
+        )
         Path(copy_file).unlink()
     else:
         format_file(filepath=args.file)
