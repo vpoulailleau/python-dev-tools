@@ -1,6 +1,11 @@
 History
 =======
 
+2019.07.21
+----------
+
+* Add --quiet and --diff flags to whataformatter for VS Code compatibility
+
 2019.07.20
 ----------
 
