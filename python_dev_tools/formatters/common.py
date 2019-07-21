@@ -9,8 +9,6 @@ class FormatterNotFound(FileNotFoundError):
     Note that this doesn't occur, except due to an installation error.
     """
 
-    pass
-
 
 class Formatter:
     """Base formatter class."""

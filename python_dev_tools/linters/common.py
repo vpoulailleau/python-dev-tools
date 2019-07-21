@@ -81,8 +81,6 @@ class LinterNotFound(FileNotFoundError):
     Note that this doesn't occur, except due to an installation error.
     """
 
-    pass
-
 
 class Linter:
     """Base linter class."""
@@ -160,9 +158,7 @@ class Linter:
                     line, cls.regex[regex_index], None, tool=cls.name
                 )
             else:
-                message = cls._parse_line(
-                    line, cls.regex[regex_index], message
-                )
+                message = cls._parse_line(line, cls.regex[regex_index], message)
 
             if regex_index == len(cls.regex) - 1:
                 regex_index = 0
