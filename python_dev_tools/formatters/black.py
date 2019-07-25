@@ -7,4 +7,4 @@ class BlackFormatter(Formatter):
 
     name = "black"
     path = "black"
-    cli_args = ["--line-length", "80", "--target-version=py36"]
+    cli_args = ["--line-length", "79", "--target-version=py36"]
