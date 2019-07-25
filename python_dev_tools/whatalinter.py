@@ -3,8 +3,8 @@ import argparse
 import os
 import pathlib
 
-from .linters.common import DEFAULT_MESSAGE_FORMAT
-from .linters.lint import lint
+from python_dev_tools.linters.common import DEFAULT_MESSAGE_FORMAT
+from python_dev_tools.linters.lint import lint
 
 
 def udpate_os_path():
