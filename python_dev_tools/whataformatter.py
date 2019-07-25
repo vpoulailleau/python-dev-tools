@@ -47,7 +47,7 @@ def main():
 
     udpate_os_path()
     if args.diff:
-        copy_file = f"{args.file}.copy"
+        copy_file = f"{args.file}.co.py"
         shutil.copyfile(args.file, copy_file)
         format_file(filepath=copy_file)
         orig_content = Path(args.file).read_text()
