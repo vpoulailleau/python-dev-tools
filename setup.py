@@ -9,7 +9,7 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 requirements = [
-    "autoflake==1.3",
+    "autoflake==1.3.1",
     "bandit==1.6.2",
     "black==19.3b0",
     "bumpversion==0.5.3",
