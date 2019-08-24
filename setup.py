@@ -83,6 +83,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/vpoulailleau/python-dev-tools",
-    version="2019.08.19",
+    version="2019.08.24",
     zip_safe=False,
 )
