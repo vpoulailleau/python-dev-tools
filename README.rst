@@ -82,7 +82,10 @@ Installation with Visual Studio Code
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/home/vincent/.local/bin/whatalinter",
+    "python.linting.flake8Path": "/home/vincent/.local/pipx/venvs/python_dev_tools/bin/whatalinter",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "/home/vincent/.local/pipx/venvs/python_dev_tools/bin/whataformatter",
+    "python.formatting.blackArgs": [],
 
 * Adapt the previous path according to your installation.
 
