@@ -36,7 +36,7 @@ requirements = [
     "pycodestyle==2.5.0",
     "pydocstyle==4.0.1",
     "pyflakes==2.1.1",
-    "pytest==5.1.3",
+    "pytest==5.2.0",
     "pytest-cov==2.7.1",
     "pytest-runner==5.1",
     "pyupgrade==1.23.0",
@@ -49,7 +49,7 @@ requirements = [
 
 setup_requirements = ["pytest-runner==5.1"]
 
-test_requirements = ["pytest==5.1.3"]
+test_requirements = ["pytest==5.2.0"]
 
 setup(
     author="Vincent Poulailleau",
