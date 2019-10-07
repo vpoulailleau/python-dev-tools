@@ -37,7 +37,7 @@ requirements = [
     "pydocstyle==4.0.1",
     "pyflakes==2.1.1",
     "pytest==5.1.3",
-    "pytest-cov==2.7.1",
+    "pytest-cov==2.8.1",
     "pytest-runner==5.1",
     "pyupgrade==1.24.0",
     "Sphinx==2.2.0",
