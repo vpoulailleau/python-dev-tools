@@ -143,11 +143,6 @@ TODO
 ----
 
 * documentation
-* linter
-
-  * add more linters
-
-* formatter
 * precommit
 
 Credits
