@@ -67,7 +67,7 @@ If using pipx (preferred installation method), run in a terminal:
 
 .. code-block:: console
 
-    $ pipx upgrade python_dev_tools
+    $ pipx upgrade python-dev-tools
 
 Installation with Visual Studio Code
 ------------------------------------
