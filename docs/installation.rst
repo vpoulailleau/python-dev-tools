@@ -19,6 +19,13 @@ Then in a terminal, run:
 
     $ pipx install python_dev_tools
 
+Then add the new :code:`bin` directory to the path. On Linux for instance, run:
+
+.. code-block:: console
+
+    $ TOOLS_PATH=$(ls -l ~/.local/bin/whataformatter | sed -e "s/.*-> //" | sed -e "s#/bin.*#/bin#")
+    $ userpath prepend $TOOLS_PATH
+
 Standard installation method
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
