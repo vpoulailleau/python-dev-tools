@@ -26,7 +26,7 @@ To install Python Dev Tools, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install python_dev_tools
+    $ pip install python-dev-tools
 
 This is the preferred method to install Python Dev Tools, as it will always
 install the most recent stable release.

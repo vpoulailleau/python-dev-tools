@@ -51,7 +51,7 @@ Then in a terminal, run:
 
 .. code-block:: console
 
-    $ pipx install python_dev_tools
+    $ pipx install python-dev-tools
 
 Full documentation on installation: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 
@@ -82,9 +82,9 @@ Installation with Visual Studio Code
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/home/vincent/.local/pipx/venvs/python_dev_tools/bin/whatalinter",
+    "python.linting.flake8Path": "/home/vincent/.local/pipx/venvs/python-dev-tools/bin/whatalinter",
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "/home/vincent/.local/pipx/venvs/python_dev_tools/bin/whataformatter",
+    "python.formatting.blackPath": "/home/vincent/.local/pipx/venvs/python-dev-tools/bin/whataformatter",
     "python.formatting.blackArgs": [],
 
 * Adapt the previous path according to your installation.

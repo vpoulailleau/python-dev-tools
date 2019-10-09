@@ -2,6 +2,6 @@
 Usage
 =====
 
-To use Python Dev Tools in a project::
+TODO
 
-    import python_dev_tools
+See README.
