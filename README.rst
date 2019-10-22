@@ -115,6 +115,7 @@ dependencies to develop Python software.
     * pydocstyle: https://github.com/PyCQA/pydocstyle
     * flake8 and plugins: https://gitlab.com/pycqa/flake8
 
+      * flake8-2020: https://github.com/asottile/flake8-2020
       * flake8-bandit: https://github.com/tylerwince/flake8-bandit
       * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
       * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
