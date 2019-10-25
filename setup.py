@@ -22,7 +22,7 @@ requirements = [
     "flake8-broken-line==0.1.1",
     "flake8-bugbear==19.8.0",
     "flake8-builtins==1.4.1",
-    # TODO when we have a better formatter "flake8-commas==2.0.0",
+    "flake8-commas==2.0.0",
     "flake8-comprehensions==2.2.0",
     "flake8-debugger==3.2.0",
     "flake8-fixme==1.1.1",
@@ -37,7 +37,7 @@ requirements = [
     "pycodestyle==2.5.0",
     "pydocstyle==4.0.1",
     "pyflakes==2.1.1",
-    "pytest==5.2.2",
+    "pytest==5.2.1",
     "pytest-cov==2.8.1",
     "pytest-runner==5.1",
     "pyupgrade==1.25.1",
@@ -50,7 +50,7 @@ requirements = [
 
 setup_requirements = ["pytest-runner==5.1"]
 
-test_requirements = ["pytest==5.2.2"]
+test_requirements = ["pytest==5.2.1"]
 
 setup(
     author="Vincent Poulailleau",

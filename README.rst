@@ -120,6 +120,7 @@ dependencies to develop Python software.
       * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
       * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
       * flake8-builtins: https://github.com/gforcada/flake8-builtins
+      * flake8-comma: https://github.com/PyCQA/flake8-commas/
       * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
       * flake8-debugger: https://github.com/JBKahn/flake8-debugger
       * flake8-fixme: https://github.com/tommilligan/flake8-fixme
