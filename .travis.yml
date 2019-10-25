@@ -5,7 +5,8 @@ language: python
 python:
   - 3.6
   - 3.7
-dist: xenial
+  - 3.8
+dist: bionic
 
 install: 
   - pip install -U tox-travis
