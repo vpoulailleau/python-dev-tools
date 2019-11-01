@@ -11,7 +11,7 @@ with open("HISTORY.rst") as history_file:
 requirements = [
     "autoflake==1.3.1",
     "bandit==1.6.2",
-    "black==19.3b0",
+    "black==19.10b0",
     "bumpversion==0.5.3",
     "coverage==4.5.4",
     "coveralls[yaml]==1.8.2",
@@ -24,7 +24,7 @@ requirements = [
     "flake8-builtins==1.4.1",
     # TODO when we have a better formatter "flake8-commas==2.0.0",
     "flake8-comprehensions==3.0.1",
-    "flake8-debugger==3.2.0",
+    "flake8-debugger==3.2.1",
     "flake8-fixme==1.1.1",
     "flake8-isort==2.7.0",
     "flake8-mutable==1.2.0",
