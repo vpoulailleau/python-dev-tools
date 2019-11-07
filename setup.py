@@ -29,7 +29,7 @@ requirements = [
     "flake8-isort==2.7.0",
     "flake8-mutable==1.2.0",
     "flake8-logging-format==0.6.0",
-    "flake8-variables-names==0.0.2",
+    "flake8-variables-names==0.0.3",
     "isort==4.3.21",
     "mccabe==0.6.1",
     "pip==19.3.1",
