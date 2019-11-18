@@ -23,7 +23,7 @@ def lint(filepath, all_warnings=False):
         if len(messages) >= 10 and not all_warnings:
             break
 
-    messages = sorted(list(messages))
+    messages = sorted(messages)
     if all_warnings:
         return messages
     return messages[:10]
