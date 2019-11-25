@@ -1,4 +1,4 @@
 watchdog==0.9.0
 
 # Self dependency! Nice way to get tool updates...
-python-dev-tools==2019.11.20
+python-dev-tools==2019.11.25
