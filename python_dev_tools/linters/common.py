@@ -22,7 +22,7 @@ class LinterMessage:
         message="unknown",
         extramessage="",
     ):
-        """Initializer."""
+        """Initialize the new instance."""
         self.tool = tool
         self.message_id = message_id
         self.filename = filename
