@@ -23,7 +23,7 @@ requirements = [
     "flake8-bugbear==20.1.2",
     "flake8-builtins==1.4.2",
     # TODO when we have a better formatter "flake8-commas==2.0.0",
-    "flake8-comprehensions==3.1.4",
+    "flake8-comprehensions==3.2.2",
     "flake8-debugger==3.2.1",
     "flake8-fixme==1.1.1",
     "flake8-isort==2.8.0",
