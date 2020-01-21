@@ -32,7 +32,7 @@ requirements = [
     "flake8-variables-names==0.0.3",
     "isort==4.3.21",
     "mccabe==0.6.1",
-    "pip==19.3.1",
+    "pip==20.0",
     "pep8-naming==0.9.1",
     "pycodestyle==2.5.0",
     "pydocstyle==5.0.2",
