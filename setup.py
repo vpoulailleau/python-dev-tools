@@ -33,7 +33,7 @@ requirements = [
     "isort==4.3.21",
     "mccabe==0.6.1",
     "pip==20.0.2",
-    "pep8-naming==0.9.1",
+    "pep8-naming==0.10.0",
     "pycodestyle==2.5.0",
     "pydocstyle==5.0.2",
     "pyflakes==2.1.1",
