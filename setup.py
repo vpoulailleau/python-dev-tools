@@ -26,7 +26,7 @@ requirements = [
     "flake8-comprehensions==3.2.2",
     "flake8-debugger==3.2.1",
     "flake8-fixme==1.1.1",
-    "flake8-isort==2.8.0",
+    "flake8-isort==2.9.1",
     "flake8-mutable==1.2.0",
     "flake8-logging-format==0.6.0",
     "flake8-variables-names==0.0.3",
