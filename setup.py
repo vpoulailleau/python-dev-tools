@@ -36,7 +36,7 @@ requirements = [
     "pep8-naming==0.9.1",
     "pycodestyle==2.5.0",
     "pydocstyle==5.0.2",
-    "pyflakes==2.1.1",
+    "pyflakes==2.2.0",
     "pytest==5.3.5",
     "pytest-cov==2.8.1",
     "pytest-runner==5.2",
