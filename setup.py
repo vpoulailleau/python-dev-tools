@@ -34,7 +34,7 @@ requirements = [
     "mccabe==0.6.1",
     "pip==20.0.2",
     "pep8-naming==0.9.1",
-    "pycodestyle==2.5.0",
+    "pycodestyle==2.6.0",
     "pydocstyle==5.0.2",
     "pyflakes==2.1.1",
     "pytest==5.3.5",
