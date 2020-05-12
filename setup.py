@@ -16,7 +16,7 @@ requirements = [
     "coverage==5.0.3",
     "coveralls[yaml]==1.11.1",
     "doc8==0.8.0",
-    "flake8==3.7.9",
+    "flake8==3.8.1",
     "flake8-2020==1.6.0",
     "flake8-bandit==2.1.2",
     "flake8-broken-line==0.1.1",
