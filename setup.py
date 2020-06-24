@@ -43,7 +43,7 @@ requirements = [
     "pyupgrade==2.1.0",
     "Sphinx==2.4.3",
     "tox==3.14.5",
-    "twine==3.1.1",
+    "twine==3.2.0",
     # TODO too old dependencies "wemake-python-styleguide==0.8.1",
     "wheel==0.34.2",
 ]
