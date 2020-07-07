@@ -14,7 +14,7 @@ requirements = [
     "black==19.10b0",
     "bumpversion==0.5.3",
     "coverage==5.0.3",
-    "coveralls[yaml]==1.11.1",
+    "coveralls[yaml]==2.1.0",
     "doc8==0.8.0",
     "flake8==3.7.9",
     "flake8-2020==1.6.0",
