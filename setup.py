@@ -40,7 +40,7 @@ requirements = [
     "pytest==5.3.5",
     "pytest-cov==2.8.1",
     "pytest-runner==5.2",
-    "pyupgrade==2.1.0",
+    "pyupgrade==2.7.2",
     "Sphinx==2.4.3",
     "tox==3.14.5",
     "twine==3.1.1",
