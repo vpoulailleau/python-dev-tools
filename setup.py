@@ -13,7 +13,7 @@ requirements = [
     "bandit==1.6.2",
     "black==19.10b0",
     "bumpversion==0.5.3",
-    "coverage==5.0.3",
+    "coverage==5.2.1",
     "coveralls[yaml]==1.11.1",
     "doc8==0.8.0",
     "flake8==3.7.9",
