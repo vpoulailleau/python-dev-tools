@@ -45,7 +45,7 @@ requirements = [
     "tox==3.14.5",
     "twine==3.1.1",
     # TODO too old dependencies "wemake-python-styleguide==0.8.1",
-    "wheel==0.34.2",
+    "wheel==0.35.0",
 ]
 
 setup_requirements = ["pytest-runner==5.2"]
