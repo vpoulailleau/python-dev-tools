@@ -11,7 +11,7 @@ with open("HISTORY.rst") as history_file:
 requirements = [
     "autoflake==1.3.1",
     "bandit==1.6.2",
-    "black==19.10b0",
+    "black==20.8b0",
     "bumpversion==0.5.3",
     "coverage==5.0.3",
     "coveralls[yaml]==1.11.1",
