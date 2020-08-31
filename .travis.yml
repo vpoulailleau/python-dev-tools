@@ -1,33 +1,34 @@
 env:
-  global:
-    - CC_TEST_REPORTER_ID=2104b78eb55ebc9f29fb64b8b4e6a338a2ee07fa4fa2b375b09dd37a6776fe7a
-language: python
-python:
-  - 3.6
-  - 3.7
-  - 3.8
-dist: bionic
+    global:
+        - CC_TEST_REPORTER_ID=2104b78eb55ebc9f29fb64b8b4e6a338a2ee07fa4fa2b375b09dd37a6776fe7a
 
-install: 
-  - pip install -U tox-travis
-  - pip install coverage
+language: python
+matrix:
+    include:
+        - python: 3.8
+          dist: bionic
+          sudo: true
+        - python: 3.7
+          dist: xenial
+          sudo: true
+        - python: 3.6
+          dist: xenial
+          sudo: true
+
+before_install:
+    - pip install poetry
+
+install:
+    - poetry install
 
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-script: 
-  - tox
+    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+    - chmod +x ./cc-test-reporter
+    - ./cc-test-reporter before-build
+script:
+    - tox
 after_script:
-  - coverage xml
-  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.6" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
-
-# deploy:
-#   provider: pypi
-#   distributions: sdist bdist_wheel
-#   user: vpoulailleau
-#   password:
-#     secure: aS76IJI+B83rvrxPQNH6T0EorNLStsXODVz94QJ1Xnq+KOd8XF3Dim9FpGjLaFt666mA1d7DR+jRWXeOrNrXELnqiidvmeiOY6oc+p1vrSZyJGEwbotw49kR6Dy9490i/BEFzTnu/APmRfp0uhMixCdVBCIKv24H8cZTKKWZLxnu5zMrZP+GjNC2cnZDYv+3YR8rZ+yIjpS0iUnxMvA1GRjMatmjhExkqvG6I3I7nD14mmtPBRWKxsf6zp13ah6/W9pdy4jxdKYL3GM1Yj33qlZSHjtAq6hlBwbYLLoP/E1obkyBqnVwpiIjUb4t4akg0wwe//7V+0socfo8vA1kYgQFgbBiIJdfYMJ8tgJISsalzJuW5zl9q9OThRktQD9iTquRdLYzaaGcxbKWguhgoLOe3lKKp9INbKcCsFyFQdMvxOcf7iWqTfqWTBYAJJTXHm/2J1wYIbVHhqnSqEyS1MO/OM18VxHcKGqoq4r6BEyfY7vBbZviGJnza5PfSGRe9Fvnr4VX+IhobWLGonUTwWMrn0RkFa59mT9Z4zVCvf/ceQLrBO5bLcO93IVXgFWWmzkGEImTfHAjChhls/WvXqGA/FEjdTyouAG0QZxbYDlbshCo/DltiH0ggXZnUokd+LWHzJl07yjiLbKE2/3DVqCuj4n69PEGJQePBhXoP/c=
-#   on:
-#     tags: true
-#     python: 3.6
+    - echo "$TRAVIS_PULL_REQUEST"
+    - echo "$TRAVIS_PYTHON_VERSION"
+    - find . -name ".coverage"
+    - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_PYTHON_VERSION" == "3.7" ]]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT tests/coverage.xml; fi
