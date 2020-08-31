@@ -153,11 +153,60 @@ TODO
 * documentation
 * precommit
 
-Credits
--------
+Changelog
+---------
 
-This package was created with Cookiecutter_ and the
-`audreyr/cookiecutter-pypackage`_ project template.
+2019.10.22
+^^^^^^^^^^
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+* Add flake8-2020 linter
+
+2019.07.21
+^^^^^^^^^^
+
+* Add --quiet and --diff flags to whataformatter for VS Code compatibility
+
+2019.07.20
+^^^^^^^^^^
+
+* Add black formatter
+* Add autoflake formatter
+* Add pyupgrade formatter
+
+2019.04.08
+^^^^^^^^^^
+
+* Add flake8 linter
+* Add flake8-isort linter
+* Add pep8-naming linter
+* Add flake8-comprehensions linter
+* Add flake8-logging-format linter
+* Add flake8-bugbear linter
+* Add flake8-builtins linter
+* Add flake8-broken-line linter
+* Add flake8-fixme linter
+* Add flake8-mutable linter
+* Add flake8-debugger linter
+* Add flake8-variables-names linter
+* Add flake8-bandit linter
+
+2019.03.02
+^^^^^^^^^^
+
+* Add pydocstyle linter
+
+2019.03.01
+^^^^^^^^^^
+
+* Add McCabe complexity checker
+
+2019.02.26
+^^^^^^^^^^
+
+* Add pyflakes linter
+* Add pycodestyle linter
+
+2019.02.23
+^^^^^^^^^^
+
+* First release on PyPI.
