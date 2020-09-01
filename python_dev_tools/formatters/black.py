@@ -1,5 +1,5 @@
 """Black formatter management."""
-from .common import Formatter
+from python_dev_tools.formatters.common import Formatter
 
 
 class BlackFormatter(Formatter):
@@ -7,4 +7,4 @@ class BlackFormatter(Formatter):
 
     name = "black"
     path = "black"
-    cli_args = ["--line-length", "79", "--target-version=py36"]
+    cli_args = ["--target-version=py36"]
