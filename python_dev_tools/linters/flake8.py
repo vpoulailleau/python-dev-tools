@@ -21,6 +21,11 @@ class Flake8Linter(Linter):
     def _lint(cls, filepath):
         stdout = io.StringIO()
         with contextlib.redirect_stdout(stdout):
-            main([cls.path, str(filepath), "--exit-zero"])
+            try:
+                main([str(filepath), "--exit-zero"])
+            except SystemExit:
+                # TODO what do we do here?
+                pass
+
         messages = cls._parse_output(stdout.getvalue())
         return messages
