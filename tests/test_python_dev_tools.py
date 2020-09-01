@@ -80,7 +80,7 @@ def test_long_line(tmpdir):
             charno=80,
             message="line too long (80 > 79 characters)",
             extramessage="",
-        )
+        ),
     ]
 
 

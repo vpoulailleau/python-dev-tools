@@ -55,10 +55,7 @@ def main():
         print(
             "".join(
                 difflib.unified_diff(
-                    orig_content,
-                    copy_content,
-                    fromfile="origin",
-                    tofile="formatted",
+                    orig_content, copy_content, fromfile="origin", tofile="formatted",
                 )
             )
         )

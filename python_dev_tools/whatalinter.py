@@ -31,10 +31,7 @@ def main():
         "file", metavar="FILE", type=str, help="path of the file to lint"
     )
     parser.add_argument(
-        "-f",
-        "--format",
-        default=DEFAULT_MESSAGE_FORMAT,
-        help="format of the output",
+        "-f", "--format", default=DEFAULT_MESSAGE_FORMAT, help="format of the output",
     )
     parser.add_argument(
         "-a",
