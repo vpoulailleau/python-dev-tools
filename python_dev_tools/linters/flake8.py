@@ -42,3 +42,5 @@ class Flake8Linter(Linter):
                 pass
 
         return cls._parse_output(stdout.getvalue())
+
+    # TODO allow to call "print": https://wemake-python-stylegui.de/en/latest/pages/usage/violations/best_practices.html#wemake_python_styleguide.violations.best_practices.WrongFunctionCallViolation
