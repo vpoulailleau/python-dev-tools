@@ -4,7 +4,7 @@ import io
 
 from flake8.main.cli import main
 
-from python_dev_tools.linters.common import Linter
+from python_dev_tools.linters.common import Linter, LinterMessage
 
 
 class Flake8Linter(Linter):
@@ -35,7 +35,8 @@ class Flake8Linter(Linter):
                         # Q000: avoid "" strings
                         # WPS305: avoid f-strings
                         # WPS306: required explicit subclassing of object
-                        "--ignore=Q000,WPS305,WPS306",
+                        # WPS602: avoid @staticmethod (can be subclassed…)
+                        "--ignore=Q000,WPS305,WPS306,WPS602",
                     ],
                 )
             except SystemExit:
@@ -44,4 +45,10 @@ class Flake8Linter(Linter):
 
         return cls._parse_output(stdout.getvalue())
 
-    # TODO allow to call "print": https://wemake-python-stylegui.de/en/latest/pages/usage/violations/best_practices.html#wemake_python_styleguide.violations.best_practices.WrongFunctionCallViolation
+    @staticmethod
+    def filter_out(message: LinterMessage) -> bool:
+        """Return True when message should be ignored."""
+        for authorized_function in ("input", "print", "pprint"):
+            if f"Found wrong function call: {authorized_function}" in message.message:
+                return True
+        return False

@@ -160,9 +160,15 @@ class Linter:
             if isinstance(message, LinterMessage):
                 if regex_index == len(cls.regex) - 1:
                     regex_index = 0
-                    messages.append(message)
+                    if not cls.filter_out(message):
+                        messages.append(message)
                     message = None
                 else:
                     regex_index += 1
 
         return messages
+
+    @staticmethod
+    def filter_out(message: LinterMessage) -> bool:
+        """Return True when message should be ignored."""
+        return False
