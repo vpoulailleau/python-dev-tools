@@ -18,21 +18,35 @@ class Formatter:
     cli_args = []
 
     @classmethod
-    def format_file(cls, filepath):
-        """Execute the formatter."""
+    def format_file(cls, filepath: str) -> None:
+        """Execute the formatter.
+
+        Args:
+            filepath (str): path of the file to format
+        """
         try:
-            return cls._format_file(filepath)
+            cls._format_file(filepath)
         except FormatterNotFound:
             print(f"Formatter {cls.name} not found: {cls.path}")
 
     @classmethod
-    def _format_file(cls, filepath):
-        args = [cls.path, *cls.cli_args, str(filepath)]
+    def _format_file(cls, filepath: str):
+        args = [cls.path, *cls.cli_args, filepath]
         cls._execute_command(args)
 
     @classmethod
-    def _execute_command(cls, args):
-        """Execute the formatter or raise FormatterNotFound."""
+    def _execute_command(cls, args: list[str]) -> subprocess.CompletedProcess:
+        """Execute the formatter.
+
+        Args:
+            args (list[str]): arguments of the command including command name
+
+        Raises:
+            FormatterNotFound: formatter ``cls.path`` not found in path
+
+        Returns:
+            CompletedProcess: result of the execution
+        """
         try:
             return subprocess.run(  # noqa: S603
                 args,
