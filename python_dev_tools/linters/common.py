@@ -99,7 +99,7 @@ class Linter:
             return [
                 LinterMessage(
                     tool="whatalinter",
-                    message_id=f"E999",
+                    message_id="E999",
                     filename=str(filepath),
                     lineno=1,
                     charno=1,
