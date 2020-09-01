@@ -7,7 +7,7 @@ class PyflakesLinter(Linter):
 
     name = "pyflakes"
     path = "pyflakes"
-    regex = [r"(?P<filename>.*?):(?P<lineno>\d+):\s+(?P<message>.*)"]
+    regex = [r"(?P<filename>.*?):(?P<lineno>\d+):(?P<charno>\d+)\s+(?P<message>.*)"]
 
     @classmethod
     def _lint(cls, filepath):
