@@ -82,15 +82,6 @@ def test_duplicate_key(tmpdir):
     result = lint(p)
     assert result == [
         LinterMessage(
-            tool="pyflakes",
-            message_id="W999",
-            filename=str(p),
-            lineno=3,
-            charno=8,
-            message="dictionary key 1 repeated with different values",
-            extramessage="",
-        ),
-        LinterMessage(
             tool="flake8",
             message_id="F601",
             filename=str(p),
@@ -102,6 +93,15 @@ def test_duplicate_key(tmpdir):
         LinterMessage(
             tool="pyflakes",
             message_id="W999",
+            filename=str(p),
+            lineno=3,
+            charno=8,
+            message="dictionary key 1 repeated with different values",
+            extramessage="",
+        ),
+        LinterMessage(
+            tool="flake8",
+            message_id="F601",
             filename=str(p),
             lineno=3,
             charno=14,
@@ -109,8 +109,8 @@ def test_duplicate_key(tmpdir):
             extramessage="",
         ),
         LinterMessage(
-            tool="flake8",
-            message_id="F601",
+            tool="pyflakes",
+            message_id="W999",
             filename=str(p),
             lineno=3,
             charno=14,

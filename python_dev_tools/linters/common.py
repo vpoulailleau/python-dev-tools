@@ -41,6 +41,7 @@ class LinterMessage:
             self.filename,
             self.lineno,
             self.charno,
+            self.tool,
             self.message_id,
             self.message,
             self.message_id,
@@ -144,7 +145,7 @@ class Linter:
             for param, value in kwargs.items():
                 setattr(message, param, value)
         else:
-            print("ERROR parsing", line)
+            print("ERROR parsing:", line)
         return message
 
     @classmethod
@@ -157,10 +158,12 @@ class Linter:
                 line, cls.regex[regex_index], message, tool=cls.name
             )
 
-            if regex_index == len(cls.regex) - 1:
-                regex_index = 0
-                messages.append(message)
-                message = None
-            elif isinstance(message, LinterMessage):
-                regex_index += 1
+            if isinstance(message, LinterMessage):
+                if regex_index == len(cls.regex) - 1:
+                    regex_index = 0
+                    messages.append(message)
+                    message = None
+                else:
+                    regex_index += 1
+
         return messages
