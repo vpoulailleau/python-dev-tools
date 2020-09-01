@@ -126,6 +126,7 @@ dependencies to develop Python software.
       * flake8-mutable: https://github.com/ebeweber/flake8-mutable
       * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
       * pep8-naming: https://github.com/PyCQA/pep8-naming
+      * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
 
 * Simple formatter
 
@@ -161,6 +162,7 @@ Changelog
 * Remove redundant linters
 * Change max line length to 88 (default value of ``black``)
 * Replace ``pydocstyle`` with ``flake8-docstrings``
+* Add ``wemake-python-styleguide``
 
 2019.10.22
 ^^^^^^^^^^
