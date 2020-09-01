@@ -22,7 +22,16 @@ class Flake8Linter(Linter):
         stdout = io.StringIO()
         with contextlib.redirect_stdout(stdout):
             try:
-                main([str(filepath), "--exit-zero"])
+                main(
+                    [
+                        str(filepath),
+                        "--exit-zero",
+                        "--max-line-length",
+                        "88",
+                        "--max-complexity",
+                        "10",
+                    ]
+                )
             except SystemExit:
                 # TODO what do we do here?
                 pass

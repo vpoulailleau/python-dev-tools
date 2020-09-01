@@ -109,9 +109,6 @@ dependencies to develop Python software.
     easy integration in text editors and IDE
   * based on
 
-    * pycodestyle: https://github.com/PyCQA/pycodestyle
-    * pyflakes: https://github.com/PyCQA/pyflakes
-    * mccabe: https://github.com/pycqa/mccabe
     * pydocstyle: https://github.com/PyCQA/pydocstyle
     * flake8 and plugins: https://gitlab.com/pycqa/flake8
 

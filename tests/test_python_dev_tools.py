@@ -60,7 +60,7 @@ def test_str_message():
 def test_long_line(tmpdir):
     """Test pycodestyle is working."""
     p = tmpdir.join("foo.py")
-    p.write('"""Docstring."""\n\n"' + 78 * "#" + '"\n')
+    p.write('"""Docstring."""\n\n"' + 87 * "#" + '"\n')
     result = lint(p)
     assert result == [
         LinterMessage(
@@ -68,17 +68,8 @@ def test_long_line(tmpdir):
             message_id="E501",
             filename=str(p),
             lineno=3,
-            charno=80,
-            message="line too long (80 > 79 characters)",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="pycodestyle",
-            message_id="E501",
-            filename=str(p),
-            lineno=3,
-            charno=80,
-            message="line too long (80 > 79 characters)",
+            charno=89,
+            message="line too long (89 > 88 characters)",
             extramessage="",
         ),
     ]
@@ -100,26 +91,8 @@ def test_duplicate_key(tmpdir):
             extramessage="",
         ),
         LinterMessage(
-            tool="pyflakes",
-            message_id="W999",
-            filename=str(p),
-            lineno=3,
-            charno=8,
-            message="dictionary key 1 repeated with different values",
-            extramessage="",
-        ),
-        LinterMessage(
             tool="flake8",
             message_id="F601",
-            filename=str(p),
-            lineno=3,
-            charno=14,
-            message="dictionary key 1 repeated with different values",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="pyflakes",
-            message_id="W999",
             filename=str(p),
             lineno=3,
             charno=14,
@@ -167,12 +140,12 @@ def test_complexity(tmpdir):
     result = lint(p)
     assert result == [
         LinterMessage(
-            tool="McCabe",
+            tool="flake8",
             message_id="C901",
             filename=str(p),
             lineno=7,
-            charno=0,
-            message="too complex: 'foo' 11",
+            charno=1,
+            message="'foo' is too complex (11)",
             extramessage="",
         )
     ]
@@ -205,8 +178,8 @@ def test_all_warnings(tmpdir):
         content += f"{char}{char}{char} = {char}{char}{char}\n"
     p.write(content)
     result = lint(p, all_warnings=True)
-    # two warnings per char + 1 for docstring
-    assert len(result) == 2 * len(chars) + 1
+    # a warning per char + 1 for missing docstring
+    assert len(result) == len(chars) + 1
 
 
 def test_not_all_warnings(tmpdir):
