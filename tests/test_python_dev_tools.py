@@ -86,7 +86,7 @@ def test_duplicate_key(tmpdir):
             message_id="W999",
             filename=str(p),
             lineno=3,
-            charno=1,
+            charno=8,
             message="dictionary key 1 repeated with different values",
             extramessage="",
         ),
@@ -96,6 +96,15 @@ def test_duplicate_key(tmpdir):
             filename=str(p),
             lineno=3,
             charno=8,
+            message="dictionary key 1 repeated with different values",
+            extramessage="",
+        ),
+        LinterMessage(
+            tool="pyflakes",
+            message_id="W999",
+            filename=str(p),
+            lineno=3,
+            charno=14,
             message="dictionary key 1 repeated with different values",
             extramessage="",
         ),
@@ -187,6 +196,7 @@ def test_all_warnings(tmpdir):
         content += f"{char}{char}{char} = {char}{char}{char}\n"
     p.write(content)
     result = lint(p, all_warnings=True)
+    # two warnings per char + 1 for docstring
     assert len(result) == 2 * len(chars) + 1
 
 
