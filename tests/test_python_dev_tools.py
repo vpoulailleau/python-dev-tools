@@ -54,7 +54,7 @@ def test_str_message():
         message="msg)",
         extramessage="extra msg",
     )
-    assert str(msg) == "baz:1:2: War [foo] msg) (extra msg)"
+    assert str(msg) == "baz:1:2: bar [foo] msg) (extra msg)"
 
 
 def test_long_line(tmpdir):
@@ -209,6 +209,8 @@ def test_lint_myself():
         result = lint(python_file, all_warnings=True)
         print(python_file, result)
         results.extend(result)
+    for message in results:
+        print(message)
     assert results == [
         LinterMessage(
             tool="flake8",
