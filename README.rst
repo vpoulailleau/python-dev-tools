@@ -153,6 +153,13 @@ TODO
 Changelog
 ---------
 
+2020.9.1
+^^^^^^^^
+
+* Use ``poetry``
+* Remove redundant linters
+* Change max line length to 88 (default value of ``black``)
+
 2019.10.22
 ^^^^^^^^^^
 
