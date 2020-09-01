@@ -65,8 +65,7 @@ class LinterMessage:
             "path": self.filename,
             "row": self.lineno if self.lineno else 1,
             "col": self.charno,
-            # horrible hack for visual studio code
-            "code": f"W{self.message_id[1:]}",
+            "code": f"{self.message_id}",
             "text": f"[{self.tool}] {self.message}",
         }
         if self.extramessage:

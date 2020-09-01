@@ -85,7 +85,7 @@ dependencies to develop Python software.
 * Simple linter
 
   * ``whatalinter a_python_file.py`` lints a_python_file.py
-  * output is compatible with the one of pycodestyle (formerly named pep8) for
+  * output is compatible with the one of flake8 for
     easy integration in text editors and IDE
   * based on
 
