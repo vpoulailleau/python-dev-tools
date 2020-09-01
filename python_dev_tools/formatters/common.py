@@ -1,5 +1,5 @@
 """Common constants and class to all linters."""
-import subprocess
+import subprocess  # noqa: S404
 
 
 class FormatterNotFound(FileNotFoundError):
