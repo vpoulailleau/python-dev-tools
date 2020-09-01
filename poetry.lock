@@ -289,6 +289,18 @@ pycodestyle = "*"
 
 [[package]]
 category = "main"
+description = "Extension for flake8 which uses pydocstyle to check docstrings"
+name = "flake8-docstrings"
+optional = false
+python-versions = "*"
+version = "1.5.0"
+
+[package.dependencies]
+flake8 = ">=3"
+pydocstyle = ">=2.1"
+
+[[package]]
+category = "main"
 description = "Check for FIXME, TODO and other temporary developer notes. Plugin for flake8."
 name = "flake8-fixme"
 optional = false
@@ -962,7 +974,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "b469b70cb5f5534071cdf46ee0aaf5923378c163df12a0a43b4e985153d4bb4d"
+content-hash = "413bdf05e3151f33de6cabb5e6a170050781ac26a8bd3666a3ea470ca1dcf5f1"
 python-versions = ">=3.6.1,<4.0"
 
 [metadata.files]
@@ -1094,6 +1106,10 @@ flake8-comprehensions = [
 ]
 flake8-debugger = [
     {file = "flake8-debugger-3.2.1.tar.gz", hash = "sha256:712d7c1ff69ddf3f0130e94cc88c2519e720760bce45e8c330bfdcb61ab4090d"},
+]
+flake8-docstrings = [
+    {file = "flake8-docstrings-1.5.0.tar.gz", hash = "sha256:3d5a31c7ec6b7367ea6506a87ec293b94a0a46c0bce2bb4975b7f1d09b6f3717"},
+    {file = "flake8_docstrings-1.5.0-py2.py3-none-any.whl", hash = "sha256:a256ba91bc52307bef1de59e2a009c3cf61c3d0952dbe035d6ff7208940c2edc"},
 ]
 flake8-fixme = [
     {file = "flake8-fixme-1.1.1.tar.gz", hash = "sha256:50cade07d27a4c30d4f12351478df87339e67640c83041b664724bda6d16f33a"},

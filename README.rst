@@ -119,6 +119,7 @@ dependencies to develop Python software.
       * flake8-builtins: https://github.com/gforcada/flake8-builtins
       * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
       * flake8-debugger: https://github.com/JBKahn/flake8-debugger
+      * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
       * flake8-fixme: https://github.com/tommilligan/flake8-fixme
       * flake8-isort: https://github.com/gforcada/flake8-isort
       * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
@@ -159,6 +160,7 @@ Changelog
 * Use ``poetry``
 * Remove redundant linters
 * Change max line length to 88 (default value of ``black``)
+* Replace ``pydocstyle`` with ``flake8-docstrings``
 
 2019.10.22
 ^^^^^^^^^^

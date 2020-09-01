@@ -40,7 +40,7 @@ def test_main_linter(tmpdir, capsys):
     python_dev_tools.whatalinter.__name__ = "__main__"
     main_linter()
     captured = capsys.readouterr()
-    assert "[pydocstyle] Missing docstring in public module" in captured.out
+    assert "[flake8] Missing docstring in public module" in captured.out
 
 
 def test_str_message():
@@ -158,13 +158,13 @@ def test_no_docstring(tmpdir):
     result = lint(p)
     assert result == [
         LinterMessage(
-            tool="pydocstyle",
+            tool="flake8",
             message_id="D100",
             filename=str(p),
             lineno=1,
             charno=1,
             message="Missing docstring in public module",
-            extramessage="at module level",
+            extramessage="",
         )
     ]
 

@@ -1,10 +1,8 @@
 """Definition of lint function, calling all linters."""
 
 from .flake8 import Flake8Linter
-from .pydocstyle import PydocstyleLinter
 
 linters = [
-    PydocstyleLinter,
     Flake8Linter,
 ]
 
