@@ -49,19 +49,12 @@ In a terminal, run:
 
 .. code-block:: console
 
-    $ python3 -m pip install python-dev-tools --user
+    $ python3 -m pip install python-dev-tools --user --upgrade
 
 Full documentation on installation: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 
 That's it! Use the provided linter, formatter and precommit hook where
 applicable.
-
-Upgrade
--------
-
-.. code-block:: console
-
-    $ python3 -m pip install python-dev-tools --user --upgrade
 
 Installation with Visual Studio Code
 ------------------------------------
