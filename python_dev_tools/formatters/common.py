@@ -1,5 +1,6 @@
 """Common constants and class to all linters."""
 import subprocess  # noqa: S404
+from typing import List
 
 
 class FormatterNotFound(FileNotFoundError):
@@ -35,7 +36,7 @@ class Formatter:
         cls._execute_command(args)
 
     @classmethod
-    def _execute_command(cls, args: list[str]) -> subprocess.CompletedProcess:
+    def _execute_command(cls, args: List[str]) -> subprocess.CompletedProcess:
         """Execute the formatter.
 
         Args:
