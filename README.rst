@@ -45,20 +45,11 @@ The full documentation can be read at https://python-dev-tools.readthedocs.io.
 Installation
 ------------
 
-Install pipx if not yet installed: https://pipxproject.github.io/pipx/installation/
-
-Then in a terminal, run:
+In a terminal, run:
 
 .. code-block:: console
 
-    $ pipx install python-dev-tools
-
-Then add the new :code:`bin` directory to the path. On Linux for instance, run:
-
-.. code-block:: console
-
-    $ TOOLS_PATH=$(ls -l ~/.local/bin/whataformatter | sed -e "s/.*-> //" | sed -e "s#/bin.*#/bin#")
-    $ userpath prepend $TOOLS_PATH
+    $ python3 -m pip install python-dev-tools --user
 
 Full documentation on installation: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 
@@ -68,13 +59,9 @@ applicable.
 Upgrade
 -------
 
-If not using pipx, follow again the installation procedure.
-
-If using pipx (preferred installation method), run in a terminal:
-
 .. code-block:: console
 
-    $ pipx upgrade python-dev-tools
+    $ python3 -m pip install python-dev-tools --user --upgrade
 
 Installation with Visual Studio Code
 ------------------------------------
@@ -89,9 +76,9 @@ Installation with Visual Studio Code
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "~/.local/bin/whatalinter",
+    "python.linting.flake8Path": "flake8",
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "~/.local/bin/whataformatter",
+    "python.formatting.blackPath": "whataformatter",
     "python.formatting.blackArgs": [],
 
 * Adapt the previous path according to your installation.
