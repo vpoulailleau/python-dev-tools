@@ -150,17 +150,12 @@ class Linter:
     @classmethod
     def _parse_output(cls, output):
         messages = []
-        message = ""
+        message = None
         regex_index = 0
         for line in output.splitlines():
-            if regex_index == 0:
-                message = cls._parse_line(
-                    line, cls.regex[regex_index], None, tool=cls.name
-                )
-            else:
-                message = cls._parse_line(
-                    line, cls.regex[regex_index], message
-                )
+            message = cls._parse_line(
+                line, cls.regex[regex_index], message, tool=cls.name
+            )
 
             if regex_index == len(cls.regex) - 1:
                 regex_index = 0
