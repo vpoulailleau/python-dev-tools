@@ -135,6 +135,11 @@ TODO
 Changelog
 ---------
 
+2020.9.2
+^^^^^^^^
+
+* Remove some warnings of ``wemake-python-styleguide``, for instance allow f-strings
+
 2020.9.1
 ^^^^^^^^
 
@@ -147,41 +152,41 @@ Changelog
 2019.10.22
 ^^^^^^^^^^
 
-* Add flake8-2020 linter
+* Add ``flake8-2020`` linter
 
 2019.07.21
 ^^^^^^^^^^
 
-* Add --quiet and --diff flags to whataformatter for VS Code compatibility
+* Add ``--quiet`` and ``--diff`` flags to ``whataformatter`` for VS Code compatibility
 
 2019.07.20
 ^^^^^^^^^^
 
-* Add black formatter
-* Add autoflake formatter
-* Add pyupgrade formatter
+* Add ``black`` formatter
+* Add ``autoflake`` formatter
+* Add ``pyupgrade`` formatter
 
 2019.04.08
 ^^^^^^^^^^
 
-* Add flake8 linter
-* Add flake8-isort linter
-* Add pep8-naming linter
-* Add flake8-comprehensions linter
-* Add flake8-logging-format linter
-* Add flake8-bugbear linter
-* Add flake8-builtins linter
-* Add flake8-broken-line linter
-* Add flake8-fixme linter
-* Add flake8-mutable linter
-* Add flake8-debugger linter
-* Add flake8-variables-names linter
-* Add flake8-bandit linter
+* Add ``flake8`` linter
+* Add ``flake8-isort`` linter
+* Add ``pep8-naming`` linter
+* Add ``flake8-comprehensions`` linter
+* Add ``flake8-logging-format`` linter
+* Add ``flake8-bugbear`` linter
+* Add ``flake8-builtins`` linter
+* Add ``flake8-broken-line`` linter
+* Add ``flake8-fixme`` linter
+* Add ``flake8-mutable`` linter
+* Add ``flake8-debugger`` linter
+* Add ``flake8-variables-names`` linter
+* Add ``flake8-bandit`` linter
 
 2019.03.02
 ^^^^^^^^^^
 
-* Add pydocstyle linter
+* Add ``pydocstyle`` linter
 
 2019.03.01
 ^^^^^^^^^^
@@ -191,8 +196,8 @@ Changelog
 2019.02.26
 ^^^^^^^^^^
 
-* Add pyflakes linter
-* Add pycodestyle linter
+* Add ``pyflakes`` linter
+* Add ``pycodestyle`` linter
 
 2019.02.23
 ^^^^^^^^^^
