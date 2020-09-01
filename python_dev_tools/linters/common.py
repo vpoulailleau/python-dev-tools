@@ -118,7 +118,7 @@ class Linter:
     def _execute_command(cls, args):
         """Execute the linter or raise LinterNotFound."""
         try:
-            return subprocess.run(
+            return subprocess.run(  # noqa: S603
                 args,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,

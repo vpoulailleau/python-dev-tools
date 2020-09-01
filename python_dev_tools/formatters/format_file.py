@@ -1,8 +1,8 @@
 """Definition of format function, calling all formatters."""
 
-from .autoflake import AutoflakeFormatter
-from .black import BlackFormatter
-from .pyupgrade import PyupgradeFormatter
+from python_dev_tools.formatters.autoflake import AutoflakeFormatter
+from python_dev_tools.formatters.black import BlackFormatter
+from python_dev_tools.formatters.pyupgrade import PyupgradeFormatter
 
 formatters = [
     AutoflakeFormatter,

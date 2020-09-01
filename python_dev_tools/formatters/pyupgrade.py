@@ -1,5 +1,5 @@
 """Pyupgrade formatter management."""
-from .common import Formatter
+from python_dev_tools.formatters.common import Formatter
 
 
 class PyupgradeFormatter(Formatter):

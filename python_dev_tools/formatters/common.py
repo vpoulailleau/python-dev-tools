@@ -34,15 +34,14 @@ class Formatter:
     def _execute_command(cls, args):
         """Execute the formatter or raise FormatterNotFound."""
         try:
-            return subprocess.run(
+            return subprocess.run(  # noqa: S603
                 args,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 timeout=10,
                 encoding="utf-8",
             )
-        except FileNotFoundError as e:
-            if e.filename == cls.path:
+        except FileNotFoundError as exc:
+            if exc.filename == cls.path:
                 raise FormatterNotFound
-            else:
-                raise
+            raise

@@ -4,7 +4,7 @@ import io
 
 from flake8.main.cli import main
 
-from .common import Linter
+from python_dev_tools.linters.common import Linter
 
 
 class Flake8Linter(Linter):
@@ -32,10 +32,11 @@ class Flake8Linter(Linter):
                         "88",
                         "--max-complexity",
                         "10",
-                        # WPS305: avoid f-strings
                         # Q000: avoid "" strings
-                        "--ignore=WPS305,Q000",
-                    ]
+                        # WPS305: avoid f-strings
+                        # WPS306: required explicit subclassing of object
+                        "--ignore=Q000,WPS305,WPS306",
+                    ],
                 )
             except SystemExit:
                 # TODO what do we do here?

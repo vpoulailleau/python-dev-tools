@@ -1,6 +1,6 @@
 """Definition of lint function, calling all linters."""
 
-from .flake8 import Flake8Linter
+from python_dev_tools.linters.flake8 import Flake8Linter
 
 linters = [
     Flake8Linter,
