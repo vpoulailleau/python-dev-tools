@@ -64,6 +64,15 @@ def test_long_line(tmpdir):
     result = lint(p)
     assert result == [
         LinterMessage(
+            tool="flake8",
+            message_id="E501",
+            filename=str(p),
+            lineno=3,
+            charno=80,
+            message="line too long (80 > 79 characters)",
+            extramessage="",
+        ),
+        LinterMessage(
             tool="pycodestyle",
             message_id="E501",
             filename=str(p),
