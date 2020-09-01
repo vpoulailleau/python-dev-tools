@@ -13,8 +13,10 @@ class Flake8Linter(Linter):
     name = "flake8"
     path = "flake8"
     regex = [
-        r"(?P<filename>.*?):(?P<lineno>\d+):(?P<charno>\d+):"
-        r"\s+(?P<message_id>.*?)\s+(?P<message>.*)"
+        (
+            r"(?P<filename>.*?):(?P<lineno>\d+):(?P<charno>\d+):"
+            + r"\s+(?P<message_id>.*?)\s+(?P<message>.*)"
+        ),
     ]
 
     @classmethod
@@ -30,11 +32,13 @@ class Flake8Linter(Linter):
                         "88",
                         "--max-complexity",
                         "10",
+                        # WPS305: avoid f-strings
+                        # Q000: avoid "" strings
+                        "--ignore=WPS305,Q000",
                     ]
                 )
             except SystemExit:
                 # TODO what do we do here?
                 pass
 
-        messages = cls._parse_output(stdout.getvalue())
-        return messages
+        return cls._parse_output(stdout.getvalue())

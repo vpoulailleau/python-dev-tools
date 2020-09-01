@@ -155,7 +155,7 @@ class Linter:
         regex_index = 0
         for line in output.splitlines():
             message = cls._parse_line(
-                line, cls.regex[regex_index], message, tool=cls.name
+                line, cls.regex[regex_index], message, tool=cls.name,
             )
 
             if isinstance(message, LinterMessage):
