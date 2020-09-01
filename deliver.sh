@@ -19,8 +19,8 @@ fi
 echo ""
 
 # changelog management
-grep -A 30 Changelog README.md 
-echo -n "Do you want to add something in README.md? (y/n) [n]: "
+grep -A 30 Changelog README.rst
+echo -n "Do you want to add something in README.rst? (y/n) [n]: "
 read BOOL
 if [ "$BOOL" == "y" ]
 then
