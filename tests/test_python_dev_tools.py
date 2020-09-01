@@ -181,7 +181,7 @@ def test_all_warnings(tmpdir):
     chars = "ABCDEFGJKLMNP"
     content = ""
     for char in chars:
-        content += f"{char}{char}{char} = {char}{char}{char}\n"
+        content += f"{char}{char}{char} = ZZZ\n"
     p.write(content)
     result = lint(p, all_warnings=True)
     # a warning per char + 1 for missing docstring
@@ -194,7 +194,7 @@ def test_not_all_warnings(tmpdir):
     chars = "ABCDEFGJKLMNP"
     content = ""
     for char in chars:
-        content += f"{char}{char}{char} = {char}{char}{char}\n"
+        content += f"{char}{char}{char} = ZZZ\n"
     p.write(content)
     result = lint(p, all_warnings=False)
     assert len(result) == 10
