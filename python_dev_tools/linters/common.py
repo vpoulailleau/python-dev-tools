@@ -165,6 +165,7 @@ class Linter:
             if regex_index == len(cls.regex) - 1:
                 regex_index = 0
                 messages.append(message)
-            else:
+                message = None
+            elif message:
                 regex_index += 1
         return messages
