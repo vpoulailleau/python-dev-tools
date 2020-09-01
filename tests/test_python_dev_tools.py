@@ -62,7 +62,7 @@ def test_long_line(tmpdir):
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\n"' + 87 * "#" + '"\n')
     result = lint(p)
-    assert result == [
+    assert (
         LinterMessage(
             tool="flake8",
             message_id="E501",
@@ -71,8 +71,9 @@ def test_long_line(tmpdir):
             charno=89,
             message="line too long (89 > 88 characters)",
             extramessage="",
-        ),
-    ]
+        )
+        in result
+    )
 
 
 def test_duplicate_key(tmpdir):
@@ -80,7 +81,7 @@ def test_duplicate_key(tmpdir):
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\naaa = {1: 5, 1: 6}\n')
     result = lint(p)
-    assert result == [
+    assert (
         LinterMessage(
             tool="flake8",
             message_id="F601",
@@ -89,7 +90,10 @@ def test_duplicate_key(tmpdir):
             charno=8,
             message="dictionary key 1 repeated with different values",
             extramessage="",
-        ),
+        )
+        in result
+    )
+    assert (
         LinterMessage(
             tool="flake8",
             message_id="F601",
@@ -98,8 +102,9 @@ def test_duplicate_key(tmpdir):
             charno=14,
             message="dictionary key 1 repeated with different values",
             extramessage="",
-        ),
-    ]
+        )
+        in result
+    )
 
 
 def test_complexity(tmpdir):
@@ -138,7 +143,7 @@ def test_complexity(tmpdir):
     )
     p.write(file_content)
     result = lint(p)
-    assert result == [
+    assert (
         LinterMessage(
             tool="flake8",
             message_id="C901",
@@ -148,7 +153,8 @@ def test_complexity(tmpdir):
             message="'foo' is too complex (11)",
             extramessage="",
         )
-    ]
+        in result
+    )
 
 
 def test_no_docstring(tmpdir):
