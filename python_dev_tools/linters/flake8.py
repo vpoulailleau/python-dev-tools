@@ -33,7 +33,7 @@ class Flake8Linter(Linter):
                         "--max-complexity",
                         "10",
                         "--inline-quotes",
-                        "'\"'",
+                        '"',
                         # WPS305: avoid f-strings
                         # WPS306: required explicit subclassing of object
                         # WPS602: avoid @staticmethod (can be subclassed…)
