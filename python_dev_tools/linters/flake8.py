@@ -32,11 +32,12 @@ class Flake8Linter(Linter):
                         "88",
                         "--max-complexity",
                         "10",
-                        # Q000: avoid "" strings
+                        "--inline-quotes",
+                        "'\"'",
                         # WPS305: avoid f-strings
                         # WPS306: required explicit subclassing of object
                         # WPS602: avoid @staticmethod (can be subclassed…)
-                        "--ignore=Q000,WPS305,WPS306,WPS602",
+                        "--ignore=WPS305,WPS306,WPS602",
                     ],
                 )
             except SystemExit:
