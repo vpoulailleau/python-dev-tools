@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python_dev_tools"
-version = "2020.9.2"
+version = "2020.9.4"
 description = "Needed and up-to-date tools to develop in Python"
 classifiers=[
     "Development Status :: 4 - Beta",
@@ -21,7 +21,7 @@ homepage = "https://github.com/vpoulailleau/python-dev-tools"
 documentation = "https://python-dev-tools.readthedocs.io/en/latest/"
 keywords = ["python_dev_tools", "development", "tools"]
 license = "BSD-3-Clause"
-include = ["python_dev_tools/**/*.py"]
+include = ["python_dev_tools/**/*.py", "whatalinter_vscode.py"]
 
 [tool.poetry.dependencies]
 python = ">=3.6.1,<4.0"

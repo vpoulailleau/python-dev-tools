@@ -53,28 +53,28 @@ In a terminal, run:
 
 Full documentation on installation: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 
-That's it! Use the provided linter, formatter and precommit hook where
-applicable.
+That's it! Use the provided linter (``whatalinter``), formatter (``whataformatter``) and
+precommit hook (TODO) where applicable.
 
 Installation with Visual Studio Code
 ------------------------------------
 
 * Follow the installation procedure for python-dev-tools
 * Be sure to have the official Python extension installed in VS Code
+* Open VS Code from within your activated virtual environment (in fact, make sure that 
+  ``whatalinter_vscode`` is in your ``PYTHON_PATH``)
 * In VS Code, open settings (F1 key, then type "Open Settings (JSON)",
   then enter)
-* Add in the opened JSON file:
+* Add in the opened JSON file (before the closing ``}``):
 
 .. code:: javascript
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "flake8",
+    "python.linting.flake8Path": "whatalinter_vscode",
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "whataformatter",
+    "python.formatting.blackPath": "black",
     "python.formatting.blackArgs": [],
-
-* Adapt the previous path according to your installation.
 
 Features
 --------
@@ -85,28 +85,25 @@ dependencies to develop Python software.
 * Simple linter
 
   * ``whatalinter a_python_file.py`` lints a_python_file.py
-  * output is compatible with the one of flake8 for
-    easy integration in text editors and IDE
-  * based on
+  * output is compatible with the one of flake8 for easy integration in text editors
+    and IDE
+  * based on flake8 and plugins: https://gitlab.com/pycqa/flake8
 
-    * pydocstyle: https://github.com/PyCQA/pydocstyle
-    * flake8 and plugins: https://gitlab.com/pycqa/flake8
-
-      * flake8-2020: https://github.com/asottile/flake8-2020
-      * flake8-bandit: https://github.com/tylerwince/flake8-bandit
-      * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
-      * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
-      * flake8-builtins: https://github.com/gforcada/flake8-builtins
-      * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
-      * flake8-debugger: https://github.com/JBKahn/flake8-debugger
-      * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
-      * flake8-fixme: https://github.com/tommilligan/flake8-fixme
-      * flake8-isort: https://github.com/gforcada/flake8-isort
-      * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
-      * flake8-mutable: https://github.com/ebeweber/flake8-mutable
-      * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
-      * pep8-naming: https://github.com/PyCQA/pep8-naming
-      * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
+    * flake8-2020: https://github.com/asottile/flake8-2020
+    * flake8-bandit: https://github.com/tylerwince/flake8-bandit
+    * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
+    * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
+    * flake8-builtins: https://github.com/gforcada/flake8-builtins
+    * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
+    * flake8-debugger: https://github.com/JBKahn/flake8-debugger
+    * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
+    * flake8-fixme: https://github.com/tommilligan/flake8-fixme
+    * flake8-isort: https://github.com/gforcada/flake8-isort
+    * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
+    * flake8-mutable: https://github.com/ebeweber/flake8-mutable
+    * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
+    * pep8-naming: https://github.com/PyCQA/pep8-naming
+    * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
 
 * Simple formatter
 
@@ -134,6 +131,11 @@ TODO
 
 Changelog
 ---------
+
+2020.9.4
+^^^^^^^^
+
+* Add ``whatalinter_vscode`` for Visual Studio Code integration
 
 2020.9.2
 ^^^^^^^^
