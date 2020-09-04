@@ -89,18 +89,24 @@ dependencies to develop Python software.
     and IDE
   * based on flake8 and plugins: https://gitlab.com/pycqa/flake8
 
+    * darglint: https://github.com/terrencepreilly/darglint
     * flake8-2020: https://github.com/asottile/flake8-2020
     * flake8-bandit: https://github.com/tylerwince/flake8-bandit
     * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
     * flake8-builtins: https://github.com/gforcada/flake8-builtins
+    * flake8-commas: https://github.com/PyCQA/flake8-commas/
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
+    * flake8-eradicate: https://github.com/sobolevn/flake8-eradicate
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
     * flake8-isort: https://github.com/gforcada/flake8-isort
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
     * flake8-mutable: https://github.com/ebeweber/flake8-mutable
+    * flake8-quotes: https://github.com/zheller/flake8-quotes/
+    * flake8-rst-docstrings: https://github.com/peterjc/flake8-rst-docstrings
+    * flake8-string-format: https://github.com/xZise/flake8-string-format
     * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
     * pep8-naming: https://github.com/PyCQA/pep8-naming
     * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
