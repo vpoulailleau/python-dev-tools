@@ -138,6 +138,11 @@ TODO
 Changelog
 ---------
 
+2020.9.7
+^^^^^^^^
+
+* Remove E203 in ``flake8`` for ``black`` compatibility
+
 2020.9.4
 ^^^^^^^^
 
