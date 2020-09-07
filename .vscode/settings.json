@@ -1,6 +1,6 @@
 {
     "restructuredtext.confPath": "${workspaceFolder}/docs",
-    "python.pythonPath": "venv/bin/python",
+    "python.pythonPath": "/home/vincent/.cache/pypoetry/virtualenvs/python-dev-tools-xtcypzOF-py3.8/bin/python",
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true
