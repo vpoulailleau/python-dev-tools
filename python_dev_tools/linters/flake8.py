@@ -34,10 +34,11 @@ class Flake8Linter(Linter):
                         "10",
                         "--inline-quotes",
                         '"',
+                        # E203: space around : in slice
                         # WPS305: avoid f-strings
                         # WPS306: required explicit subclassing of object
                         # WPS602: avoid @staticmethod (can be subclassed…)
-                        "--ignore=WPS305,WPS306,WPS602",
+                        "--ignore=E203,WPS305,WPS306,WPS602",
                     ],
                 )
             except SystemExit:
