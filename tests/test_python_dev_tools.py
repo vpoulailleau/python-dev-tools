@@ -117,7 +117,7 @@ def test_lint_myself(capsys):
     lint(source_dir)
 
     captured = capsys.readouterr()
-    assert captured.out == dedent(
+    assert captured.out.replace("../", "") == dedent(
         """\
         python_dev_tools/whataformatter.py:0:1: WPS226 Found string constant over-use: PATH > 3
         python_dev_tools/whataformatter.py:26:1: WPS213 Found too many expressions: 10 > 9
