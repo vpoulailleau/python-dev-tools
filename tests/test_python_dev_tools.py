@@ -1,18 +1,16 @@
 """Tests for `python_dev_tools` package."""
+import sys
 from pathlib import Path
 from textwrap import dedent
 
+import python_dev_tools.whataformatter
 import python_dev_tools.whatalinter
-from python_dev_tools.linters.common import LinterMessage
-from python_dev_tools.linters.lint import lint, linters
 from python_dev_tools.whataformatter import main as main_formatter
-from python_dev_tools.whatalinter import main as main_linter
+from python_dev_tools.whatalinter import lint, main as main_linter
 
 
 def test_main_formatter(tmpdir):
     """Test main call."""
-    import sys
-
     p = tmpdir.join("foo.py")
     p.write(
         dedent(
@@ -23,7 +21,9 @@ def test_main_formatter(tmpdir):
     )
     sys.argv = ["whataformatter", str(p)]
     python_dev_tools.whataformatter.__name__ = "__main__"
+
     main_formatter()
+
     # TODO assert file content
 
 
@@ -32,82 +32,40 @@ def test_main_formatter(tmpdir):
 
 def test_main_linter(tmpdir, capsys):
     """Test main call."""
-    import sys
-
     p = tmpdir.join("foo.py")
     p.write("a = 1\n")
     sys.argv = ["whatalinter", str(p)]
     python_dev_tools.whatalinter.__name__ = "__main__"
+
     main_linter()
+
     captured = capsys.readouterr()
-    assert "[flake8] Missing docstring in public module" in captured.out
+    assert "Missing docstring in public module" in captured.out
 
 
-def test_str_message():
-    """Test message formatting."""
-    msg = LinterMessage(
-        tool="foo",
-        message_id="bar",
-        filename="baz",
-        lineno=1,
-        charno=2,
-        message="msg)",
-        extramessage="extra msg",
-    )
-    assert str(msg) == "baz:1:2: bar [foo] msg) (extra msg)"
-
-
-def test_long_line(tmpdir):
+def test_long_line(tmpdir, capsys):
     """Test pycodestyle is working."""
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\n"' + 87 * "#" + '"\n')
-    result = lint(p)
-    assert (
-        LinterMessage(
-            tool="flake8",
-            message_id="E501",
-            filename=str(p),
-            lineno=3,
-            charno=89,
-            message="line too long (89 > 88 characters)",
-            extramessage="",
-        )
-        in result
-    )
+
+    lint(p)
+
+    captured = capsys.readouterr()
+    assert "line too long (89 > 88 characters)" in captured.out
 
 
-def test_duplicate_key(tmpdir):
+def test_duplicate_key(tmpdir, capsys):
     """Test pyflakes is working."""
     p = tmpdir.join("foo.py")
     p.write('"""Docstring."""\n\naaa = {1: 5, 1: 6}\n')
-    result = lint(p)
-    assert (
-        LinterMessage(
-            tool="flake8",
-            message_id="F601",
-            filename=str(p),
-            lineno=3,
-            charno=8,
-            message="dictionary key 1 repeated with different values",
-            extramessage="",
-        )
-        in result
-    )
-    assert (
-        LinterMessage(
-            tool="flake8",
-            message_id="F601",
-            filename=str(p),
-            lineno=3,
-            charno=14,
-            message="dictionary key 1 repeated with different values",
-            extramessage="",
-        )
-        in result
-    )
+
+    lint(p)
+
+    captured = capsys.readouterr()
+    assert "dictionary key 1 repeated with different values" in captured.out
 
 
-def test_complexity(tmpdir):
+def test_complexity(tmpdir, capsys):
     """Test McCabe is working."""
     p = tmpdir.join("foo.py")
     file_content = '"""Docstring."""\n\n'
@@ -142,141 +100,28 @@ def test_complexity(tmpdir):
     """
     )
     p.write(file_content)
-    result = lint(p)
-    assert (
-        LinterMessage(
-            tool="flake8",
-            message_id="C901",
-            filename=str(p),
-            lineno=7,
-            charno=1,
-            message="'foo' is too complex (11)",
-            extramessage="",
-        )
-        in result
-    )
+
+    lint(p)
+
+    captured = capsys.readouterr()
+    assert "'foo' is too complex (11)" in captured.out
 
 
-def test_no_docstring(tmpdir):
-    """Test pydocstyle is working."""
-    p = tmpdir.join("foo.py")
-    p.write("aaa = 3\n")
-    result = lint(p)
-    assert result == [
-        LinterMessage(
-            tool="flake8",
-            message_id="D100",
-            filename=str(p),
-            lineno=1,
-            charno=1,
-            message="Missing docstring in public module",
-            extramessage="",
-        )
-    ]
-
-
-def test_all_warnings(tmpdir):
-    """Test all_warnings enabled in lint."""
-    p = tmpdir.join("foo.py")
-    chars = "ABCDEFGJKLMNP"
-    content = ""
-    for char in chars:
-        content += f"{char}{char}{char} = ZZZ\n"
-    p.write(content)
-    result = lint(p, all_warnings=True)
-    # a warning per char + 1 for missing docstring
-    assert len(result) == len(chars) + 1
-
-
-def test_not_all_warnings(tmpdir):
-    """Test all_warnings disabled in lint."""
-    p = tmpdir.join("foo.py")
-    chars = "ABCDEFGJKLMNP"
-    content = ""
-    for char in chars:
-        content += f"{char}{char}{char} = ZZZ\n"
-    p.write(content)
-    result = lint(p, all_warnings=False)
-    assert len(result) == 10
-
-
-def test_lint_myself():
+def test_lint_myself(capsys):
     """Test no lint message for this project."""
     source_dir = Path("python_dev_tools")
-    print()
-    results = []
-    for python_file in sorted(source_dir.rglob("*.py")):
-        result = lint(python_file, all_warnings=True)
-        print(python_file, result)
-        results.extend(result)
-    for message in results:
-        print(message)
-    assert results == [
-        LinterMessage(
-            tool="flake8",
-            message_id="S404",
-            filename="python_dev_tools/formatters/common.py",
-            lineno=2,
-            charno=1,
-            message="Consider possible security implications associated with subprocess module.",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="flake8",
-            message_id="S603",
-            filename="python_dev_tools/formatters/common.py",
-            lineno=37,
-            charno=1,
-            message="subprocess call - check for execution of untrusted input.",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="flake8",
-            message_id="S404",
-            filename="python_dev_tools/linters/common.py",
-            lineno=4,
-            charno=1,
-            message="Consider possible security implications associated with subprocess module.",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="flake8",
-            message_id="T101",
-            filename="python_dev_tools/linters/common.py",
-            lineno=10,
-            charno=3,
-            message="fixme found (TODO)",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="flake8",
-            message_id="S603",
-            filename="python_dev_tools/linters/common.py",
-            lineno=121,
-            charno=1,
-            message="subprocess call - check for execution of untrusted input.",
-            extramessage="",
-        ),
-        LinterMessage(
-            tool="flake8",
-            message_id="T101",
-            filename="python_dev_tools/linters/flake8.py",
-            lineno=36,
-            charno=19,
-            message="fixme found (TODO)",
-            extramessage="",
-        ),
-    ]
 
+    lint(source_dir)
 
-def test_installation_error(tmpdir):
-    """
-    Test for installation error, with missing executable.
-
-    Useless test, except for coverage or installation error.
-    """
-    for linter_class in linters:
-        linter_class.path = "unknown"
-    p = tmpdir.join("foo.py")
-    p.write("a = 3\n")
-    lint(p)
+    captured = capsys.readouterr()
+    assert captured.out == dedent(
+        """\
+        python_dev_tools/whataformatter.py:0:1: WPS226 Found string constant over-use: PATH > 3
+        python_dev_tools/whataformatter.py:26:1: WPS213 Found too many expressions: 10 > 9
+        python_dev_tools/whatalinter.py:0:1: WPS202 Found too many module members: 9 > 7
+        python_dev_tools/whatalinter.py:13:28: WPS323 Found `%` string formatting
+        python_dev_tools/whatalinter.py:72:13: WPS420 Found wrong keyword: pass
+        python_dev_tools/whatalinter.py:72:21: T101 fixme found (TODO)
+        python_dev_tools/whatalinter.py:93:7: T101 fixme found (TODO)
+        """
+    )
