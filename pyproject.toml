@@ -89,7 +89,7 @@ commands =
     echo 'fix travis bug'
     sed --in-place -e 's#//home#/home#g' coverage.xml
     echo 'fix codeclimate bug, use relative path'
-    sed --in-place -e 's#/home.*vpoulailleau/python_dev_tools/##g' coverage.xml
+    sed --in-place -e 's#/home.*vpoulailleau/python-dev-tools/##g' coverage.xml
     cp coverage.xml ../coverage.xml
 """
 
