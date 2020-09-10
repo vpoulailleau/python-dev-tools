@@ -138,6 +138,12 @@ TODO
 Changelog
 ---------
 
+2020.9.10
+^^^^^^^^^
+
+* The path provided to ``whatalinter`` can be the one of a directory
+  (recursive search of Python files)
+
 2020.9.7
 ^^^^^^^^
 
