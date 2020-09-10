@@ -110,6 +110,9 @@ def test_complexity(tmpdir, capsys):
 def test_lint_myself(capsys):
     """Test no lint message for this project."""
     source_dir = Path("python_dev_tools")
+    if not source_dir.exists():
+        # run from inside tests directory
+        source_dir = Path("../python_dev_tools")
 
     lint(source_dir)
 
@@ -118,7 +121,7 @@ def test_lint_myself(capsys):
         """\
         python_dev_tools/whataformatter.py:0:1: WPS226 Found string constant over-use: PATH > 3
         python_dev_tools/whataformatter.py:26:1: WPS213 Found too many expressions: 10 > 9
-        python_dev_tools/whatalinter.py:0:1: WPS202 Found too many module members: 9 > 7
+        python_dev_tools/whatalinter.py:0:1: WPS202 Found too many module members: 8 > 7
         python_dev_tools/whatalinter.py:13:28: WPS323 Found `%` string formatting
         python_dev_tools/whatalinter.py:72:13: WPS420 Found wrong keyword: pass
         python_dev_tools/whatalinter.py:72:21: T101 fixme found (TODO)
