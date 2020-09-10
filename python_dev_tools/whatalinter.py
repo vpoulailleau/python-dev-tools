@@ -50,7 +50,7 @@ def _call_flake8(argv: Optional[List[str]] = None) -> None:
 def _run_flake8(path: Path) -> str:
     stdout = io.StringIO()
     with contextlib.redirect_stdout(stdout):
-        try:
+        with contextlib.suppress(SystemExit):
             _call_flake8(
                 [
                     str(path),
@@ -68,8 +68,6 @@ def _run_flake8(path: Path) -> str:
                     "--ignore=E203,WPS305,WPS306,WPS602",
                 ],
             )
-        except SystemExit:
-            pass  # TODO what do we do here?
 
     return stdout.getvalue()
 

@@ -123,8 +123,6 @@ def test_lint_myself(capsys):
         python_dev_tools/whataformatter.py:26:1: WPS213 Found too many expressions: 10 > 9
         python_dev_tools/whatalinter.py:0:1: WPS202 Found too many module members: 8 > 7
         python_dev_tools/whatalinter.py:13:28: WPS323 Found `%` string formatting
-        python_dev_tools/whatalinter.py:72:13: WPS420 Found wrong keyword: pass
-        python_dev_tools/whatalinter.py:72:21: T101 fixme found (TODO)
-        python_dev_tools/whatalinter.py:93:7: T101 fixme found (TODO)
+        python_dev_tools/whatalinter.py:91:7: T101 fixme found (TODO)
         """
     )
