@@ -4,10 +4,9 @@ import contextlib
 import io
 import os
 import re
-from re import template
 import sys
 from pathlib import Path
-from typing import Union, Optional, List
+from typing import List, Optional, Union
 
 from flake8.main import application
 
@@ -16,27 +15,29 @@ DEFAULT_MESSAGE_TEMPLATE = "%(path)s:%(row)d:%(col)d: %(code)s %(text)s"
 
 def udpate_os_path():
     """Update PATH env variable to find linters."""
+    path_var_name = "PATH"
     script_path = Path(__file__).resolve()
-    os.environ["PATH"] = "".join(
-        (str(script_path.parent), os.pathsep, os.environ["PATH"]),
+    os.environ[path_var_name] = "".join(
+        (str(script_path.parent), os.pathsep, os.environ[path_var_name]),
     )
 
     # replace /lib/ with /bin/, and add to PATH
     for parent in reversed(script_path.parents):
         if parent.stem == "lib":
-            os.environ["PATH"] = "".join(
-                (str(parent.parent / "bin"), os.pathsep, os.environ["PATH"]),
+            os.environ[path_var_name] = "".join(
+                (str(parent.parent / "bin"), os.pathsep, os.environ[path_var_name]),
             )
 
 
 def _call_flake8(argv: Optional[List[str]] = None) -> None:
     """Execute the main bit of the application.
 
-    This handles the creation of an instance of :class:`Application`, runs it,
+    This handles the creation of an instance of the class `Application`, runs it,
     and then exits the application.
 
-    :param list argv:
-        The arguments to be passed to the application for parsing.
+    Args:
+        argv (Optional[List[str]]): The arguments to be passed to the application for
+            parsing.
     """
     if argv is None:
         argv = sys.argv[1:]
@@ -68,14 +69,20 @@ def _run_flake8(filepath: Path) -> str:
                 ],
             )
         except SystemExit:
-            # TODO what do we do here?
-            pass
+            pass  # TODO what do we do here?
 
     return stdout.getvalue()
 
 
 def _filter_out(message: str) -> bool:
-    """Return True when message should be ignored."""
+    """Return True when message should be ignored.
+
+    Args:
+        message (str): message to analyze
+
+    Returns:
+        bool: True when message should be ignored, False otherwise
+    """
     for authorized_function in ("input", "print", "pprint"):
         if f"Found wrong function call: {authorized_function}" in message:
             return True
@@ -109,7 +116,13 @@ def _lint_file(filepath: Path, template: str) -> None:
         print(_format(message, template))
 
 
-def lint(path: Union[str, Path], template: str) -> None:
+def lint(path: Union[str, Path], template: str = DEFAULT_MESSAGE_TEMPLATE) -> None:
+    """Lint a file or a directory according to its path.
+
+    Args:
+        path (Union[str, Path]): path of the file or directory
+        template (str): template of linter message
+    """
     path = Path(path)
     if path.is_dir():
         for filepath in sorted(path.rglob("*.py")):
