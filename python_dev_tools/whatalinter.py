@@ -47,13 +47,13 @@ def _call_flake8(argv: Optional[List[str]] = None) -> None:
     app.exit()
 
 
-def _run_flake8(filepath: Path) -> str:
+def _run_flake8(path: Path) -> str:
     stdout = io.StringIO()
     with contextlib.redirect_stdout(stdout):
         try:
             _call_flake8(
                 [
-                    str(filepath),
+                    str(path),
                     "--exit-zero",
                     "--max-line-length",
                     "88",
@@ -107,15 +107,6 @@ def _format(message: str, template: str) -> str:
     return message
 
 
-def _lint_file(filepath: Path, template: str) -> None:
-    flake8_result = _run_flake8(filepath)
-    for message in flake8_result.splitlines():
-        if _filter_out(message):
-            continue
-        message = _add_info(message)
-        print(_format(message, template))
-
-
 def lint(path: Union[str, Path], template: str = DEFAULT_MESSAGE_TEMPLATE) -> None:
     """Lint a file or a directory according to its path.
 
@@ -123,12 +114,12 @@ def lint(path: Union[str, Path], template: str = DEFAULT_MESSAGE_TEMPLATE) -> No
         path (Union[str, Path]): path of the file or directory
         template (str): template of linter message
     """
-    path = Path(path)
-    if path.is_dir():
-        for filepath in sorted(path.rglob("*.py")):
-            _lint_file(filepath, template)
-    else:
-        _lint_file(path, template)
+    flake8_result = _run_flake8(path)
+    for message in flake8_result.splitlines():
+        if _filter_out(message):
+            continue
+        message = _add_info(message)
+        print(_format(message, template))
 
 
 def main():
