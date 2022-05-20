@@ -4,7 +4,7 @@
 Installation
 ============
 
-To install Python Dev Tools, run this command in your terminal:
+To install python-dev-tools, run this command in your terminal:
 
 .. code-block:: console
 

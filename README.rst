@@ -73,7 +73,7 @@ Installation with Visual Studio Code
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "flake8",
     "python.formatting.provider": "black",
-    "python.formatting.blackPath": "black",
+    "python.formatting.blackPath": "whataformatter",
     "python.formatting.blackArgs": [],
 
 Features
