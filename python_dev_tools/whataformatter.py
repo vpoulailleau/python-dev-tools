@@ -65,14 +65,13 @@ def main():
         print(
             "".join(
                 difflib.unified_diff(
-                    orig_content,
-                    copy_content,
+                    [line + "\n" for line in orig_content.splitlines()],
+                    [line + "\n" for line in copy_content.splitlines()],
                     fromfile=args.file,
                     tofile=args.file,
                 ),
             ),
         )
-        Path(copy_file).unlink()
     else:
         format_file(filepath=args.file)
 
