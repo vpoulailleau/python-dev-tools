@@ -112,7 +112,7 @@ def test_lint_myself(capsys):
         source_dir = Path("../python_dev_tools")
 
     linter = flake8.get_style_guide()
-    linter.check_files([str(path) for path in source_dir.rglob("*")])
+    linter.check_files([str(path) for path in source_dir.rglob("*.py")])
 
     captured = capsys.readouterr()
     assert captured.out.replace("../", "") == dedent(
