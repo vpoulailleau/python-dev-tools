@@ -1,4 +1,8 @@
 import pkg_resources
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from flake8.options.manager import OptionManager
 
 
 class WhatALinter:
@@ -12,18 +16,17 @@ class WhatALinter:
         return []
 
     @classmethod
-    def add_options(cls, parser):
+    def add_options(cls, parser: "OptionManager"):
         ERROR_CODE = "WAL"
         parser.extend_default_select([ERROR_CODE])
-        # TODO --max-line-length 88
-        # TODO --max-complexity 10
         parser.extend_default_ignore(
             [
                 "E203",  # space around : in slice
-                # TODO configure flake8-quotes --inline-quotes '"'
-                "Q000",  # Remove bad quotes
                 "WPS305",  # avoid f-strings
                 "WPS306",  # required explicit subclassing of object
                 # "WPS602",  # avoid @staticmethod (can be subclassed…)
             ]
+        )
+        parser.parser.set_defaults(
+            max_line_length=88, max_complexity=10, inline_quotes='"'
         )
