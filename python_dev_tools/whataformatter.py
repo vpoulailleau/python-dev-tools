@@ -29,7 +29,10 @@ def main():
         description="Python formatter combining existing formatters",
     )
     parser.add_argument(
-        "file", metavar="FILE", type=str, help="path of the file to format",
+        "file",
+        metavar="FILE",
+        type=str,
+        help="path of the file to format",
     )
     parser.add_argument(
         "--quiet",
@@ -43,6 +46,13 @@ def main():
         default=False,
         help="display diff instead of writing file",
     )
+    parser.add_argument(
+        "--target-version",
+        type=str,
+        default="py39",
+        help="target version for formatting",
+    )
+    # TODO passer cet argument à black et pyupgrade
     args = parser.parse_args()
 
     udpate_os_path()
@@ -55,7 +65,10 @@ def main():
         print(
             "".join(
                 difflib.unified_diff(
-                    orig_content, copy_content, fromfile="origin", tofile="formatted",
+                    orig_content,
+                    copy_content,
+                    fromfile=args.file,
+                    tofile=args.file,
                 ),
             ),
         )
