@@ -7,4 +7,4 @@ class PyupgradeFormatter(Formatter):
 
     name = "pyupgrade"
     path = "pyupgrade"
-    cli_args = ["--py39-plus"]
+    cli_args = ["--py37-plus"]
