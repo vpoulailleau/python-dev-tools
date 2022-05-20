@@ -107,7 +107,7 @@ commands =
 """
 
 [tool.poetry.plugins."flake8.extension"]
-WAL = "python_dev_tools.flake8_whatalinter:WhatALinter"
+WAL = "python_dev_tools.whatalinter:WhatALinter"
 
 
 [build-system]

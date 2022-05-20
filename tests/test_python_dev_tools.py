@@ -3,10 +3,11 @@ import sys
 from pathlib import Path
 from textwrap import dedent
 
+from flake8.api import legacy as flake8
+
 import python_dev_tools.whataformatter
 import python_dev_tools.whatalinter
 from python_dev_tools.whataformatter import main as main_formatter
-from python_dev_tools.whatalinter import lint, main as main_linter
 
 
 def test_main_formatter(tmpdir):
@@ -30,44 +31,45 @@ def test_main_formatter(tmpdir):
 # TODO test formatting
 
 
-def test_main_linter(tmpdir, capsys):
+def run_linter(
+    tmp_path: Path, capsys, file_content: str, expected_message: str
+) -> None:
+    tmp_file = tmp_path / ("foo.py")
+    tmp_file.write_text(file_content, encoding="utf-8")
+
+    linter = flake8.get_style_guide()
+    linter.check_files([str(tmp_file)])
+
+    assert expected_message in capsys.readouterr().out
+
+
+def test_main_linter(tmp_path: Path, capsys):
     """Test main call."""
-    p = tmpdir.join("foo.py")
-    p.write("a = 1\n")
-    sys.argv = ["whatalinter", str(p)]
-    python_dev_tools.whatalinter.__name__ = "__main__"
-
-    main_linter()
-
-    captured = capsys.readouterr()
-    assert "Missing docstring in public module" in captured.out
+    run_linter(tmp_path, capsys, "a = 1\n", "Missing docstring in public module")
 
 
-def test_long_line(tmpdir, capsys):
+def test_long_line(tmp_path: Path, capsys):
     """Test pycodestyle is working."""
-    p = tmpdir.join("foo.py")
-    p.write('"""Docstring."""\n\n"' + 87 * "#" + '"\n')
+    run_linter(
+        tmp_path,
+        capsys,
+        '"""Docstring."""\n\n"' + 87 * "#" + '"\n',
+        "line too long (89 > 88 characters)",
+    )
 
-    lint(p)
 
-    captured = capsys.readouterr()
-    assert "line too long (89 > 88 characters)" in captured.out
-
-
-def test_duplicate_key(tmpdir, capsys):
+def test_duplicate_key(tmp_path: Path, capsys):
     """Test pyflakes is working."""
-    p = tmpdir.join("foo.py")
-    p.write('"""Docstring."""\n\naaa = {1: 5, 1: 6}\n')
+    run_linter(
+        tmp_path,
+        capsys,
+        '"""Docstring."""\n\naaa = {1: 5, 1: 6}\n',
+        "dictionary key 1 repeated with different values",
+    )
 
-    lint(p)
 
-    captured = capsys.readouterr()
-    assert "dictionary key 1 repeated with different values" in captured.out
-
-
-def test_complexity(tmpdir, capsys):
+def test_complexity(tmp_path: Path, capsys):
     """Test McCabe is working."""
-    p = tmpdir.join("foo.py")
     file_content = '"""Docstring."""\n\n'
     file_content += dedent(
         """
@@ -99,12 +101,7 @@ def test_complexity(tmpdir, capsys):
             print(aaa)
     """
     )
-    p.write(file_content)
-
-    lint(p)
-
-    captured = capsys.readouterr()
-    assert "'foo' is too complex (11)" in captured.out
+    run_linter(tmp_path, capsys, file_content, "'foo' is too complex (11)")
 
 
 def test_lint_myself(capsys):
@@ -114,15 +111,13 @@ def test_lint_myself(capsys):
         # run from inside tests directory
         source_dir = Path("../python_dev_tools")
 
-    lint(source_dir)
+    linter = flake8.get_style_guide()
+    linter.check_files([str(path) for path in source_dir.rglob("*")])
 
     captured = capsys.readouterr()
     assert captured.out.replace("../", "") == dedent(
         """\
         python_dev_tools/whataformatter.py:0:1: WPS226 Found string constant over-use: PATH > 3
         python_dev_tools/whataformatter.py:26:1: WPS213 Found too many expressions: 10 > 9
-        python_dev_tools/whatalinter.py:0:1: WPS202 Found too many module members: 8 > 7
-        python_dev_tools/whatalinter.py:13:28: WPS323 Found `%` string formatting
-        python_dev_tools/whatalinter.py:91:7: T101 fixme found (TODO)
         """
     )
