@@ -107,7 +107,8 @@ commands =
 """
 
 [tool.poetry.plugins."flake8.extension"]
-"WAL1" = "flake8-whatalinter:WhatALinter"
+WAL = "python_dev_tools.flake8_whatalinter:WhatALinter"
+
 
 [build-system]
 requires = ["poetry>=0.12"]
