@@ -24,6 +24,7 @@ class WhatALinter:
                 "E203",  # space around : in slice
                 "WPS305",  # avoid f-strings
                 "WPS306",  # required explicit subclassing of object
+                "WPS421",  # Found wrong function call, useful in scripts
                 # "WPS602",  # avoid @staticmethod (can be subclassed…)
             ]
         )
