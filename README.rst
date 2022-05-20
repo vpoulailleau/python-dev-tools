@@ -53,7 +53,7 @@ In a terminal, run:
 
 Full documentation on installation: https://python-dev-tools.readthedocs.io/en/latest/installation.html
 
-That's it! Use the provided linter (``whatalinter``), formatter (``whataformatter``) and
+That's it! Use the provided linter (``flake8``), formatter (``whataformatter``) and
 precommit hook (TODO) where applicable.
 
 Installation with Visual Studio Code
@@ -62,7 +62,7 @@ Installation with Visual Studio Code
 * Follow the installation procedure for python-dev-tools
 * Be sure to have the official Python extension installed in VS Code
 * Open VS Code from within your activated virtual environment (in fact, make sure that 
-  ``whatalinter_vscode`` is in your ``PYTHON_PATH``)
+  ``flake8`` from python-dev-tools is in your ``PYTHON_PATH``)
 * In VS Code, open settings (F1 key, then type "Open Settings (JSON)",
   then enter)
 * Add in the opened JSON file (before the closing ``}``):
@@ -71,7 +71,7 @@ Installation with Visual Studio Code
 
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "whatalinter_vscode",
+    "python.linting.flake8Path": "flake8",
     "python.formatting.provider": "black",
     "python.formatting.blackPath": "black",
     "python.formatting.blackArgs": [],
@@ -84,13 +84,16 @@ dependencies to develop Python software.
 
 * Simple linter
 
-  * ``whatalinter a_python_file.py`` lints a_python_file.py
-  * output is compatible with the one of flake8 for easy integration in text editors
-    and IDE
+  * ``flake8 a_python_file.py`` lints a_python_file.py
   * based on flake8 and plugins: https://gitlab.com/pycqa/flake8
 
+    * cohesion: https://github.com/mschwager/cohesion
     * darglint: https://github.com/terrencepreilly/darglint
+    * dlint: https://github.com/dlint-py/dlint
     * flake8-2020: https://github.com/asottile/flake8-2020
+    * flake8-annotations: https://github.com/sco1/flake8-annotations
+    * flake8-annotations-complexity: https://github.com/best-doctor/flake8-annotations-complexity
+    * flake8-annotations-coverage: https://github.com/best-doctor/flake8-annotations-coverage
     * flake8-bandit: https://github.com/tylerwince/flake8-bandit
     * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
@@ -100,13 +103,20 @@ dependencies to develop Python software.
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
     * flake8-eradicate: https://github.com/sobolevn/flake8-eradicate
+    * flake8-expression-complexity: https://pypi.org/project/flake8-expression-complexity/
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
+    * flake8-functions: https://github.com/best-doctor/flake8-functions
     * flake8-isort: https://github.com/gforcada/flake8-isort
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
     * flake8-mutable: https://github.com/ebeweber/flake8-mutable
+    * flake8-pytest-style: https://github.com/m-burst/flake8-pytest-style
     * flake8-quotes: https://github.com/zheller/flake8-quotes/
     * flake8-rst-docstrings: https://github.com/peterjc/flake8-rst-docstrings
+    * flake8-simplify: https://github.com/MartinThoma/flake8-simplify
     * flake8-string-format: https://github.com/xZise/flake8-string-format
+    * flake8-tidy-imports: https://github.com/adamchainz/flake8-tidy-imports
+    * flake8-typing-imports: https://github.com/asottile/flake8-typing-imports
+    * flake8-use-fstring: https://github.com/MichaelKim0407/flake8-use-fstring
     * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
     * pep8-naming: https://github.com/PyCQA/pep8-naming
     * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
@@ -137,6 +147,22 @@ TODO
 
 Changelog
 ---------
+
+2021.2.11
+^^^^^^^^^
+
+* Add ``cohesion`` linter
+* Add ``dlint`` linter
+* Add ``flake8-annotations`` linter
+* Add ``flake8-annotations-complexity`` linter
+* Add ``flake8-annotations-coverage`` linter
+* Add ``flake8-expression-complexity`` linter
+* Add ``flake8-functions`` linter
+* Add ``flake8-pytest-style`` linter
+* Add ``flake8-simplify`` linter
+* Add ``flake8-tidy-imports`` linter
+* Add ``flake8-typing-imports`` linter
+* Add ``flake8-use-fstring`` linter
 
 2020.9.10
 ^^^^^^^^^
