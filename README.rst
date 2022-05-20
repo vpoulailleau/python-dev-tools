@@ -98,7 +98,6 @@ dependencies to develop Python software.
     * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
     * flake8-builtins: https://github.com/gforcada/flake8-builtins
-    * flake8-commas: https://github.com/PyCQA/flake8-commas/
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
@@ -156,6 +155,7 @@ Changelog
 * Add ``flake8-annotations`` linter
 * Add ``flake8-annotations-complexity`` linter
 * Add ``flake8-annotations-coverage`` linter
+* Add ``flake8-black`` linter
 * Add ``flake8-expression-complexity`` linter
 * Add ``flake8-functions`` linter
 * Add ``flake8-pytest-style`` linter
@@ -163,6 +163,7 @@ Changelog
 * Add ``flake8-tidy-imports`` linter
 * Add ``flake8-typing-imports`` linter
 * Add ``flake8-use-fstring`` linter
+* Remove ``flake8-commas`` linter that is deprecated
 
 2020.9.10
 ^^^^^^^^^
