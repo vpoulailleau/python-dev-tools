@@ -72,6 +72,7 @@ def main():
                 ),
             ),
         )
+        Path(copy_file).unlink()
     else:
         format_file(filepath=args.file)
 
