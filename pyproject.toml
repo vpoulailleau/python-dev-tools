@@ -77,7 +77,6 @@ tox-travis = "^0"
 wemake-python-styleguide = "^0.16"
 
 [tool.poetry.scripts]
-whatalinter = "python_dev_tools.whatalinter:main"
 whataformatter = "python_dev_tools.whataformatter:main"
 
 [tool.tox]
