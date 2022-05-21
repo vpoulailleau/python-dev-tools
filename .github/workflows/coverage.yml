@@ -8,12 +8,12 @@ on:
         - cron: 30 3 * 1 *
 
 jobs:
-    test:
+    build:
         strategy:
             fail-fast: false
             matrix:
-                os: [ubuntu-latest, macos-latest, windows-latest]
-                python-version: ["3.7", "3.8", "3.9", "3.10"]
+                os: [ubuntu-latest]
+                python-version: ["3.10"]
                 poetry-version: [1.1.11]
         runs-on: ${{ matrix.os }}
         steps:
@@ -32,22 +32,5 @@ jobs:
               run: poetry install
             - name: Run pytest
               run: poetry run python -m pytest -s -vv --cov=python_dev_tools
-            - name: Generate XML coverage report
+            - name: Generate XML report
               run: poetry run coverage xml
-
-    coverage:
-        needs: [test]
-        name: coverage
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/setup-node@master
-              with:
-                  node-version: "12"
-            - run: npm install -g yarn
-            - run: yarn install
-            - run: yarn build
-            - uses: paambaati/codeclimate-action@v2.2.4
-              env:
-                  CC_TEST_REPORTER_ID: 2104b78eb55ebc9f29fb64b8b4e6a338a2ee07fa4fa2b375b09dd37a6776fe7a
-              with:
-                  coverageCommand: yarn coverage
