@@ -40,14 +40,6 @@ jobs:
         name: coverage
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/setup-node@master
-              with:
-                  node-version: "12"
-            - run: npm install -g yarn
-            - run: yarn install
-            - run: yarn build
-            - uses: paambaati/codeclimate-action@v2.2.4
+            - uses: paambaati/codeclimate-action@v3.0.0
               env:
                   CC_TEST_REPORTER_ID: 2104b78eb55ebc9f29fb64b8b4e6a338a2ee07fa4fa2b375b09dd37a6776fe7a
-              with:
-                  coverageCommand: yarn coverage
