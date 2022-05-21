@@ -84,7 +84,7 @@ whataformatter = "python_dev_tools.whataformatter:main"
 legacy_tox_ini = """
 [tox]
 isolated_build = True
-envlist = py36, py37, py38
+envlist = py37, py38, py39, p310
 
 [testenv]
 whitelist_externals =

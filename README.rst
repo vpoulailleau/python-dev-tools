@@ -37,6 +37,8 @@ Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
         :target: https://lgtm.com/projects/g/vpoulailleau/python-dev-tools/context:python
         :alt: Maintainability
 
+Supported Python versions: the same as the classic Python interpreter (CPython)
+
 Documentation
 -------------
 
