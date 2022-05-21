@@ -147,7 +147,7 @@ TODO
 Changelog
 ---------
 
-2022.5.21
+2022.5.20
 ^^^^^^^^^
 
 * Add ``cohesion`` linter
