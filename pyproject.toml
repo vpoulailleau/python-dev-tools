@@ -81,6 +81,12 @@ whataformatter = "python_dev_tools.whataformatter:main"
 [tool.poetry.plugins."flake8.extension"]
 WAL = "python_dev_tools.whatalinter:WhatALinter"
 
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q  -s -vv --cov=python_dev_tools"
+testpaths = [
+    "tests",
+]
 
 [build-system]
 requires = ["poetry>=0.12"]
