@@ -78,30 +78,6 @@ wemake-python-styleguide = "^0.16"
 [tool.poetry.scripts]
 whataformatter = "python_dev_tools.whataformatter:main"
 
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-isolated_build = True
-envlist = py37, py38, py39, p310
-
-[testenv]
-whitelist_externals =
-    poetry
-    echo
-    sed
-    cp
-changedir = {toxinidir}/tests
-commands =
-    poetry install -v
-    poetry run pytest -s -vv --cov=python_dev_tools
-    poetry run coverage xml
-    echo 'fix travis bug'
-    sed --in-place -e 's#//home#/home#g' coverage.xml
-    echo 'fix codeclimate bug, use relative path'
-    sed --in-place -e 's#/home.*vpoulailleau/python-dev-tools/##g' coverage.xml
-    cp coverage.xml ../coverage.xml
-"""
-
 [tool.poetry.plugins."flake8.extension"]
 WAL = "python_dev_tools.whatalinter:WhatALinter"
 

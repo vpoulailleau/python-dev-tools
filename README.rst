@@ -10,8 +10,8 @@ Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
 .. image:: https://img.shields.io/pypi/l/python_dev_tools.svg
         :target: https://github.com/vpoulailleau/python_dev_tools/blob/master/LICENSE
 
-.. image:: https://travis-ci.com/vpoulailleau/python-dev-tools.svg?branch=master
-        :target: https://travis-ci.com/vpoulailleau/python-dev-tools
+.. image:: https://github.com/vpoulailleau/python_dev_tools/actions/workflows/tests/badge.svg
+        :target: https://github.com/vpoulailleau/python-dev-tools/actions/workflows/tests.yml
 
 .. image:: https://readthedocs.org/projects/python-dev-tools/badge/?version=latest
         :target: https://python-dev-tools.readthedocs.io/en/latest/?badge=latest
