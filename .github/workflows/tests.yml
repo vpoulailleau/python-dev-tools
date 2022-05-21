@@ -49,6 +49,10 @@ jobs:
               uses: actions/download-artifact@v3
               with:
                   name: coverage
+            - run: ls ${{github.workspace}}
+            - run: ls ${{github.workspace}}/python-dev-tools
             - uses: paambaati/codeclimate-action@v3.0.0
               env:
                   CC_TEST_REPORTER_ID: 2104b78eb55ebc9f29fb64b8b4e6a338a2ee07fa4fa2b375b09dd37a6776fe7a
+              with:
+                  coverageLocations: ${{github.workspace}}/coverage.xml:coverage.py
