@@ -26,7 +26,6 @@ include = ["python_dev_tools/**/*.py", "whatalinter_vscode.py"]
 [tool.poetry.dependencies]
 python = ">=3.7,<4.0"
 autoflake = "^1"
-bandit = "1.7.2" # https://github.com/tylerwince/flake8-bandit/issues/24
 black = "^22"
 cohesion = "^1"
 coverage = "^6"
@@ -38,7 +37,7 @@ flake8-2020 = "^1"
 flake8-annotations = "^2"
 flake8-annotations-complexity = "^0"
 flake8-annotations-coverage = "^0"
-flake8-bandit = "^2"
+flake8-bandit = "^3"
 flake8-black = "^0"
 flake8-broken-line = "^0"
 flake8-bugbear = "^22"
