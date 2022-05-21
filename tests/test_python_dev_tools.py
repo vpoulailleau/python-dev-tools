@@ -6,8 +6,7 @@ from textwrap import dedent
 import pytest
 from flake8.api import legacy as flake8
 
-import python_dev_tools.whataformatter
-import python_dev_tools.whatalinter
+import python_dev_tools
 from python_dev_tools.whataformatter import main as main_formatter
 
 
