@@ -147,7 +147,7 @@ TODO
 Changelog
 ---------
 
-2021.2.11
+2022.5.21
 ^^^^^^^^^
 
 * Add ``cohesion`` linter
@@ -164,6 +164,7 @@ Changelog
 * Add ``flake8-typing-imports`` linter
 * Add ``flake8-use-fstring`` linter
 * Remove ``flake8-commas`` linter that is deprecated
+* Fix ``whataformatter`` and add ``--target-version`` option for VS Code compatibility
 
 2020.9.10
 ^^^^^^^^^
