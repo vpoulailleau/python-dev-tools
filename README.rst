@@ -131,6 +131,7 @@ dependencies to develop Python software.
 
     * autoflake: https://github.com/myint/autoflake
     * black: https://github.com/python/black
+    * docformatter: https://github.com/PyCQA/docformatter
     * isort: https://github.com/PyCQA/isort
     * pybetter: https://github.com/lensvol/pybetter
     * pycln: https://github.com/hadialqattan/pycln
@@ -160,6 +161,7 @@ Changelog
 2022.5.26
 ^^^^^^^^^
 
+* Add ``docformatter`` formatter
 * Add ``isort`` formatter
 * Add ``pybetter`` formatter
 * Add ``pycln`` formatter

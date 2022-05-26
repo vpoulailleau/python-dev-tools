@@ -23,6 +23,7 @@ _formatters_configs: List[FormatterConfig] = [
         cli_args=["--in-place", "--remove-unused-variables"],
     ),
     FormatterConfig(name="ssort", path="ssort", cli_args=[]),
+    FormatterConfig(name="docformatter", path="docformatter", cli_args=["--in-place"]),
     FormatterConfig(name="removestar", path="removestar", cli_args=["-i"]),
     FormatterConfig(name="pybetter", path="pybetter", cli_args=[]),
     FormatterConfig(name="pycln", path="pycln", cli_args=["--all"]),
