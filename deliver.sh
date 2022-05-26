@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source venv/bin/activate
+# source venv/bin/activate
 
 # configuration management
 git rebase
@@ -42,7 +42,7 @@ rm -fr htmlcov/
 rm -fr .pytest_cache
 
 # tests
-tox
+python -m pytest
 echo -n "Is it OK? (y/n) [y]: "
 read BOOL
 if [ "$BOOL" == "n" ]
