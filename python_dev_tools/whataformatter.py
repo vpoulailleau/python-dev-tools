@@ -24,6 +24,7 @@ _formatters_configs: List[FormatterConfig] = [
     ),
     FormatterConfig(name="ssort", path="ssort", cli_args=[]),
     FormatterConfig(name="pybetter", path="pybetter", cli_args=[]),
+    FormatterConfig(name="pycln", path="pycln", cli_args=["--all"]),
     FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
     FormatterConfig(name="isort", path="isort", cli_args=[]),
     FormatterConfig(

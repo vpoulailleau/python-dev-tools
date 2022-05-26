@@ -130,6 +130,7 @@ dependencies to develop Python software.
     * black: https://github.com/python/black
     * isort: https://github.com/PyCQA/isort
     * pybetter: https://github.com/lensvol/pybetter
+    * pycln: https://github.com/hadialqattan/pycln
     * pyupgrade: https://github.com/asottile/pyupgrade
     * ssort: https://github.com/bwhmather/ssort
 
@@ -157,6 +158,7 @@ Changelog
 
 * Add ``isort`` formatter
 * Add ``pybetter`` formatter
+* Add ``pycln`` formatter
 * Add ``ssort`` formatter
 * Remove ``cohesion`` linter (false warnings on pure data classes such as ``NamedTuple``)
 
