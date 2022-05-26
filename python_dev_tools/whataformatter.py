@@ -31,28 +31,6 @@ _formatters_configs: List[FormatterConfig] = [
 ]
 
 
-def _format_file(filepath: str, config: FormatterConfig) -> None:
-    """Execute the formatter.
-
-    Args:
-        filepath (str): path of the file to format
-        config (FormatterConfig): configuration for the formatting tool
-
-    Returns:
-        None
-    """
-    try:
-        return subprocess.run(  # noqa: S603
-            [config.path, *config.cli_args, filepath],
-            capture_output=True,
-            timeout=10,
-            encoding="utf-8",
-        )
-    except FileNotFoundError as exc:
-        if exc.filename == config.path:
-            print(f"Formatter {config.name} not found: {config.path}")
-
-
 def format_file(filepath: str) -> None:
     """Format the file with known formatters.
 
@@ -60,10 +38,41 @@ def format_file(filepath: str) -> None:
         filepath (str): path of the file to format
     """
     for config in _formatters_configs:
-        _format_file(filepath, config)
+        try:
+            subprocess.run(  # noqa: S603
+                [config.path, *config.cli_args, filepath],
+                capture_output=True,
+                timeout=10,
+                encoding="utf-8",
+            )
+        except FileNotFoundError as exc:
+            if exc.filename == config.path:
+                print(f"Formatter {config.name} not found: {config.path}")
 
 
-def udpate_os_path() -> None:
+def diff(orig_file: str) -> None:
+    """Print diff between original file and formatted file.
+
+    Args:
+        orig_file (str): path of the original file
+    """
+    copy_file = f"{orig_file}.co.py"
+    shutil.copyfile(orig_file, copy_file)
+    format_file(filepath=copy_file)
+    print(
+        "".join(
+            difflib.unified_diff(
+                [f"{line}\n" for line in Path(orig_file).read_text().splitlines()],
+                [f"{line}\n" for line in Path(copy_file).read_text().splitlines()],
+                fromfile=orig_file,
+                tofile=orig_file,
+            ),
+        ),
+    )
+    Path(copy_file).unlink()
+
+
+def _udpate_os_path() -> None:
     """Update PATH env variable to find linters."""
     paths = os.environ["PATH"].split(os.pathsep)
     script_path = Path(__file__).resolve()
@@ -77,8 +86,7 @@ def udpate_os_path() -> None:
     os.environ["PATH"] = os.pathsep.join(paths)
 
 
-def main() -> None:
-    """Entry point."""
+def _cli_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Python formatter combining existing formatters",
     )
@@ -106,27 +114,17 @@ def main() -> None:
         default="py39",
         help="target version for formatting",
     )
-    # TODO passer cet argument à black et pyupgrade
-    args = parser.parse_args()
+    return parser
 
-    udpate_os_path()
+
+def main() -> None:
+    """Entry point."""
+    # TODO passer cet argument à black et pyupgrade
+    args = _cli_parser().parse_args()
+
+    _udpate_os_path()
     if args.diff:
-        copy_file = f"{args.file}.co.py"
-        shutil.copyfile(args.file, copy_file)
-        format_file(filepath=copy_file)
-        orig_content = Path(args.file).read_text()
-        copy_content = Path(copy_file).read_text()
-        print(
-            "".join(
-                difflib.unified_diff(
-                    [f"{line}\n" for line in orig_content.splitlines()],
-                    [f"{line}\n" for line in copy_content.splitlines()],
-                    fromfile=args.file,
-                    tofile=args.file,
-                ),
-            ),
-        )
-        Path(copy_file).unlink()
+        diff(args.file)
     else:
         format_file(filepath=args.file)
 
