@@ -22,6 +22,8 @@ _formatters_configs: List[FormatterConfig] = [
         path="autoflake",
         cli_args=["--in-place", "--remove-unused-variables"],
     ),
+    FormatterConfig(name="isort", path="isort", cli_args=[]),
+    FormatterConfig(name="pybetter", path="pybetter", cli_args=[]),
     FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
     FormatterConfig(
         name="black",
@@ -131,3 +133,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+__all__ = ["FormatterConfig", "diff", "format_file", "main"]

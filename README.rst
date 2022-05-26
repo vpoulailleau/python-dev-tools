@@ -128,6 +128,8 @@ dependencies to develop Python software.
 
     * autoflake: https://github.com/myint/autoflake
     * black: https://github.com/python/black
+    * isort: https://github.com/PyCQA/isort
+    * pybetter: https://github.com/lensvol/pybetter
     * pyupgrade: https://github.com/asottile/pyupgrade
 
 * Simple precommit hook
@@ -142,7 +144,6 @@ BSD 3-Clause license, feel free to contribute: https://python-dev-tools.readthed
 TODO
 ----
 
-* add ``isort`` formatter
 * flake8 formatter to add URL to information on a warning
 * documentation
 * precommit
@@ -153,6 +154,8 @@ Changelog
 2022.5.26
 ^^^^^^^^^
 
+* Add ``isort`` formatter
+* Add ``pybetter`` formatter
 * Remove ``cohesion`` linter (false warnings on pure data classes such as ``NamedTuple``)
 
 2022.5.20
