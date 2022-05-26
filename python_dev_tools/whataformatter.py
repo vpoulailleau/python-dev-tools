@@ -28,7 +28,9 @@ _formatters_configs: List[FormatterConfig] = [
     FormatterConfig(name="pycln", path="pycln", cli_args=["--all"]),
     FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
     FormatterConfig(
-        name="isort", path="isort", cli_args=[]
+        name="isort",
+        path="isort",
+        cli_args=[],
     ),  # Should be second to last config
     FormatterConfig(
         name="black",
