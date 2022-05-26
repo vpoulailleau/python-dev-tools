@@ -1,5 +1,6 @@
+"""Linter module, flake8 plugin."""
 import ast
-from typing import TYPE_CHECKING, Final, Type, List
+from typing import TYPE_CHECKING, Final, List, Type
 
 import pkg_resources
 
@@ -13,6 +14,8 @@ ERROR_CODE: Final = "WAL"
 
 
 class WhatALinter:
+    """WhatALinter flake8 plugin."""
+
     name = "whatalinter"
     version = pkg_resources.get_distribution("python_dev_tools").version
 
@@ -48,6 +51,7 @@ class WhatALinter:
             ],
         )
         parser.parser.set_defaults(
+            min_python_version="3.7.13",
             max_line_length=MAX_LINE_LENGTH,
             max_complexity=MAX_COMPLEXITY,
             inline_quotes='"',
