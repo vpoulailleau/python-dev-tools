@@ -142,6 +142,8 @@ BSD 3-Clause license, feel free to contribute: https://python-dev-tools.readthed
 TODO
 ----
 
+* add ``isort`` formatter
+* flake8 formatter to add URL to information on a warning
 * documentation
 * precommit
 
