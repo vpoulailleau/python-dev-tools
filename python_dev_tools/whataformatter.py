@@ -23,10 +23,13 @@ _formatters_configs: List[FormatterConfig] = [
         cli_args=["--in-place", "--remove-unused-variables"],
     ),
     FormatterConfig(name="ssort", path="ssort", cli_args=[]),
+    FormatterConfig(name="removestar", path="removestar", cli_args=["-i"]),
     FormatterConfig(name="pybetter", path="pybetter", cli_args=[]),
     FormatterConfig(name="pycln", path="pycln", cli_args=["--all"]),
     FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
-    FormatterConfig(name="isort", path="isort", cli_args=[]),
+    FormatterConfig(
+        name="isort", path="isort", cli_args=[]
+    ),  # Should be second to last config
     FormatterConfig(
         name="black",
         path="black",
