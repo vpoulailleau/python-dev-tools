@@ -89,7 +89,6 @@ dependencies to develop Python software.
   * ``flake8 a_python_file.py`` lints a_python_file.py
   * based on flake8 and plugins: https://gitlab.com/pycqa/flake8
 
-    * cohesion: https://github.com/mschwager/cohesion
     * darglint: https://github.com/terrencepreilly/darglint
     * dlint: https://github.com/dlint-py/dlint
     * flake8-2020: https://github.com/asottile/flake8-2020
@@ -148,6 +147,11 @@ TODO
 
 Changelog
 ---------
+
+2022.5.26
+^^^^^^^^^
+
+* Remove ``cohesion`` linter (false warnings on pure data classes such as ``NamedTuple``)
 
 2022.5.20
 ^^^^^^^^^
