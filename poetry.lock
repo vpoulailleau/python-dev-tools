@@ -1201,6 +1201,14 @@ lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
+name = "ssort"
+version = "0.10.0"
+description = "The python statement sorter"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "stdlib-list"
 version = "0.8.0"
 description = "A list of Python Standard Libraries (2.6-7, 3.2-9)."
@@ -1407,7 +1415,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "76fb793e72c74358c7c1eeb765d0e4bebd96a95f8ec6d7096cb8734a8ce89b21"
+content-hash = "3cc70f0ac096b8ed352c7f6a5f5018b3a4562f801314b35dba365e65b89ea9b9"
 
 [metadata.files]
 alabaster = [
@@ -1961,6 +1969,9 @@ sphinxcontrib-qthelp = [
 sphinxcontrib-serializinghtml = [
     {file = "sphinxcontrib-serializinghtml-1.1.5.tar.gz", hash = "sha256:aa5f6de5dfdf809ef505c4895e51ef5c9eac17d0f287933eb49ec495280b6952"},
     {file = "sphinxcontrib_serializinghtml-1.1.5-py2.py3-none-any.whl", hash = "sha256:352a9a00ae864471d3a7ead8d7d79f5fc0b57e8b3f95e9867eb9eb28999b92fd"},
+]
+ssort = [
+    {file = "ssort-0.10.0.tar.gz", hash = "sha256:b8cf331202b14fafb162a38d4849dbbef6aa96cdbbcba73e9c732874ebb254e8"},
 ]
 stdlib-list = [
     {file = "stdlib-list-0.8.0.tar.gz", hash = "sha256:a1e503719720d71e2ed70ed809b385c60cd3fb555ba7ec046b96360d30b16d9f"},

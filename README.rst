@@ -131,6 +131,7 @@ dependencies to develop Python software.
     * isort: https://github.com/PyCQA/isort
     * pybetter: https://github.com/lensvol/pybetter
     * pyupgrade: https://github.com/asottile/pyupgrade
+    * ssort: https://github.com/bwhmather/ssort
 
 * Simple precommit hook
 
@@ -156,6 +157,7 @@ Changelog
 
 * Add ``isort`` formatter
 * Add ``pybetter`` formatter
+* Add ``ssort`` formatter
 * Remove ``cohesion`` linter (false warnings on pure data classes such as ``NamedTuple``)
 
 2022.5.20

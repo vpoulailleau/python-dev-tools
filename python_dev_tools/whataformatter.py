@@ -22,9 +22,10 @@ _formatters_configs: List[FormatterConfig] = [
         path="autoflake",
         cli_args=["--in-place", "--remove-unused-variables"],
     ),
-    FormatterConfig(name="isort", path="isort", cli_args=[]),
+    FormatterConfig(name="ssort", path="ssort", cli_args=[]),
     FormatterConfig(name="pybetter", path="pybetter", cli_args=[]),
     FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
+    FormatterConfig(name="isort", path="isort", cli_args=[]),
     FormatterConfig(
         name="black",
         path="black",
