@@ -25,7 +25,7 @@ _formatters_configs: List[FormatterConfig] = [
     FormatterConfig(name="ssort", path="ssort", cli_args=[]),
     FormatterConfig(name="docformatter", path="docformatter", cli_args=["--in-place"]),
     FormatterConfig(name="removestar", path="removestar", cli_args=["-i"]),
-    FormatterConfig(name="pybetter", path="pybetter", cli_args=[]),
+    FormatterConfig(name="pybetter", path="pybetter", cli_args=["--exclude", "B004"]),
     FormatterConfig(name="pycln", path="pycln", cli_args=["--all"]),
     FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
     FormatterConfig(
@@ -141,6 +141,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-__all__ = ["FormatterConfig", "diff", "format_file", "main"]
