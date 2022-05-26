@@ -20,11 +20,15 @@ def test_main_formatter(tmpdir):
             """
         )
     )
+
     sys.argv = ["whataformatter", str(p)]
     python_dev_tools.whataformatter.__name__ = "__main__"
-
     main_formatter()
+    # TODO assert file content
 
+    sys.argv = ["whataformatter", "--diff", str(p)]
+    python_dev_tools.whataformatter.__name__ = "__main__"
+    main_formatter()
     # TODO assert file content
 
 
