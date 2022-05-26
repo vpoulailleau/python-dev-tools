@@ -5,7 +5,7 @@ import os
 import shutil
 from pathlib import Path
 
-from python_dev_tools.formatters.format_file import format_file
+from python_dev_tools.formatters.common import format_file
 
 
 def udpate_os_path():
