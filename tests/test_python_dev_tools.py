@@ -118,7 +118,7 @@ def test_lint_myself(capsys):
     linter.check_files([str(path) for path in source_dir.rglob("*.py")])
 
     captured = capsys.readouterr()
-    assert captured.out.replace("../", "") == dedent(
+    assert captured.out.replace("../", "").replace("\\", "/") == dedent(
         """\
         python_dev_tools/whataformatter.py:132:7: T101 fixme found (TODO)
         """
