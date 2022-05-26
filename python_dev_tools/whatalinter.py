@@ -1,11 +1,21 @@
 """Linter module, flake8 plugin."""
 import ast
-from typing import TYPE_CHECKING, Final, List, Type
+from typing import TYPE_CHECKING, List, Type
 
 import pkg_resources
 
 if TYPE_CHECKING:
+    import sys
+
     from flake8.options.manager import OptionManager
+
+    if sys.version_info < (3, 8):
+        from typing import Any as Final  # noqa: WPS433, WPS440
+    else:
+        from typing import Final  # noqa: WPS433, WPS440
+
+else:
+    from typing import Any as Final  # noqa: WPS440
 
 
 MAX_LINE_LENGTH: Final = 88
@@ -51,7 +61,7 @@ class WhatALinter:
             ],
         )
         parser.parser.set_defaults(
-            min_python_version="3.7.13",
+            min_python_version="3.7.0",
             max_line_length=MAX_LINE_LENGTH,
             max_complexity=MAX_COMPLEXITY,
             inline_quotes='"',
