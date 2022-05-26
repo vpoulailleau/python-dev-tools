@@ -104,7 +104,6 @@ def test_complexity(tmp_path: Path, capsys):
     run_linter(tmp_path, capsys, file_content, "'foo' is too complex (11)")
 
 
-@pytest.mark.skip(reason="TODO big refactoring in formatter")
 def test_lint_myself(capsys):
     """Test no lint message for this project."""
     source_dir = Path("python_dev_tools")
@@ -118,7 +117,6 @@ def test_lint_myself(capsys):
     captured = capsys.readouterr()
     assert captured.out.replace("../", "") == dedent(
         """\
-        python_dev_tools/whataformatter.py:0:1: WPS226 Found string constant over-use: PATH > 3
-        python_dev_tools/whataformatter.py:26:1: WPS213 Found too many expressions: 10 > 9
+        python_dev_tools/whataformatter.py:122:7: T101 fixme found (TODO)
         """
     )
