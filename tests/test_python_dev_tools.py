@@ -3,7 +3,6 @@ import sys
 from pathlib import Path
 from textwrap import dedent
 
-import pytest
 from flake8.api import legacy as flake8
 
 import python_dev_tools
@@ -121,6 +120,17 @@ def test_lint_myself(capsys):
     captured = capsys.readouterr()
     assert captured.out.replace("../", "") == dedent(
         """\
-        python_dev_tools/whataformatter.py:122:7: T101 fixme found (TODO)
+        python_dev_tools/whataformatter.py:132:7: T101 fixme found (TODO)
         """
     )
+
+
+__all__ = [
+    "run_linter",
+    "test_complexity",
+    "test_duplicate_key",
+    "test_lint_myself",
+    "test_long_line",
+    "test_main_formatter",
+    "test_main_linter",
+]
