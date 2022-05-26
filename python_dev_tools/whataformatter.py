@@ -3,27 +3,81 @@ import argparse
 import difflib
 import os
 import shutil
+import subprocess  # noqa: S404
 from pathlib import Path
+from typing import List, NamedTuple
 
-from python_dev_tools.formatters.common import format_file
+
+class FormatterConfig(NamedTuple):
+    """Configuration of formatting tool."""
+
+    name: str
+    path: str
+    cli_args: List[str]
 
 
-def udpate_os_path():
+_formatters_configs: List[FormatterConfig] = [
+    FormatterConfig(
+        name="autoflake",
+        path="autoflake",
+        cli_args=["--in-place", "--remove-unused-variables"],
+    ),
+    FormatterConfig(name="pyupgrade", path="pyupgrade", cli_args=["--py37-plus"]),
+    FormatterConfig(
+        name="black",
+        path="black",
+        cli_args=["--target-version=py37"],
+    ),  # Should be the last config
+]
+
+
+def _format_file(filepath: str, config: FormatterConfig) -> None:
+    """Execute the formatter.
+
+    Args:
+        filepath (str): path of the file to format
+        config (FormatterConfig): configuration for the formatting tool
+
+    Returns:
+        None
+    """
+    try:
+        return subprocess.run(  # noqa: S603
+            [config.path, *config.cli_args, filepath],
+            capture_output=True,
+            timeout=10,
+            encoding="utf-8",
+        )
+    except FileNotFoundError as exc:
+        if exc.filename == config.path:
+            print(f"Formatter {config.name} not found: {config.path}")
+
+
+def format_file(filepath: str) -> None:
+    """Format the file with known formatters.
+
+    Args:
+        filepath (str): path of the file to format
+    """
+    for config in _formatters_configs:
+        _format_file(filepath, config)
+
+
+def udpate_os_path() -> None:
     """Update PATH env variable to find linters."""
+    paths = os.environ["PATH"].split(os.pathsep)
     script_path = Path(__file__).resolve()
-    os.environ["PATH"] = "".join(
-        (str(script_path.parent), os.pathsep, os.environ["PATH"]),
-    )
+    paths.insert(0, str(script_path.parent))
 
     # replace /lib/ with /bin/, and add to PATH
     for parent in reversed(script_path.parents):
         if parent.stem == "lib":
-            os.environ["PATH"] = "".join(
-                (str(parent.parent / "bin"), os.pathsep, os.environ["PATH"]),
-            )
+            paths.insert(0, str(parent.parent / "bin"))
+
+    os.environ["PATH"] = os.pathsep.join(paths)
 
 
-def main():
+def main() -> None:
     """Entry point."""
     parser = argparse.ArgumentParser(
         description="Python formatter combining existing formatters",
@@ -65,8 +119,8 @@ def main():
         print(
             "".join(
                 difflib.unified_diff(
-                    [line + "\n" for line in orig_content.splitlines()],
-                    [line + "\n" for line in copy_content.splitlines()],
+                    [f"{line}\n" for line in orig_content.splitlines()],
+                    [f"{line}\n" for line in copy_content.splitlines()],
                     fromfile=args.file,
                     tofile=args.file,
                 ),
