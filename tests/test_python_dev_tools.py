@@ -26,7 +26,7 @@ def test_main_formatter(tmp_path: Path) -> None:
         tmp_path (Path): temporary directory where to create file
     """
     checked_file = tmp_path / ("foo.py")
-    checked_file.write("a =   1")
+    checked_file.write_text("a =   1", encoding="utf-8")
     sys.argv = ["whataformatter", str(checked_file)]
     python_dev_tools.whataformatter.__name__ = "__main__"
 
@@ -43,7 +43,7 @@ def test_main_formatter_diff(tmp_path: Path) -> None:
         tmp_path (Path): temporary directory where to create files
     """
     checked_file = tmp_path / ("foo.py")
-    checked_file.write("a =   1")
+    checked_file.write_text("a =   1", encoding="utf-8")
     sys.argv = ["whataformatter", "--diff", str(checked_file)]
     python_dev_tools.whataformatter.__name__ = "__main__"
 
@@ -100,7 +100,7 @@ def test_long_line(tmp_path: Path, capsys) -> None:
         tmp_path,
         capsys,
         f"{docstring}{long_line}\n",
-        "line too long ({line_length} > 88 characters)",
+        f"line too long ({line_length} > 88 characters)",
     )
 
 
@@ -175,6 +175,6 @@ def test_lint_myself(capsys) -> None:
 
     captured = capsys.readouterr().out.replace("../", "").replace("\\", "/")
     expected = """\
-        python_dev_tools/whataformatter.py:132:7: T101 fixme found (TODO)
+        python_dev_tools/whataformatter.py:134:7: T101 fixme found (TODO)
     """
     assert captured == dedent(expected)
