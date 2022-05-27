@@ -58,6 +58,9 @@ class WhatALinter:
                 "WPS305",  # avoid f-strings
                 "WPS306",  # required explicit subclassing of object
                 "WPS421",  # Found wrong function call, useful in scripts
+                "LIT001",  # double quote strings
+                "LIT003",  # double quote strings
+                "LIT005",  # double quote strings
             ],
         )
         parser.parser.set_defaults(
@@ -66,4 +69,6 @@ class WhatALinter:
             max_complexity=MAX_COMPLEXITY,
             inline_quotes='"',
             no_accept_encodings=True,
+            literal_inline_quotes="double",
+            literal_multiline_quotes="double",
         )
