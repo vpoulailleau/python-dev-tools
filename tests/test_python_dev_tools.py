@@ -178,7 +178,7 @@ def test_lint_myself(capsys) -> None:
         lines = [
             line
             for line in captured.splitlines()
-            if "WPS428" not in line and "WPS412" not in line
+            if "WPS428" not in line and "WPS412" not in line and "WPS604" not in line
         ]
         captured = "\n".join(lines)
     expected = """\
