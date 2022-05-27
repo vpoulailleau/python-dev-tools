@@ -95,6 +95,7 @@ dependencies to develop Python software.
     * darglint: https://github.com/terrencepreilly/darglint
     * dlint: https://github.com/dlint-py/dlint
     * flake8-2020: https://github.com/asottile/flake8-2020
+    * flake8-aaa: https://github.com/jamescooke/flake8-aaa
     * flake8-annotations: https://github.com/sco1/flake8-annotations
     * flake8-annotations-complexity: https://github.com/best-doctor/flake8-annotations-complexity
     * flake8-annotations-coverage: https://github.com/best-doctor/flake8-annotations-coverage
@@ -179,6 +180,7 @@ Changelog
 2022.5.27
 ^^^^^^^^^
 
+* Add ``flake8-aaa`` linter
 * Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
 * Add ``flake8-class-attributes-order`` linter
