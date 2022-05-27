@@ -178,7 +178,7 @@ TODO
 
 * flake8 formatter to add URL to information on a warning
 * documentation
-* precommit
+* precommit (flake8, mypy)
 
 Changelog
 ---------
