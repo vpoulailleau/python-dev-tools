@@ -104,6 +104,7 @@ dependencies to develop Python software.
     * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
     * flake8-builtins: https://github.com/gforcada/flake8-builtins
+    * flake8-class-attributes-order: https://github.com/best-doctor/flake8-class-attributes-order
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
@@ -113,6 +114,7 @@ dependencies to develop Python software.
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
     * flake8-functions: https://github.com/best-doctor/flake8-functions
     * flake8-isort: https://github.com/gforcada/flake8-isort
+    * flake8-literal: https://github.com/plinss/flake8-literal
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
     * flake8-mutable: https://github.com/ebeweber/flake8-mutable
     * flake8-pie: https://github.com/sbdchd/flake8-pie
@@ -171,7 +173,9 @@ Changelog
 
 * Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
+* Add ``flake8-class-attributes-order`` linter
 * Add ``flake8-encoding`` linter
+* Add ``flake8-literal`` linter
 * Add ``flake8-pie`` linter
 * Add ``flake8-secure-coding-standard`` linter
 * Add ``flake8-slots`` linter
