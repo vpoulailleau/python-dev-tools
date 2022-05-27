@@ -631,6 +631,18 @@ python-versions = "*"
 flake8 = "*"
 
 [[package]]
+name = "flake8-no-pep420"
+version = "2.3.0"
+description = "A flake8 plugin to ban PEP-420 implicit namespace packages."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+flake8 = ">=3.0,<3.2.0 || >3.2.0"
+importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
+
+[[package]]
 name = "flake8-pie"
 version = "0.15.0"
 description = "A flake8 extension that implements misc. lints"
@@ -1701,7 +1713,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "b891e24c90591bba74e19201ad1b287eaf51bd98b2a29416ee54236d81b24c1c"
+content-hash = "4da8ef80f182e84d7a202f2ae66d054418cef9300aaf61f3735b1295134abd2c"
 
 [metadata.files]
 alabaster = [
@@ -1970,6 +1982,10 @@ flake8-logging-format = [
 flake8-mutable = [
     {file = "flake8-mutable-1.2.0.tar.gz", hash = "sha256:ee9b77111b867d845177bbc289d87d541445ffcc6029a0c5c65865b42b18c6a6"},
     {file = "flake8_mutable-1.2.0-py2-none-any.whl", hash = "sha256:38fd9dadcbcda6550a916197bc40ed76908119dabb37fbcca30873666c31d2d5"},
+]
+flake8-no-pep420 = [
+    {file = "flake8-no-pep420-2.3.0.tar.gz", hash = "sha256:1b965a18508ac7842de288740aa43627d3a5bb2be64f7d5d70d55cb691c3de84"},
+    {file = "flake8_no_pep420-2.3.0-py3-none-any.whl", hash = "sha256:ccba3efa05c50b1c2712d78807cca81e563ab571d6b3bcb90228e87388704cf5"},
 ]
 flake8-pie = [
     {file = "flake8-pie-0.15.0.tar.gz", hash = "sha256:a2d1e67a374d925f688300e9d0e202d1827a0d91e0a11114f712beee639bdc7c"},
