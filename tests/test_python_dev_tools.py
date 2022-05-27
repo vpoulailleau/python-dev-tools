@@ -174,6 +174,13 @@ def test_lint_myself(capsys) -> None:
     linter.check_files([str(path) for path in source_dir.rglob("*.py")])
 
     captured = capsys.readouterr().out.replace("../", "").replace("\\", "/")
+    if sys.version_info < (3.8):  # wemake-python-styleguide is too old
+        lines = [
+            line
+            for line in captured.splitlines()
+            if "WPS428" not in line and "WPS412" not in line
+        ]
+        captured = "\n".join(lines)
     expected = """\
         python_dev_tools/whataformatter.py:134:7: T101 fixme found (TODO)
     """
