@@ -1,6 +1,8 @@
 """Linter module, flake8 plugin."""
+from __future__ import annotations
+
 import ast
-from typing import TYPE_CHECKING, List, Type
+from typing import TYPE_CHECKING
 
 import pkg_resources
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     from flake8.options.manager import OptionManager
 
     if sys.version_info < (3, 8):
-        from typing import Any as Final  # noqa: WPS433, WPS440
+        from typing import Any as Final  # noqa: WPS433
     else:
         from typing import Final  # noqa: WPS433, WPS440
 
@@ -29,23 +31,15 @@ class WhatALinter:
     name = "whatalinter"
     version = pkg_resources.get_distribution("python_dev_tools").version
 
-    def __init__(self: "WhatALinter", tree: ast.AST) -> None:
+    def __init__(self: WhatALinter, tree: ast.AST) -> None:
         """Empty method, needed by flake8.
 
         Args:
             tree (AST): unused
         """
 
-    def run(self: "WhatALinter") -> List:
-        """Empty method, needed by flake8.
-
-        Returns:
-            Empty list
-        """
-        return []
-
     @classmethod
-    def add_options(cls: Type["WhatALinter"], parser: "OptionManager") -> None:
+    def add_options(cls: type[WhatALinter], parser: OptionManager) -> None:
         """Add options to CLI parser.
 
         Args:
@@ -72,3 +66,11 @@ class WhatALinter:
             literal_inline_quotes="double",
             literal_multiline_quotes="double",
         )
+
+    def run(self: WhatALinter) -> list:
+        """Empty method, needed by flake8.
+
+        Returns:
+            Empty list
+        """
+        return []
