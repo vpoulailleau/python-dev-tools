@@ -99,6 +99,7 @@ dependencies to develop Python software.
     * flake8-annotations-complexity: https://github.com/best-doctor/flake8-annotations-complexity
     * flake8-annotations-coverage: https://github.com/best-doctor/flake8-annotations-coverage
     * flake8-bandit: https://github.com/tylerwince/flake8-bandit
+    * flake8-blind-except: https://github.com/elijahandrews/flake8-blind-except
     * flake8-breakpoint: https://github.com/afonasev/flake8-breakpoint
     * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
@@ -162,6 +163,7 @@ Changelog
 2022.5.27
 ^^^^^^^^^
 
+* Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
 
 2022.5.26
