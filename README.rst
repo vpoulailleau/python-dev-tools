@@ -129,6 +129,7 @@ dependencies to develop Python software.
     * flake8-tidy-imports: https://github.com/adamchainz/flake8-tidy-imports
     * flake8-typing-imports: https://github.com/asottile/flake8-typing-imports
     * flake8-use-fstring: https://github.com/MichaelKim0407/flake8-use-fstring
+    * flake8-use-pathlib: https://gitlab.com/RoPP/flake8-use-pathlib
     * flake8-useless-assert: https://github.com/decorator-factory/flake8-useless-assert
     * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
     * flake8-warnings: https://github.com/orsinium-labs/flake8-warnings
@@ -181,6 +182,7 @@ Changelog
 * Add ``flake8-pie`` linter
 * Add ``flake8-secure-coding-standard`` linter
 * Add ``flake8-slots`` linter
+* Add ``flake8-use-pathlib`` linter
 * Add ``flake8-useless-assert`` linter
 * Add ``flake8-warnings`` linter
 

@@ -799,6 +799,17 @@ dev = ["coverage (>=4.0.0,<5.0.0)", "pytest (>=4)", "pytest-cov (>=2)", "flake8-
 test = ["coverage (>=4.0.0,<5.0.0)", "pytest (>=4)", "pytest-cov (>=2)", "flake8-builtins", "flake8-commas", "flake8-fixme", "flake8-print", "flake8-quotes", "flake8-todo"]
 
 [[package]]
+name = "flake8-use-pathlib"
+version = "0.2.1"
+description = "A plugin for flake8 finding use of functions that can be replaced by pathlib module."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+flake8 = ">=3.6,<5"
+
+[[package]]
 name = "flake8-useless-assert"
 version = "0.4.3"
 description = "flake8 plugin to catch useless `assert` statements"
@@ -1713,7 +1724,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "4da8ef80f182e84d7a202f2ae66d054418cef9300aaf61f3735b1295134abd2c"
+content-hash = "063c51ccd8f10223c642153bcc8e5ff8e243aeb3963a9d34fe39d9bcc1921ba3"
 
 [metadata.files]
 alabaster = [
@@ -2036,6 +2047,10 @@ flake8-typing-imports = [
 ]
 flake8-use-fstring = [
     {file = "flake8-use-fstring-1.3.tar.gz", hash = "sha256:1bd4a409adbb93e64e711fdd26b88759c33792e3899f174edc68ddf7307e81b6"},
+]
+flake8-use-pathlib = [
+    {file = "flake8-use-pathlib-0.2.1.tar.gz", hash = "sha256:844023d3e1ed55dc183bfd5421c4887f1d8242a85f183d6b4849567da6f9ee5e"},
+    {file = "flake8_use_pathlib-0.2.1-py3-none-any.whl", hash = "sha256:5d6ecccead68deef2b7a056553fc4fea513666dc0ae61cc9378615ea1ee301e3"},
 ]
 flake8-useless-assert = [
     {file = "flake8-useless-assert-0.4.3.tar.gz", hash = "sha256:e80ce47151204801715511872dff2bb2ae8761cb4c5be51adfd895e39180ea38"},
