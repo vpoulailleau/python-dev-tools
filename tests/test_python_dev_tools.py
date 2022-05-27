@@ -2,6 +2,7 @@
 import sys
 from pathlib import Path
 from textwrap import dedent
+from typing import Final
 
 from flake8.api import legacy as flake8
 
@@ -52,11 +53,14 @@ def test_main_linter(tmp_path: Path, capsys):
 
 def test_long_line(tmp_path: Path, capsys):
     """Test pycodestyle is working."""
+    LINE_LENGTH: Final = 89
+    docstring = '"""Docstring."""\n\n'
+    long_line = LINE_LENGTH * "#"
     run_linter(
         tmp_path,
         capsys,
-        '"""Docstring."""\n\n"' + 87 * "#" + '"\n',
-        "line too long (89 > 88 characters)",
+        f"{docstring}{long_line}\n",
+        "line too long ({LINE_LENGTH} > 88 characters)",
     )
 
 
