@@ -107,6 +107,7 @@ dependencies to develop Python software.
     * flake8-class-attributes-order: https://github.com/best-doctor/flake8-class-attributes-order
     * flake8-coding: https://github.com/tk0miya/flake8-coding
     * flake8-cognitive-complexity: https://github.com/Melevir/flake8-cognitive-complexity
+    * flake8-comments: https://github.com/orsinium-labs/flake8-comments
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
@@ -181,6 +182,7 @@ Changelog
 * Add ``flake8-class-attributes-order`` linter
 * Add ``flake8-cognitive-complexity`` linter
 * Add ``flake8-coding`` linter
+* Add ``flake8-comments`` linter
 * Add ``flake8-encoding`` linter
 * Add ``flake8-functions-names`` linter
 * Add ``flake8-literal`` linter
