@@ -65,4 +65,5 @@ class WhatALinter:
             max_line_length=MAX_LINE_LENGTH,
             max_complexity=MAX_COMPLEXITY,
             inline_quotes='"',
+            no_accept_encodings=True,
         )
