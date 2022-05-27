@@ -11,27 +11,26 @@ from python_dev_tools.whataformatter import main as main_formatter
 
 def test_main_formatter(tmpdir):
     """Test main call."""
-    p = tmpdir.join("foo.py")
-    p.write(
-        dedent(
-            """
-            a =   1
-            """
-        )
-    )
-
-    sys.argv = ["whataformatter", str(p)]
+    checked_file = tmpdir.join("foo.py")
+    checked_file.write("a =   1")
+    sys.argv = ["whataformatter", str(checked_file)]
     python_dev_tools.whataformatter.__name__ = "__main__"
-    main_formatter()
-    # TODO assert file content
 
-    sys.argv = ["whataformatter", "--diff", str(p)]
-    python_dev_tools.whataformatter.__name__ = "__main__"
     main_formatter()
+
     # TODO assert file content
 
 
-# TODO test formatting
+def test_main_formatter_diff(tmpdir):
+    """Test main call."""
+    checked_file = tmpdir.join("foo.py")
+    checked_file.write("a =   1")
+    sys.argv = ["whataformatter", "--diff", str(checked_file)]
+    python_dev_tools.whataformatter.__name__ = "__main__"
+
+    main_formatter()
+
+    # TODO assert file content
 
 
 def run_linter(
