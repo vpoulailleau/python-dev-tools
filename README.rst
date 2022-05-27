@@ -124,6 +124,7 @@ dependencies to develop Python software.
     * flake8-isort: https://github.com/gforcada/flake8-isort
     * flake8-literal: https://github.com/plinss/flake8-literal
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
+    * flake8-markdown: https://github.com/johnfraney/flake8-markdown
     * flake8-mutable: https://github.com/ebeweber/flake8-mutable
     * flake8-no-pep420: https://github.com/adamchainz/flake8-no-pep420
     * flake8-noqa: https://pypi.org/project/flake8-noqa/
@@ -196,7 +197,7 @@ Changelog
 * Add ``flake8-functions-names`` linter
 * Add ``flake8-future-annotations`` linter
 * Add ``flake8-literal`` linter
-* Add ``flake8-noqa`` linter
+* Add ``flake8-markdown`` linter
 * Add ``flake8-noqa`` linter
 * Add ``flake8-no-pep420`` linter
 * Add ``flake8-pie`` linter
