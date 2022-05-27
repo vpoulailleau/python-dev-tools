@@ -111,6 +111,7 @@ dependencies to develop Python software.
     * flake8-comments: https://github.com/orsinium-labs/flake8-comments
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
+    * flake8-django: https://github.com/rocioar/flake8-django
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
     * flake8-encoding: https://github.com/python-formate/flake8-encodings
     * flake8-eradicate: https://github.com/sobolevn/flake8-eradicate
@@ -188,6 +189,7 @@ Changelog
 * Add ``flake8-cognitive-complexity`` linter
 * Add ``flake8-coding`` linter
 * Add ``flake8-comments`` linter
+* Add ``flake8-django`` linter
 * Add ``flake8-encoding`` linter
 * Add ``flake8-executable`` linter
 * Add ``flake8-functions-names`` linter
