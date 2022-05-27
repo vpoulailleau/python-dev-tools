@@ -113,6 +113,7 @@ dependencies to develop Python software.
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
     * flake8-encoding: https://github.com/python-formate/flake8-encodings
     * flake8-eradicate: https://github.com/sobolevn/flake8-eradicate
+    * flake8-executable: https://github.com/xuhdev/flake8-executable
     * flake8-expression-complexity: https://pypi.org/project/flake8-expression-complexity/
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
     * flake8-functions: https://github.com/best-doctor/flake8-functions
@@ -184,6 +185,7 @@ Changelog
 * Add ``flake8-coding`` linter
 * Add ``flake8-comments`` linter
 * Add ``flake8-encoding`` linter
+* Add ``flake8-executable`` linter
 * Add ``flake8-functions-names`` linter
 * Add ``flake8-literal`` linter
 * Add ``flake8-no-pep420`` linter
