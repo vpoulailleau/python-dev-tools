@@ -697,6 +697,18 @@ flake8 = ">=3.7"
 importlib-metadata = {version = ">=0.9", markers = "python_version < \"3.8\""}
 
 [[package]]
+name = "flake8-slots"
+version = "0.1.5"
+description = "A Flake8 plugin to require __slots__ to be defined for subclasses of immutable types."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+flake8 = ">=3.8.4"
+flake8-helper = ">=0.1.1"
+
+[[package]]
 name = "flake8-string-format"
 version = "0.3.0"
 description = "string format checker, plugin for flake8"
@@ -1662,7 +1674,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "ea1fef461ac17dd0fc90eb35a60c891f6edad760e69be45e950f682f97efc8cd"
+content-hash = "0d77980c189fa8b1555a4a864f701b66d46e4530b51f55342746bddfd5c34a7a"
 
 [metadata.files]
 alabaster = [
@@ -1954,6 +1966,10 @@ flake8-secure-coding-standard = [
 flake8-simplify = [
     {file = "flake8_simplify-0.19.2-py3-none-any.whl", hash = "sha256:9c1e96ba738f9057a561697d67df7a9058898ac6313a67eda09942255cba6d38"},
     {file = "flake8_simplify-0.19.2.tar.gz", hash = "sha256:a30ef76bf1c0cb89a52a8a5cee37667688e61a66735e997c08d56cd002f9e3e9"},
+]
+flake8-slots = [
+    {file = "flake8_slots-0.1.5-py3-none-any.whl", hash = "sha256:b68278692761cb8d8248da65e0e14a59b5470c9db645f7dd0ab38a3bba7a913b"},
+    {file = "flake8_slots-0.1.5.tar.gz", hash = "sha256:7febed14ac5349359abe4b24773a9e725bb0ad216cc98b28538328010011050d"},
 ]
 flake8-string-format = [
     {file = "flake8-string-format-0.3.0.tar.gz", hash = "sha256:65f3da786a1461ef77fca3780b314edb2853c377f2e35069723348c8917deaa2"},
