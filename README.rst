@@ -142,6 +142,7 @@ dependencies to develop Python software.
     * flake8-useless-assert: https://github.com/decorator-factory/flake8-useless-assert
     * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
     * flake8-warnings: https://github.com/orsinium-labs/flake8-warnings
+    * pandas-vet: https://github.com/deppen8/pandas-vet
     * pep8-naming: https://github.com/PyCQA/pep8-naming
     * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
 
@@ -204,6 +205,7 @@ Changelog
 * Add ``flake8-use-pathlib`` linter
 * Add ``flake8-useless-assert`` linter
 * Add ``flake8-warnings`` linter
+* Add ``pandas-vet`` linter
 
 2022.5.26
 ^^^^^^^^^
