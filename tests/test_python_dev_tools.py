@@ -180,7 +180,7 @@ def test_lint_myself(capsys) -> None:
             for line in captured.splitlines()
             if "WPS428" not in line and "WPS412" not in line and "WPS604" not in line
         ]
-        captured = "\n".join(lines)
+        captured = "\n".join(lines) + "\n"
     expected = """\
         python_dev_tools/whataformatter.py:134:7: T101 fixme found (TODO)
     """
