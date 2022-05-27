@@ -105,6 +105,7 @@ dependencies to develop Python software.
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
     * flake8-builtins: https://github.com/gforcada/flake8-builtins
     * flake8-class-attributes-order: https://github.com/best-doctor/flake8-class-attributes-order
+    * flake8-cognitive-complexity: https://github.com/Melevir/flake8-cognitive-complexity
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
@@ -177,6 +178,7 @@ Changelog
 * Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
 * Add ``flake8-class-attributes-order`` linter
+* Add ``flake8-cognitive-complexity`` linter
 * Add ``flake8-encoding`` linter
 * Add ``flake8-functions-names`` linter
 * Add ``flake8-literal`` linter
