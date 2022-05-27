@@ -10,7 +10,7 @@ Needed and up-to-date tools to develop in Python (*WORK IN PROGRESS*)
 .. image:: https://img.shields.io/pypi/l/python_dev_tools.svg
         :target: https://github.com/vpoulailleau/python_dev_tools/blob/master/LICENSE
 
-.. image:: https://img.shields.io/pypi/pyversions/python_dev_tools.svg?style=flat-square&logo=python&amp;logoColor=fff
+.. image:: https://img.shields.io/pypi/pyversions/python_dev_tools.svg?logo=python&amp;logoColor=fff
         :target: https://pypi.python.org/pypi/python_dev_tools
 
 .. image:: https://github.com/vpoulailleau/python-dev-tools/actions/workflows/tests.yml/badge.svg
@@ -99,6 +99,7 @@ dependencies to develop Python software.
     * flake8-annotations-complexity: https://github.com/best-doctor/flake8-annotations-complexity
     * flake8-annotations-coverage: https://github.com/best-doctor/flake8-annotations-coverage
     * flake8-bandit: https://github.com/tylerwince/flake8-bandit
+    * flake8-breakpoint: https://github.com/afonasev/flake8-breakpoint
     * flake8-broken-line: https://github.com/sobolevn/flake8-broken-line
     * flake8-bugbear: https://github.com/PyCQA/flake8-bugbear
     * flake8-builtins: https://github.com/gforcada/flake8-builtins
@@ -157,6 +158,11 @@ TODO
 
 Changelog
 ---------
+
+2022.5.27
+^^^^^^^^^
+
+* Add ``flake8-breakpoint`` linter
 
 2022.5.26
 ^^^^^^^^^
