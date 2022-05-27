@@ -129,6 +129,7 @@ dependencies to develop Python software.
     * flake8-no-pep420: https://github.com/adamchainz/flake8-no-pep420
     * flake8-noqa: https://pypi.org/project/flake8-noqa/
     * flake8-pie: https://github.com/sbdchd/flake8-pie
+    * flake8-pyi: https://github.com/PyCQA/flake8-pyi
     * flake8-pytest-style: https://github.com/m-burst/flake8-pytest-style
     * flake8-quotes: https://github.com/zheller/flake8-quotes/
     * flake8-rst-docstrings: https://github.com/peterjc/flake8-rst-docstrings
@@ -201,6 +202,7 @@ Changelog
 * Add ``flake8-noqa`` linter
 * Add ``flake8-no-pep420`` linter
 * Add ``flake8-pie`` linter
+* Add ``flake8-pyi`` linter
 * Add ``flake8-secure-coding-standard`` linter
 * Add ``flake8-slots`` linter
 * Add ``flake8-use-pathlib`` linter
