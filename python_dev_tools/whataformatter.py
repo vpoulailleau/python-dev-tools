@@ -1,11 +1,13 @@
 """Formatter module, aggregation of formatters."""
+from __future__ import annotations
+
 import argparse
 import difflib
 import os
 import shutil
 import subprocess  # noqa: S404
 from pathlib import Path
-from typing import List, NamedTuple
+from typing import NamedTuple
 
 
 class FormatterConfig(NamedTuple):
@@ -13,10 +15,10 @@ class FormatterConfig(NamedTuple):
 
     name: str
     path: str
-    cli_args: List[str]
+    cli_args: list[str]
 
 
-_formatters_configs: List[FormatterConfig] = [
+_formatters_configs: list[FormatterConfig] = [
     FormatterConfig(
         name="autoflake",
         path="autoflake",
