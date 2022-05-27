@@ -123,6 +123,7 @@ dependencies to develop Python software.
     * flake8-tidy-imports: https://github.com/adamchainz/flake8-tidy-imports
     * flake8-typing-imports: https://github.com/asottile/flake8-typing-imports
     * flake8-use-fstring: https://github.com/MichaelKim0407/flake8-use-fstring
+    * flake8-useless-assert: https://github.com/decorator-factory/flake8-useless-assert
     * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
     * pep8-naming: https://github.com/PyCQA/pep8-naming
     * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
@@ -167,6 +168,7 @@ Changelog
 * Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
 * Add ``flake8-pie`` linter
+* Add ``flake8-useless-assert`` linter
 
 2022.5.26
 ^^^^^^^^^
