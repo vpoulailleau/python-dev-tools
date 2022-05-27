@@ -114,6 +114,7 @@ dependencies to develop Python software.
     * flake8-isort: https://github.com/gforcada/flake8-isort
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
     * flake8-mutable: https://github.com/ebeweber/flake8-mutable
+    * flake8-pie: https://github.com/sbdchd/flake8-pie
     * flake8-pytest-style: https://github.com/m-burst/flake8-pytest-style
     * flake8-quotes: https://github.com/zheller/flake8-quotes/
     * flake8-rst-docstrings: https://github.com/peterjc/flake8-rst-docstrings
@@ -165,6 +166,7 @@ Changelog
 
 * Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
+* Add ``flake8-pie`` linter
 
 2022.5.26
 ^^^^^^^^^
