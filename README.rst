@@ -113,6 +113,7 @@ dependencies to develop Python software.
     * flake8-expression-complexity: https://pypi.org/project/flake8-expression-complexity/
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
     * flake8-functions: https://github.com/best-doctor/flake8-functions
+    * flake8-functions-names: https://github.com/Melevir/flake8-functions-names
     * flake8-isort: https://github.com/gforcada/flake8-isort
     * flake8-literal: https://github.com/plinss/flake8-literal
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
@@ -177,6 +178,7 @@ Changelog
 * Add ``flake8-breakpoint`` linter
 * Add ``flake8-class-attributes-order`` linter
 * Add ``flake8-encoding`` linter
+* Add ``flake8-functions-names`` linter
 * Add ``flake8-literal`` linter
 * Add ``flake8-no-pep420`` linter
 * Add ``flake8-pie`` linter
