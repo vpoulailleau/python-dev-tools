@@ -174,7 +174,7 @@ def test_lint_myself(capsys) -> None:
     linter.check_files([str(path) for path in source_dir.rglob("*.py")])
 
     captured = capsys.readouterr().out.replace("../", "").replace("\\", "/")
-    if sys.version_info < (3.8):  # wemake-python-styleguide is too old
+    if sys.version_info < (3, 8):  # wemake-python-styleguide is too old
         lines = [
             line
             for line in captured.splitlines()
