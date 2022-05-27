@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python_dev_tools"
-version = "2022.5.26"
+version = "2022.5.27"
 description = "Needed and up-to-date tools to develop in Python"
 classifiers=[
     "Development Status :: 4 - Beta",
