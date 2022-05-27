@@ -669,6 +669,21 @@ pygments = "*"
 restructuredtext-lint = "*"
 
 [[package]]
+name = "flake8-secure-coding-standard"
+version = "1.2.2"
+description = "Flake8 plugin adding some checks to make Python code adhere to more secure coding standard"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+flake8 = ">=3.7"
+importlib-metadata = {version = ">=0.9", markers = "python_version < \"3.8\""}
+
+[package.extras]
+test = ["mock", "pytest", "pytest-cov", "pytest-mock"]
+
+[[package]]
 name = "flake8-simplify"
 version = "0.19.2"
 description = "flake8 plugin which checks for code that can be simplified"
@@ -1647,7 +1662,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "ea20ac959f2a8f591d57baae6e644a5000658cdf9d6c6f8666c3cc6f43382b7d"
+content-hash = "ea1fef461ac17dd0fc90eb35a60c891f6edad760e69be45e950f682f97efc8cd"
 
 [metadata.files]
 alabaster = [
@@ -1931,6 +1946,10 @@ flake8-quotes = [
 flake8-rst-docstrings = [
     {file = "flake8-rst-docstrings-0.2.5.tar.gz", hash = "sha256:4fe93f997dea45d9d3c8bd220f12f0b6c359948fb943b5b48021a3f927edd816"},
     {file = "flake8_rst_docstrings-0.2.5-py3-none-any.whl", hash = "sha256:b99d9041b769b857efe45a448dc8c71b1bb311f9cacbdac5de82f96498105082"},
+]
+flake8-secure-coding-standard = [
+    {file = "flake8-secure-coding-standard-1.2.2.tar.gz", hash = "sha256:dad435efb8337675bdb57f8fa7d9d0ec2095867893c2c4ca6cc78f96bbf9919e"},
+    {file = "flake8_secure_coding_standard-1.2.2-py2.py3-none-any.whl", hash = "sha256:b7e492bb5919742970fc63d14a14d245114e1d9ed0210d84f68b8a4f73a2f73a"},
 ]
 flake8-simplify = [
     {file = "flake8_simplify-0.19.2-py3-none-any.whl", hash = "sha256:9c1e96ba738f9057a561697d67df7a9058898ac6313a67eda09942255cba6d38"},

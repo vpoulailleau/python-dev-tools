@@ -119,6 +119,7 @@ dependencies to develop Python software.
     * flake8-pytest-style: https://github.com/m-burst/flake8-pytest-style
     * flake8-quotes: https://github.com/zheller/flake8-quotes/
     * flake8-rst-docstrings: https://github.com/peterjc/flake8-rst-docstrings
+    * flake8-secure-coding-standard: https://github.com/Takishima/flake8-secure-coding-standard
     * flake8-simplify: https://github.com/MartinThoma/flake8-simplify
     * flake8-string-format: https://github.com/xZise/flake8-string-format
     * flake8-tidy-imports: https://github.com/adamchainz/flake8-tidy-imports
@@ -171,6 +172,7 @@ Changelog
 * Add ``flake8-breakpoint`` linter
 * Add ``flake8-encoding`` linter
 * Add ``flake8-pie`` linter
+* Add ``flake8-secure-coding-standard`` linter
 * Add ``flake8-useless-assert`` linter
 * Add ``flake8-warnings`` linter
 
