@@ -125,6 +125,7 @@ dependencies to develop Python software.
     * flake8-use-fstring: https://github.com/MichaelKim0407/flake8-use-fstring
     * flake8-useless-assert: https://github.com/decorator-factory/flake8-useless-assert
     * flake8-variables-names: https://github.com/best-doctor/flake8-variables-names
+    * flake8-warnings: https://github.com/orsinium-labs/flake8-warnings
     * pep8-naming: https://github.com/PyCQA/pep8-naming
     * wemake-python-styleguide: https://github.com/wemake-services/wemake-python-styleguide
 
@@ -169,6 +170,7 @@ Changelog
 * Add ``flake8-breakpoint`` linter
 * Add ``flake8-pie`` linter
 * Add ``flake8-useless-assert`` linter
+* Add ``flake8-warnings`` linter
 
 2022.5.26
 ^^^^^^^^^
