@@ -107,6 +107,7 @@ dependencies to develop Python software.
     * flake8-comprehensions: https://github.com/adamchainz/flake8-comprehensions
     * flake8-debugger: https://github.com/JBKahn/flake8-debugger
     * flake8-docstrings: https://gitlab.com/pycqa/flake8-docstrings
+    * flake8-encoding: https://github.com/python-formate/flake8-encodings
     * flake8-eradicate: https://github.com/sobolevn/flake8-eradicate
     * flake8-expression-complexity: https://pypi.org/project/flake8-expression-complexity/
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
@@ -168,6 +169,7 @@ Changelog
 
 * Add ``flake8-blind-except`` linter
 * Add ``flake8-breakpoint`` linter
+* Add ``flake8-encoding`` linter
 * Add ``flake8-pie`` linter
 * Add ``flake8-useless-assert`` linter
 * Add ``flake8-warnings`` linter
