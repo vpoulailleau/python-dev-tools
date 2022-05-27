@@ -119,6 +119,7 @@ dependencies to develop Python software.
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
     * flake8-functions: https://github.com/best-doctor/flake8-functions
     * flake8-functions-names: https://github.com/Melevir/flake8-functions-names
+    * flake8-future-annotations: https://github.com/tyleryep/flake8-future-annotations
     * flake8-isort: https://github.com/gforcada/flake8-isort
     * flake8-literal: https://github.com/plinss/flake8-literal
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
@@ -190,6 +191,7 @@ Changelog
 * Add ``flake8-encoding`` linter
 * Add ``flake8-executable`` linter
 * Add ``flake8-functions-names`` linter
+* Add ``flake8-future-annotations`` linter
 * Add ``flake8-literal`` linter
 * Add ``flake8-noqa`` linter
 * Add ``flake8-noqa`` linter
