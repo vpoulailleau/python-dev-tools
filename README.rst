@@ -123,6 +123,7 @@ dependencies to develop Python software.
     * flake8-logging-format: https://github.com/globality-corp/flake8-logging-format
     * flake8-mutable: https://github.com/ebeweber/flake8-mutable
     * flake8-no-pep420: https://github.com/adamchainz/flake8-no-pep420
+    * flake8-noqa: https://pypi.org/project/flake8-noqa/
     * flake8-pie: https://github.com/sbdchd/flake8-pie
     * flake8-pytest-style: https://github.com/m-burst/flake8-pytest-style
     * flake8-quotes: https://github.com/zheller/flake8-quotes/
@@ -188,6 +189,8 @@ Changelog
 * Add ``flake8-executable`` linter
 * Add ``flake8-functions-names`` linter
 * Add ``flake8-literal`` linter
+* Add ``flake8-noqa`` linter
+* Add ``flake8-noqa`` linter
 * Add ``flake8-no-pep420`` linter
 * Add ``flake8-pie`` linter
 * Add ``flake8-secure-coding-standard`` linter

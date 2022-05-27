@@ -706,6 +706,22 @@ flake8 = ">=3.0,<3.2.0 || >3.2.0"
 importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 
 [[package]]
+name = "flake8-noqa"
+version = "1.2.2"
+description = "Flake8 noqa comment validation"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+flake8 = ">=3.8.0,<5.0"
+typing-extensions = ">=3.7.4.2,<5.0"
+
+[package.extras]
+dev = ["mypy", "flake8 (<4.0)", "flake8-annotations", "flake8-bugbear", "flake8-commas", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-polyfill", "flake8-tabs", "flake8-type-annotations", "pep8-naming", "types-setuptools"]
+test = ["flake8-docstrings"]
+
+[[package]]
 name = "flake8-pie"
 version = "0.15.0"
 description = "A flake8 extension that implements misc. lints"
@@ -1787,7 +1803,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "608f371b2ce6966a599343162236278dbb474d3513b3e5beca189057733522fd"
+content-hash = "08ff894cd2aaf52053efe8f73b8630ad6bbb2cd9cb7f715fa2d343165c1b4e2c"
 
 [metadata.files]
 alabaster = [
@@ -2081,6 +2097,10 @@ flake8-mutable = [
 flake8-no-pep420 = [
     {file = "flake8-no-pep420-2.3.0.tar.gz", hash = "sha256:1b965a18508ac7842de288740aa43627d3a5bb2be64f7d5d70d55cb691c3de84"},
     {file = "flake8_no_pep420-2.3.0-py3-none-any.whl", hash = "sha256:ccba3efa05c50b1c2712d78807cca81e563ab571d6b3bcb90228e87388704cf5"},
+]
+flake8-noqa = [
+    {file = "flake8-noqa-1.2.2.tar.gz", hash = "sha256:02f6a10d0e59c0d50682a8c2799bf788dc7ae0eed27a4400ea66ea18ab42397c"},
+    {file = "flake8_noqa-1.2.2-py3-none-any.whl", hash = "sha256:48acd5b35a098f7c0b6eb948d4797303695cc7735365c571b4eef7e65a712fa2"},
 ]
 flake8-pie = [
     {file = "flake8-pie-0.15.0.tar.gz", hash = "sha256:a2d1e67a374d925f688300e9d0e202d1827a0d91e0a11114f712beee639bdc7c"},
