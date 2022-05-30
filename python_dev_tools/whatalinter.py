@@ -55,6 +55,8 @@ class WhatALinter:
                 "LIT001",  # double quote strings
                 "LIT003",  # double quote strings
                 "LIT005",  # double quote strings
+                "PD005",  # add => +, too many false positives
+                "PD011",  # values(), too many false positives
             ],
         )
         parser.parser.set_defaults(
