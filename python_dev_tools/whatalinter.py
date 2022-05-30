@@ -55,6 +55,7 @@ class WhatALinter:
                 "LIT001",  # double quote strings
                 "LIT003",  # double quote strings
                 "LIT005",  # double quote strings
+                # https://github.com/deppen8/pandas-vet/issues/74
                 "PD005",  # add => +, too many false positives
                 "PD011",  # values(), too many false positives
             ],
