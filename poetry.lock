@@ -879,7 +879,7 @@ restructuredtext-lint = "*"
 
 [[package]]
 name = "flake8-secure-coding-standard"
-version = "1.2.2"
+version = "1.3.0"
 description = "Flake8 plugin adding some checks to make Python code adhere to more secure coding standard"
 category = "main"
 optional = false
@@ -2290,8 +2290,8 @@ flake8-rst-docstrings = [
     {file = "flake8_rst_docstrings-0.2.5-py3-none-any.whl", hash = "sha256:b99d9041b769b857efe45a448dc8c71b1bb311f9cacbdac5de82f96498105082"},
 ]
 flake8-secure-coding-standard = [
-    {file = "flake8-secure-coding-standard-1.2.2.tar.gz", hash = "sha256:dad435efb8337675bdb57f8fa7d9d0ec2095867893c2c4ca6cc78f96bbf9919e"},
-    {file = "flake8_secure_coding_standard-1.2.2-py2.py3-none-any.whl", hash = "sha256:b7e492bb5919742970fc63d14a14d245114e1d9ed0210d84f68b8a4f73a2f73a"},
+    {file = "flake8-secure-coding-standard-1.3.0.tar.gz", hash = "sha256:2bae09960404962497231d9cac0c0a2b3d43d39524afc33379982cad1ae886e2"},
+    {file = "flake8_secure_coding_standard-1.3.0-py2.py3-none-any.whl", hash = "sha256:7f96559c124f947d2411b0fa0ddd37efa8831bfb3651576e6c00cae1184a4876"},
 ]
 flake8-simplify = [
     {file = "flake8_simplify-0.19.2-py3-none-any.whl", hash = "sha256:9c1e96ba738f9057a561697d67df7a9058898ac6313a67eda09942255cba6d38"},
