@@ -770,7 +770,7 @@ importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 
 [[package]]
 name = "flake8-noqa"
-version = "1.2.2"
+version = "1.2.3"
 description = "Flake8 noqa comment validation"
 category = "main"
 optional = false
@@ -2255,8 +2255,8 @@ flake8-no-pep420 = [
     {file = "flake8_no_pep420-2.3.0-py3-none-any.whl", hash = "sha256:ccba3efa05c50b1c2712d78807cca81e563ab571d6b3bcb90228e87388704cf5"},
 ]
 flake8-noqa = [
-    {file = "flake8-noqa-1.2.2.tar.gz", hash = "sha256:02f6a10d0e59c0d50682a8c2799bf788dc7ae0eed27a4400ea66ea18ab42397c"},
-    {file = "flake8_noqa-1.2.2-py3-none-any.whl", hash = "sha256:48acd5b35a098f7c0b6eb948d4797303695cc7735365c571b4eef7e65a712fa2"},
+    {file = "flake8-noqa-1.2.3.tar.gz", hash = "sha256:71e0708f2c6608c7b9cd827e16eb842b706ecee35bf3a0c26f8f654bb47a9aa5"},
+    {file = "flake8_noqa-1.2.3-py3-none-any.whl", hash = "sha256:a2e99be3719d17c9bba28f4b992d333e3160bba4f52824837322db803be6aaa4"},
 ]
 flake8-pie = [
     {file = "flake8-pie-0.15.0.tar.gz", hash = "sha256:a2d1e67a374d925f688300e9d0e202d1827a0d91e0a11114f712beee639bdc7c"},
