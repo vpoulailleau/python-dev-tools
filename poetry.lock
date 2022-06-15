@@ -770,18 +770,18 @@ importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 
 [[package]]
 name = "flake8-noqa"
-version = "1.2.3"
+version = "1.2.5"
 description = "Flake8 noqa comment validation"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 flake8 = ">=3.8.0,<5.0"
 typing-extensions = ">=3.7.4.2,<5.0"
 
 [package.extras]
-dev = ["mypy", "flake8 (<4.0)", "flake8-annotations", "flake8-bugbear", "flake8-commas", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-polyfill", "flake8-tabs", "flake8-type-annotations", "pep8-naming", "types-setuptools"]
+dev = ["mypy", "flake8", "flake8-annotations", "flake8-bugbear", "flake8-commas", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-polyfill", "flake8-postponed-annotations", "flake8-tabs", "flake8-typechecking-import", "pep8-naming", "types-setuptools"]
 test = ["flake8-docstrings"]
 
 [[package]]
@@ -2255,8 +2255,8 @@ flake8-no-pep420 = [
     {file = "flake8_no_pep420-2.3.0-py3-none-any.whl", hash = "sha256:ccba3efa05c50b1c2712d78807cca81e563ab571d6b3bcb90228e87388704cf5"},
 ]
 flake8-noqa = [
-    {file = "flake8-noqa-1.2.3.tar.gz", hash = "sha256:71e0708f2c6608c7b9cd827e16eb842b706ecee35bf3a0c26f8f654bb47a9aa5"},
-    {file = "flake8_noqa-1.2.3-py3-none-any.whl", hash = "sha256:a2e99be3719d17c9bba28f4b992d333e3160bba4f52824837322db803be6aaa4"},
+    {file = "flake8-noqa-1.2.5.tar.gz", hash = "sha256:dff6a04d73711ce1947af657ad95b9878a20cafd2438c0cfd5b41cb0e2a97067"},
+    {file = "flake8_noqa-1.2.5-py3-none-any.whl", hash = "sha256:66abe96d181629d02c13efb8ab8a7fc8cf669729e342eed39c115a93f04e958b"},
 ]
 flake8-pie = [
     {file = "flake8-pie-0.15.0.tar.gz", hash = "sha256:a2d1e67a374d925f688300e9d0e202d1827a0d91e0a11114f712beee639bdc7c"},
