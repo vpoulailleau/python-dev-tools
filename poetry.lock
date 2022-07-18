@@ -1342,7 +1342,7 @@ pygments = ">=2.5.2,<3.0.0"
 
 [[package]]
 name = "pycln"
-version = "2.0.2"
+version = "2.0.3"
 description = "A formatter for finding and removing unused import statements."
 category = "main"
 optional = false
@@ -2540,8 +2540,8 @@ pybetter = [
     {file = "pybetter-0.4.1.tar.gz", hash = "sha256:b431cf1814935485ab1c69e3d24f1eccde4a4d10f1dadcb9ca1144902b6f9c79"},
 ]
 pycln = [
-    {file = "pycln-2.0.2-py3-none-any.whl", hash = "sha256:9013902b20111081f4de21ea0a6ac52997a60e53f78ec37e99f89ff1564e0406"},
-    {file = "pycln-2.0.2.tar.gz", hash = "sha256:f2df02277774cb718cd4e51c7b3f335d4e4b0b5ade800457fc117ecc975ce2cd"},
+    {file = "pycln-2.0.3-py3-none-any.whl", hash = "sha256:67a7942d4cc7b49c48a6c138d1adeba78b13ea74283f04bd4a6532538629f544"},
+    {file = "pycln-2.0.3.tar.gz", hash = "sha256:cc3d4f64c89d5b6a58a4978db63c3e8d0415516d673b662847c5a06e4807e491"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.8.0-py2.py3-none-any.whl", hash = "sha256:720f8b39dde8b293825e7ff02c475f3077124006db4f440dcbc9a20b76548a20"},
