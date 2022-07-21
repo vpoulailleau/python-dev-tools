@@ -713,18 +713,19 @@ test = ["pytest-cov"]
 
 [[package]]
 name = "flake8-literal"
-version = "1.2.1"
+version = "1.2.4"
 description = "Flake8 string literal validation"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 flake8 = ">=3.8.0,<5.0"
-typing-extensions = ">=3.7.4.2,<4.0"
+importlib-metadata = {version = ">=4.0.0,<5.0.0", markers = "python_version < \"3.8.0\""}
+typing-extensions = ">=3.7.4.2"
 
 [package.extras]
-dev = ["mypy", "flake8 (<4.0)", "flake8-annotations", "flake8-bugbear", "flake8-commas", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-noqa", "flake8-polyfill", "flake8-tabs", "flake8-type-annotations", "pep8-naming", "types-setuptools"]
+dev = ["mypy", "flake8", "flake8-annotations", "flake8-bandit", "flake8-bugbear", "flake8-commas", "flake8-comprehensions", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-noqa", "flake8-polyfill", "flake8-postponed-annotations", "flake8-requirements", "flake8-tabs", "flake8-typechecking-import", "flake8-use-fstring", "pep8-naming"]
 
 [[package]]
 name = "flake8-logging-format"
@@ -2236,8 +2237,8 @@ flake8-isort = [
     {file = "flake8_isort-4.1.1-py3-none-any.whl", hash = "sha256:c4e8b6dcb7be9b71a02e6e5d4196cefcef0f3447be51e82730fb336fff164949"},
 ]
 flake8-literal = [
-    {file = "flake8-literal-1.2.1.tar.gz", hash = "sha256:ff287edbbc5247d98b1010055c256877968d6c4c90c7f333cd71966ccd357b68"},
-    {file = "flake8_literal-1.2.1-py3-none-any.whl", hash = "sha256:ce3c06cb2e77d838c0b3f654b7665b4fc80f7e2b439d63f1bbeb7e209c1ce21e"},
+    {file = "flake8-literal-1.2.4.tar.gz", hash = "sha256:4d9fd816015326e973ca56a3f6359cc0f5a234be18136cba8c92f74e827c4e6e"},
+    {file = "flake8_literal-1.2.4-py3-none-any.whl", hash = "sha256:0ad87bd3fe8c01f6cbe598e56b059eab8dd07b3d989f9311f34427c17cc22858"},
 ]
 flake8-logging-format = [
     {file = "flake8-logging-format-0.6.0.tar.gz", hash = "sha256:ca5f2b7fc31c3474a0aa77d227e022890f641a025f0ba664418797d979a779f8"},
