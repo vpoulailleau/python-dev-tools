@@ -1347,7 +1347,7 @@ pygments = ">=2.5.2,<3.0.0"
 
 [[package]]
 name = "pycln"
-version = "2.0.4"
+version = "2.1.1"
 description = "A formatter for finding and removing unused import statements."
 category = "main"
 optional = false
@@ -1357,7 +1357,7 @@ python-versions = ">=3.6.2,<4"
 libcst = ">=0.3.10,<0.5.0"
 pathspec = ">=0.9.0,<0.10.0"
 pyyaml = ">=5.3.1,<7.0.0"
-toml = ">=0.10.1,<0.11.0"
+tomlkit = ">=0.11.1,<0.12.0"
 typer = ">=0.4.1,<0.7.0"
 
 [[package]]
@@ -1754,6 +1754,14 @@ description = "A lil' TOML parser"
 category = "main"
 optional = false
 python-versions = ">=3.7"
+
+[[package]]
+name = "tomlkit"
+version = "0.11.1"
+description = "Style preserving TOML library"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
 
 [[package]]
 name = "tox"
@@ -2543,8 +2551,8 @@ pybetter = [
     {file = "pybetter-0.4.1.tar.gz", hash = "sha256:b431cf1814935485ab1c69e3d24f1eccde4a4d10f1dadcb9ca1144902b6f9c79"},
 ]
 pycln = [
-    {file = "pycln-2.0.4-py3-none-any.whl", hash = "sha256:38adeb6d068a9ccaa1789933734d7fbe3ebb0fc40339e0e21e6f33defa948546"},
-    {file = "pycln-2.0.4.tar.gz", hash = "sha256:a9b78017be21a7e29e2c9d205addc6048fa8df2b8da19303d97f828c0c818432"},
+    {file = "pycln-2.1.1-py3-none-any.whl", hash = "sha256:d90fad498563b309e570615d610e44399ef842d4644ba06925e4d46a8a691013"},
+    {file = "pycln-2.1.1.tar.gz", hash = "sha256:255a135935796761958dd3349822ccc71ce3052464c4d81e119df0106bbaf882"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.8.0-py2.py3-none-any.whl", hash = "sha256:720f8b39dde8b293825e7ff02c475f3077124006db4f440dcbc9a20b76548a20"},
@@ -2708,6 +2716,10 @@ toml = [
 tomli = [
     {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
     {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
+]
+tomlkit = [
+    {file = "tomlkit-0.11.1-py3-none-any.whl", hash = "sha256:1c5bebdf19d5051e2e1de6cf70adfc5948d47221f097fcff7a3ffc91e953eaf5"},
+    {file = "tomlkit-0.11.1.tar.gz", hash = "sha256:61901f81ff4017951119cd0d1ed9b7af31c821d6845c8c477587bbdcd5e5854e"},
 ]
 tox = [
     {file = "tox-3.25.1-py2.py3-none-any.whl", hash = "sha256:c38e15f4733683a9cc0129fba078633e07eb0961f550a010ada879e95fb32632"},
