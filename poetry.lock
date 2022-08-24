@@ -274,14 +274,18 @@ stevedore = "*"
 
 [[package]]
 name = "docformatter"
-version = "1.4"
-description = "Formats docstrings to follow PEP 257."
+version = "1.5.0"
+description = "Formats docstrings to follow PEP 257"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6,<4.0"
 
 [package.dependencies]
-untokenize = "*"
+tomli = {version = ">=2.0.0,<3.0.0", markers = "python_version >= \"3.7\""}
+untokenize = ">=0.1.1,<0.2.0"
+
+[package.extras]
+tomli = ["tomli (<2.0.0)"]
 
 [[package]]
 name = "docutils"
@@ -2093,7 +2097,8 @@ doc8 = [
     {file = "doc8-0.11.2.tar.gz", hash = "sha256:c35a231f88f15c204659154ed3d499fa4d402d7e63d41cba7b54cf5e646123ab"},
 ]
 docformatter = [
-    {file = "docformatter-1.4.tar.gz", hash = "sha256:064e6d81f04ac96bc0d176cbaae953a0332482b22d3ad70d47c8a7f2732eef6f"},
+    {file = "docformatter-1.5.0-py3-none-any.whl", hash = "sha256:ae56c64822c3184602ac83ec37650c9785e80dfec17b4eba4f49ad68815d71c0"},
+    {file = "docformatter-1.5.0.tar.gz", hash = "sha256:9dc71659d3b853c3018cd7b2ec34d5d054370128e12b79ee655498cb339cc711"},
 ]
 docutils = [
     {file = "docutils-0.17.1-py2.py3-none-any.whl", hash = "sha256:cf316c8370a737a022b72b56874f6602acf974a37a9fba42ec2876387549fc61"},
