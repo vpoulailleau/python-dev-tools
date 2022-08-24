@@ -771,20 +771,19 @@ importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 
 [[package]]
 name = "flake8-noqa"
-version = "1.2.7"
+version = "1.2.9"
 description = "Flake8 noqa comment validation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-flake8 = ">=3.8.0,<5.0"
+flake8 = ">=3.8.0,<6.0"
 importlib-metadata = {version = ">=4.0.0,<5.0.0", markers = "python_version < \"3.8.0\""}
 typing-extensions = ">=3.7.4.2"
 
 [package.extras]
-dev = ["flake8", "flake8-annotations", "flake8-bandit", "flake8-bugbear", "flake8-commas", "flake8-comprehensions", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-noqa", "flake8-polyfill", "flake8-postponed-annotations", "flake8-requirements", "flake8-tabs", "flake8-typechecking-import", "flake8-use-fstring", "mypy", "pep8-naming"]
-test = ["flake8-docstrings"]
+dev = ["flake8 (>=3.8.0,<5.0)", "flake8-annotations", "flake8-bandit", "flake8-bugbear", "flake8-commas", "flake8-comprehensions", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-modern-annotations", "flake8-noqa", "flake8-polyfill", "flake8-requirements", "flake8-tabs", "flake8-typechecking-import", "flake8-use-fstring", "mypy", "pep8-naming"]
 
 [[package]]
 name = "flake8-pie"
@@ -2257,8 +2256,8 @@ flake8-no-pep420 = [
     {file = "flake8_no_pep420-2.3.0-py3-none-any.whl", hash = "sha256:ccba3efa05c50b1c2712d78807cca81e563ab571d6b3bcb90228e87388704cf5"},
 ]
 flake8-noqa = [
-    {file = "flake8-noqa-1.2.7.tar.gz", hash = "sha256:056a534871f17cb68f95653c4ab98b9fce2494b3d1ccde568ee5ae0b07845226"},
-    {file = "flake8_noqa-1.2.7-py3-none-any.whl", hash = "sha256:1a19722e3ea572a9931f091c48f546e61b5997dc354627872b0de7d444b68db0"},
+    {file = "flake8-noqa-1.2.9.tar.gz", hash = "sha256:26d92ca6b72dec732d294e587a2bdeb66dab01acc609ed6a064693d6baa4e789"},
+    {file = "flake8_noqa-1.2.9-py3-none-any.whl", hash = "sha256:445618162e0bbae1b9d983326d4e39066c5c6de71ba0c444ca2d4d1fa5b2cdb7"},
 ]
 flake8-pie = [
     {file = "flake8-pie-0.15.0.tar.gz", hash = "sha256:a2d1e67a374d925f688300e9d0e202d1827a0d91e0a11114f712beee639bdc7c"},
