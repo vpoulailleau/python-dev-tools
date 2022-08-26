@@ -716,19 +716,19 @@ test = ["pytest-cov"]
 
 [[package]]
 name = "flake8-literal"
-version = "1.2.4"
+version = "1.2.6"
 description = "Flake8 string literal validation"
 category = "main"
 optional = false
 python-versions = ">=3.7"
 
 [package.dependencies]
-flake8 = ">=3.8.0,<5.0"
+flake8 = ">=3.8.0,<6.0"
 importlib-metadata = {version = ">=4.0.0,<5.0.0", markers = "python_version < \"3.8.0\""}
 typing-extensions = ">=3.7.4.2"
 
 [package.extras]
-dev = ["flake8", "flake8-annotations", "flake8-bandit", "flake8-bugbear", "flake8-commas", "flake8-comprehensions", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-noqa", "flake8-polyfill", "flake8-postponed-annotations", "flake8-requirements", "flake8-tabs", "flake8-typechecking-import", "flake8-use-fstring", "mypy", "pep8-naming"]
+dev = ["flake8 (<5.0)", "flake8-annotations", "flake8-bandit", "flake8-bugbear", "flake8-commas", "flake8-comprehensions", "flake8-continuation", "flake8-datetimez", "flake8-docstrings", "flake8-import-order", "flake8-literal", "flake8-noqa", "flake8-polyfill", "flake8-postponed-annotations", "flake8-requirements", "flake8-tabs", "flake8-typechecking-import", "flake8-use-fstring", "mypy", "pep8-naming"]
 
 [[package]]
 name = "flake8-logging-format"
@@ -2237,8 +2237,8 @@ flake8-isort = [
     {file = "flake8_isort-4.2.0-py3-none-any.whl", hash = "sha256:5b87630fb3719bf4c1833fd11e0d9534f43efdeba524863e15d8f14a7ef6adbf"},
 ]
 flake8-literal = [
-    {file = "flake8-literal-1.2.4.tar.gz", hash = "sha256:4d9fd816015326e973ca56a3f6359cc0f5a234be18136cba8c92f74e827c4e6e"},
-    {file = "flake8_literal-1.2.4-py3-none-any.whl", hash = "sha256:0ad87bd3fe8c01f6cbe598e56b059eab8dd07b3d989f9311f34427c17cc22858"},
+    {file = "flake8-literal-1.2.6.tar.gz", hash = "sha256:ca1f4e74c62f2b5c354e614f64bf86613b34ffecedc7d1fc23c7afddc7b2d62c"},
+    {file = "flake8_literal-1.2.6-py3-none-any.whl", hash = "sha256:1e069e5d243ccc0d8b40fe6d06cc4253866759a7a8164ff6a486790ca644c33c"},
 ]
 flake8-logging-format = [
     {file = "flake8-logging-format-0.6.0.tar.gz", hash = "sha256:ca5f2b7fc31c3474a0aa77d227e022890f641a025f0ba664418797d979a779f8"},
