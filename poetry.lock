@@ -97,14 +97,15 @@ tests_no_zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy"
 
 [[package]]
 name = "autoflake"
-version = "1.4"
+version = "1.5.1"
 description = "Removes unused imports and unused variables"
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 
 [package.dependencies]
 pyflakes = ">=1.1.0"
+toml = ">=0.10.2"
 
 [[package]]
 name = "babel"
@@ -1966,7 +1967,8 @@ attrs = [
     {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
 ]
 autoflake = [
-    {file = "autoflake-1.4.tar.gz", hash = "sha256:61a353012cff6ab94ca062823d1fb2f692c4acda51c76ff83a8d77915fba51ea"},
+    {file = "autoflake-1.5.1-py2.py3-none-any.whl", hash = "sha256:275e05e3caa8307269ad4d46f2e058b76a5c41ca7d1a7f57158d64e9df3ffdd6"},
+    {file = "autoflake-1.5.1.tar.gz", hash = "sha256:8272efbecf7c6d5e2b00fa3b2998478a3ad92d7c914a49a527d733dae7f800c5"},
 ]
 babel = [
     {file = "Babel-2.10.1-py3-none-any.whl", hash = "sha256:3f349e85ad3154559ac4930c3918247d319f21910d5ce4b25d439ed8693b98d2"},
