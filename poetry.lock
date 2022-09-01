@@ -821,7 +821,7 @@ flake8 = "*"
 
 [[package]]
 name = "flake8-pyi"
-version = "22.8.1"
+version = "22.8.2"
 description = "A plugin for flake8 to enable linting .pyi files."
 category = "main"
 optional = false
@@ -2282,8 +2282,8 @@ flake8-polyfill = [
     {file = "flake8_polyfill-1.0.2-py2.py3-none-any.whl", hash = "sha256:12be6a34ee3ab795b19ca73505e7b55826d5f6ad7230d31b18e106400169b9e9"},
 ]
 flake8-pyi = [
-    {file = "flake8-pyi-22.8.1.tar.gz", hash = "sha256:6364a6c3e0ad5b7882391b28ebbf19f70e59d84466cb716b2185fabc55ed9855"},
-    {file = "flake8_pyi-22.8.1-py37-none-any.whl", hash = "sha256:064c4c19814e15abfb24b602c7f342c91774e562658e32dcd2e587c42d81d0e7"},
+    {file = "flake8-pyi-22.8.2.tar.gz", hash = "sha256:1a798300898502c3064e6f46d2bdd6f64423da98ab5168dfa1797598f0a8ac7a"},
+    {file = "flake8_pyi-22.8.2-py37-none-any.whl", hash = "sha256:a5fd285a17e3e5186450c81163e9034d200749daf456130cfb403132e6d1ac14"},
 ]
 flake8-pylint = [
     {file = "flake8-pylint-0.1.3.tar.gz", hash = "sha256:430e365d65ec088dd5aad85bf54690d802deec805c4c812a43cc30b75ed51beb"},
