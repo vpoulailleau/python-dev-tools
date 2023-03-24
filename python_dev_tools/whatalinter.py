@@ -61,7 +61,7 @@ class WhatALinter:
             ],
         )
         parser.parser.set_defaults(
-            min_python_version="3.7.0",
+            min_python_version="3.8.0",
             max_line_length=MAX_LINE_LENGTH,
             max_complexity=MAX_COMPLEXITY,
             inline_quotes='"',
