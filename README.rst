@@ -177,7 +177,6 @@ BSD 3-Clause license, feel free to contribute: https://python-dev-tools.readthed
 TODO
 ----
 
-* update to python 3.8
 * flake8 formatter to add URL to information on a warning
 * documentation
 * precommit (flake8, mypy)
@@ -185,8 +184,8 @@ TODO
 Changelog
 ---------
 
-next
-^^^^
+2023.3.24
+^^^^^^^^^
 
 * Require Python3.8.1+
 * Upgrade to ``flake8`` 5 (most plugins not available for ``flake8`` 6 yet)
