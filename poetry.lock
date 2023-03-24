@@ -380,7 +380,7 @@ test = ["anyio[trio] (>=3.2.1,<4.0.0)", "black (==23.1.0)", "coverage[toml] (>=6
 
 [[package]]
 name = "filelock"
-version = "3.10.3"
+version = "3.10.4"
 description = "A platform independent file lock."
 category = "main"
 optional = false
@@ -2006,7 +2006,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.1,<4.0"
-content-hash = "bab3d7a5432e38ae4609f2568720c4230c374fecca09087185cd00f9507e8199"
+content-hash = "95dace95f23b56d9f2d89fb8a23d2a2c607528a4da8fa5b4eb527ee3ef4622fd"
 
 [metadata.files]
 alabaster = []
