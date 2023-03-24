@@ -48,6 +48,7 @@ class WhatALinter:
         parser.extend_default_select([ERROR_CODE])
         parser.extend_default_ignore(
             [
+                "D104",  # missing docstring in empty __init__.py
                 "E203",  # space around : in slice
                 "LIT001",  # double quote strings
                 "LIT003",  # double quote strings
@@ -56,6 +57,7 @@ class WhatALinter:
                 "PD005",  # add => +, too many false positives
                 "PD011",  # values(), too many false positives
                 "SIM9",  # experimental rules
+                "WPS303",  # avoid underscores in number
                 "WPS305",  # avoid f-strings
                 "WPS306",  # required explicit subclassing of object
                 "WPS421",  # Found wrong function call, useful in scripts
