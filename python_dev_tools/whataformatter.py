@@ -42,7 +42,7 @@ _formatters_configs: list[FormatterConfig] = [
     FormatterConfig(
         name="isort",
         path="isort",
-        cli_args=[],
+        cli_args=["--profile", "black"],
     ),  # Should be second to last config
     FormatterConfig(
         name="black",
