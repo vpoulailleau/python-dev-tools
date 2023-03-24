@@ -22,7 +22,11 @@ _formatters_configs: list[FormatterConfig] = [
     FormatterConfig(
         name="autoflake",
         path="autoflake",
-        cli_args=["--in-place", "--remove-unused-variables"],
+        cli_args=[
+            "--in-place",
+            "--remove-unused-variables",
+            "--remove-all-unused-imports",
+        ],
     ),
     FormatterConfig(name="ssort", path="ssort", cli_args=[]),
     FormatterConfig(name="docformatter", path="docformatter", cli_args=["--in-place"]),
@@ -60,6 +64,7 @@ def format_file(filepath: str) -> None:
         except FileNotFoundError as exc:
             if exc.filename == config.path:
                 print(f"Formatter {config.name} not found: {config.path}")
+        # TODO except subprocess.TimeoutExpired (work on tempfile, rollback)
 
 
 def diff(orig_file: str) -> None:
@@ -131,7 +136,7 @@ def _cli_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     """Entry point."""
-    # TODO passer cet argument à black et pyupgrade
+    # TODO passer target_version à black et pyupgrade
     args = _cli_parser().parse_args()
 
     _udpate_os_path()
