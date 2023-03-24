@@ -28,11 +28,10 @@ def test_main_formatter(tmp_path: Path) -> None:
 
     main_formatter()
 
-    # TODO assert file content
-    assert True
+    assert checked_file.read_text(encoding="utf-8") == "a = 1\n"
 
 
-def test_main_formatter_diff(tmp_path: Path) -> None:
+def test_main_formatter_diff(tmp_path: Path, capsys) -> None:
     """Test main call.
 
     Args:
@@ -45,8 +44,9 @@ def test_main_formatter_diff(tmp_path: Path) -> None:
 
     main_formatter()
 
-    # TODO assert file diff
-    assert True
+    captured = capsys.readouterr()
+    assert captured.err == ""
+    assert "-a =   1\n+a = 1\n" in captured.out
 
 
 def run_linter(
