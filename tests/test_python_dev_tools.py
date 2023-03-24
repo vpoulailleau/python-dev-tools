@@ -175,6 +175,7 @@ def test_lint_myself(capsys) -> None:
 
     captured = capsys.readouterr().out.replace("../", "").replace("\\", "/")
     expected = """\
-        python_dev_tools/whataformatter.py:134:7: T101 fixme found (TODO)
+        python_dev_tools/whataformatter.py:151:6: PLW511 TODO passer target_version à black et pyupgrade (fixme)
+        python_dev_tools/whataformatter.py:151:7: T101 fixme found (TODO)
     """
     assert captured == dedent(expected)
