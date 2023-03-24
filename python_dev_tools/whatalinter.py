@@ -71,6 +71,7 @@ class WhatALinter:
             no_accept_encodings=True,
             literal_inline_quotes="double",
             literal_multiline_quotes="double",
+            noqa_require_code=True,
         )
 
     def run(self: WhatALinter) -> list:
