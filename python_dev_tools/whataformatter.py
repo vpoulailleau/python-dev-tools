@@ -6,6 +6,7 @@ import difflib
 import os
 import shutil
 import subprocess  # noqa: S404
+from contextlib import suppress
 from pathlib import Path
 from typing import NamedTuple
 
@@ -53,18 +54,23 @@ def format_file(filepath: str) -> None:
     Args:
         filepath (str): path of the file to format
     """
+    copy_file = f"{filepath}.tmp.co.py"
     for config in _formatters_configs:
-        try:
-            subprocess.run(  # noqa: S603
-                [config.path, *config.cli_args, filepath],
-                capture_output=True,
-                timeout=10,
-                encoding="utf-8",
-            )
-        except FileNotFoundError as exc:
-            if exc.filename == config.path:
-                print(f"Formatter {config.name} not found: {config.path}")
-        # TODO except subprocess.TimeoutExpired (work on tempfile, rollback)
+        shutil.copyfile(filepath, copy_file)
+        with suppress(subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            try:
+                subprocess.run(  # noqa: S603
+                    [config.path, *config.cli_args, copy_file],
+                    capture_output=True,
+                    timeout=10,
+                    encoding="utf-8",
+                    check=True,
+                )
+            except FileNotFoundError as exc:
+                if exc.filename == config.path:
+                    print(f"Formatter {config.name} not found: {config.path}")
+            shutil.copyfile(copy_file, filepath)
+        Path(copy_file).unlink()
 
 
 def diff(orig_file: str) -> None:
@@ -79,8 +85,14 @@ def diff(orig_file: str) -> None:
     print(
         "".join(
             difflib.unified_diff(
-                [f"{line}\n" for line in Path(orig_file).read_text().splitlines()],
-                [f"{line}\n" for line in Path(copy_file).read_text().splitlines()],
+                [
+                    f"{line}\n"
+                    for line in Path(orig_file).read_text(encoding="utf-8").splitlines()
+                ],
+                [
+                    f"{line}\n"
+                    for line in Path(copy_file).read_text(encoding="utf-8").splitlines()
+                ],
                 fromfile=orig_file,
                 tofile=orig_file,
             ),
