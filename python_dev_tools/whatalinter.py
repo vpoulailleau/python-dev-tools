@@ -49,15 +49,16 @@ class WhatALinter:
         parser.extend_default_ignore(
             [
                 "E203",  # space around : in slice
-                "WPS305",  # avoid f-strings
-                "WPS306",  # required explicit subclassing of object
-                "WPS421",  # Found wrong function call, useful in scripts
                 "LIT001",  # double quote strings
                 "LIT003",  # double quote strings
                 "LIT005",  # double quote strings
                 # https://github.com/deppen8/pandas-vet/issues/74
                 "PD005",  # add => +, too many false positives
                 "PD011",  # values(), too many false positives
+                "SIM9",  # experimental rules
+                "WPS305",  # avoid f-strings
+                "WPS306",  # required explicit subclassing of object
+                "WPS421",  # Found wrong function call, useful in scripts
             ],
         )
         parser.parser.set_defaults(
