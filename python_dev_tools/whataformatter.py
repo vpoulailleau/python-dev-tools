@@ -181,8 +181,8 @@ def main() -> None:
     else:
         format_file(filepath=args.file, target_version=args.target_version)
 
-    for file in Path(args.file).parent.glob("*.co.py"):
-        file.unlink()
+    for temp_file in Path(args.file).parent.glob("*.co.py"):
+        temp_file.unlink()
 
 
 if __name__ == "__main__":
