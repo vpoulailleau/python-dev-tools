@@ -10,11 +10,7 @@ import python_dev_tools
 from python_dev_tools.whataformatter import main as main_formatter
 
 if TYPE_CHECKING:
-    if sys.version_info < (3, 8):
-        from typing import Any as Final  # noqa: WPS433
-    else:
-        from typing import Final  # noqa: WPS433, WPS440
-
+    from typing import Final  # noqa: WPS433, WPS440
 else:
     from typing import Any as Final  # noqa: WPS440
 
