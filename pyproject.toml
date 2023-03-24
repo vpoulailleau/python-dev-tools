@@ -24,15 +24,15 @@ license = "BSD-3-Clause"
 include = ["python_dev_tools/**/*.py", "whatalinter_vscode.py"]
 
 [tool.poetry.dependencies]
-python = ">=3.7,<4.0"
+python = ">=3.8.1,<4.0"
 autoflake = "^1"
-black = "^22"
+black = "^23"
 coverage = {version = "^6", extras = ["toml"]}
 darglint = "^1"
 dlint = "^0"
 doc8 = "^0"
 docformatter = "^1"
-flake8 = "^4"
+flake8 = "^5"
 flake8-2020 = "^1"
 flake8-aaa = "^0"
 flake8-annotations = "^2"
@@ -57,20 +57,20 @@ flake8-encodings = "^0"
 flake8-eradicate = "^1"
 flake8-executable = "^2"
 flake8-expression-complexity = "^0"
-# flake8-fastapi = "^0" #TODO python3.8+
+flake8-fastapi = "^0"
 flake8-fixme = "^1"
 flake8-functions = "^0"
 flake8-functions-names = "^0"
 flake8-future-annotations = "^0"
-flake8-isort = "^4"
+flake8-isort = "^6"
 flake8-literal = "^1"
 flake8-logging-format = "^0"
 flake8-markdown = "^0"
 flake8-mutable = "^1"
 flake8-no-pep420 = "^2"
 flake8-noqa = "^1"
-# flake8-pep585 #TODO python3.9+ 
-# flake8-pep604 #TODO python3.10+ 
+# flake8-pep585  #TODO python3.9+ 
+# flake8-pep604  #TODO python3.10+ 
 flake8-pie = "^0"
 flake8-pyi = "^22"
 flake8-pylint = "^0"
@@ -106,7 +106,7 @@ Sphinx = "^4"
 ssort = "^0"
 tox = "^3"
 tox-travis = "^0"
-wemake-python-styleguide = "^0.16"
+# wemake-python-styleguide = "^0.17"  # TODO not available yet with flake8 5
 
 [tool.poetry.scripts]
 whataformatter = "python_dev_tools.whataformatter:main"

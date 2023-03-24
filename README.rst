@@ -117,6 +117,7 @@ dependencies to develop Python software.
     * flake8-eradicate: https://github.com/sobolevn/flake8-eradicate
     * flake8-executable: https://github.com/xuhdev/flake8-executable
     * flake8-expression-complexity: https://pypi.org/project/flake8-expression-complexity/
+    * flake8-fastapi: https://pypi.org/project/flake8-fastapi/
     * flake8-fixme: https://github.com/tommilligan/flake8-fixme
     * flake8-functions: https://github.com/best-doctor/flake8-functions
     * flake8-functions-names: https://github.com/Melevir/flake8-functions-names
@@ -176,12 +177,20 @@ BSD 3-Clause license, feel free to contribute: https://python-dev-tools.readthed
 TODO
 ----
 
+* update to python 3.8
 * flake8 formatter to add URL to information on a warning
 * documentation
 * precommit (flake8, mypy)
 
 Changelog
 ---------
+
+next
+^^^^
+
+* Require Python3.8.1+
+* Upgrade to ``flake8`` 5 (most plugins not available for ``flake8`` 6 yet)
+* Add ``flake8-fastapi`` linter
 
 2022.5.27
 ^^^^^^^^^
