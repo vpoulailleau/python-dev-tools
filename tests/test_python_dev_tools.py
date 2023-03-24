@@ -170,4 +170,9 @@ def test_lint_myself(capsys) -> None:
     linter.check_files([str(path) for path in source_dir.rglob("*.py")])
 
     captured = capsys.readouterr().out.replace("../", "").replace("\\", "/")
-    assert captured == ""
+    warnings = """\
+        python_dev_tools/whatalinter.py:15:42: NQA102 "# noqa: WPS433" has no matching violations
+        python_dev_tools/whatalinter.py:17:35: NQA102 "# noqa: WPS433, WPS440" has no matching violations
+        python_dev_tools/whatalinter.py:20:38: NQA102 "# noqa: WPS440" has no matching violations
+        """
+    assert captured == dedent(warnings)
