@@ -52,6 +52,17 @@ _formatters_configs: list[FormatterConfig] = [
 ]
 
 
+def _update_target_version_in_formatters_options(target_version: str) -> None:
+    """Update target version in formatters' options.
+
+    Args:
+        target_version (str): minimal Python version
+    """
+    for config in _formatters_configs:
+        for index, arg in enumerate(config.cli_args):
+            config.cli_args[index] = re.sub(PYTHON_VERSION_REGEX, target_version, arg)
+
+
 def format_file(filepath: str, target_version: str) -> None:
     """Format the file with known formatters.
 
@@ -59,11 +70,9 @@ def format_file(filepath: str, target_version: str) -> None:
         filepath (str): path of the file to format
         target_version (str): minimal Python version
     """
+    _update_target_version_in_formatters_options(target_version)
     copy_file = f"{filepath}.tmp.co.py"
     for config in _formatters_configs:
-        for index, arg in enumerate(config.cli_args):
-            config.cli_args[index] = re.sub(PYTHON_VERSION_REGEX, target_version, arg)
-
         shutil.copyfile(filepath, copy_file)
         with suppress(subprocess.CalledProcessError, subprocess.TimeoutExpired):
             try:
