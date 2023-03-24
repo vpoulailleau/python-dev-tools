@@ -4,11 +4,15 @@ from __future__ import annotations
 import argparse
 import difflib
 import os
+import re
 import shutil
 import subprocess  # noqa: S404
+import sys
 from contextlib import suppress
 from pathlib import Path
-from typing import NamedTuple
+from typing import Final, NamedTuple
+
+PYTHON_VERSION_REGEX: Final[str] = "py[0-9]+"
 
 
 class FormatterConfig(NamedTuple):
@@ -48,14 +52,18 @@ _formatters_configs: list[FormatterConfig] = [
 ]
 
 
-def format_file(filepath: str) -> None:
+def format_file(filepath: str, target_version: str) -> None:
     """Format the file with known formatters.
 
     Args:
         filepath (str): path of the file to format
+        target_version (str): minimal Python version
     """
     copy_file = f"{filepath}.tmp.co.py"
     for config in _formatters_configs:
+        for index, arg in enumerate(config.cli_args):
+            config.cli_args[index] = re.sub(PYTHON_VERSION_REGEX, target_version, arg)
+
         shutil.copyfile(filepath, copy_file)
         with suppress(subprocess.CalledProcessError, subprocess.TimeoutExpired):
             try:
@@ -73,15 +81,16 @@ def format_file(filepath: str) -> None:
         Path(copy_file).unlink()
 
 
-def diff(orig_file: str) -> None:
+def diff(orig_file: str, target_version: str) -> None:
     """Print diff between original file and formatted file.
 
     Args:
         orig_file (str): path of the original file
+        target_version (str): minimal Python version
     """
     copy_file = f"{orig_file}.co.py"
     shutil.copyfile(orig_file, copy_file)
-    format_file(filepath=copy_file)
+    format_file(filepath=copy_file, target_version=target_version)
     print(
         "".join(
             difflib.unified_diff(
@@ -148,14 +157,20 @@ def _cli_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     """Entry point."""
-    # TODO passer target_version à black et pyupgrade
     args = _cli_parser().parse_args()
+    if re.search(f"^{PYTHON_VERSION_REGEX}$", args.target_version) is None:
+        print(
+            f"wrong python version (wanted: ^{PYTHON_VERSION_REGEX}$)",
+            args.target_version,
+            file=sys.stderr,
+        )
+        return
 
     _udpate_os_path()
     if args.diff:
-        diff(args.file)
+        diff(args.file, target_version=args.target_version)
     else:
-        format_file(filepath=args.file)
+        format_file(filepath=args.file, target_version=args.target_version)
 
 
 if __name__ == "__main__":
