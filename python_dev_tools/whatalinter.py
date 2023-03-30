@@ -49,7 +49,8 @@ class WhatALinter:
         parser.extend_default_ignore(
             [
                 "D104",  # missing docstring in empty __init__.py
-                "E203",  # space around : in slice
+                "DUO102",  # false positives
+                "E203",  # space around : in slice, as stated in PEP8
                 "LIT001",  # double quote strings
                 "LIT003",  # double quote strings
                 "LIT005",  # double quote strings
@@ -57,6 +58,7 @@ class WhatALinter:
                 "PD005",  # add => +, too many false positives
                 "PD011",  # values(), too many false positives
                 "SIM9",  # experimental rules
+                "W503",  # pycodestyle missing a PEP8 update from 2016
                 "WPS303",  # avoid underscores in number
                 "WPS305",  # avoid f-strings
                 "WPS306",  # required explicit subclassing of object
